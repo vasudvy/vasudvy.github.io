@@ -1,523 +1,251 @@
+<!DOCTYPE html>
 <html>
+
 <head>
-<title>blog</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>/vd</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Georgia&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-color: #faf9f7;
+      --text-color: #1a1a1a;
+      --text-secondary: #333;
+      --link-color: #2c2c2c;
+      --border-color: #e8e2d5;
+      --hover-bg: rgba(0, 0, 0, 0.05);
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #0f0f0f;
+      --text-color: #e8e8e8;
+      --text-secondary: #cccccc;
+      --link-color: #d4d4d4;
+      --border-color: #2a2a2a;
+      --hover-bg: rgba(255, 255, 255, 0.1);
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 80px 40px 40px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      position: relative;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--border-color);
+      border: 2px solid var(--text-color);
+      width: 60px;
+      height: 30px;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      outline: none;
+    }
+
+    .theme-toggle::before {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 22px;
+      height: 22px;
+      background: var(--text-color);
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+
+    [data-theme="dark"] .theme-toggle::before {
+      transform: translateX(28px);
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.05);
+    }
+
+    h3 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--text-color);
+      margin-bottom: 40px;
+      text-align: left;
+      letter-spacing: -0.5px;
+    }
+
+    p {
+      margin-bottom: 20px;
+      color: var(--text-secondary);
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    b {
+      font-weight: 600;
+      color: var(--text-color);
+    }
+
+    ul {
+      margin: 10px 0 20px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    ul li {
+      margin-bottom: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      position: relative;
+      padding-left: 15px;
+    }
+
+    ul li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--text-color);
+      font-weight: 500;
+    }
+
+    a {
+      color: var(--link-color);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      transition: all 0.2s ease;
+    }
+
+    a:hover {
+      background-color: var(--hover-bg);
+      text-decoration-thickness: 2px;
+    }
+
+    br {
+      display: block;
+      margin: 15px 0;
+      content: "";
+    }
+
+    footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      font-size: 14px;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 60px 20px 20px;
+        font-size: 15px;
+      }
+      
+      h3 {
+        font-size: 1.75rem;
+      }
+      
+      .theme-toggle {
+        top: 1rem;
+        right: 1rem;
+        width: 50px;
+        height: 25px;
+        border-radius: 12.5px;
+      }
+      
+      .theme-toggle::before {
+        width: 19px;
+        height: 19px;
+      }
+      
+      [data-theme="dark"] .theme-toggle::before {
+        transform: translateX(23px);
+      }
+    }
+  </style>
+</head>
+
 <body>
-<h1>Blogs</h1>
-<br>
-<p>following are random blogs i wrote at random time, they have all sorts of mistakes, so don't take it very seriously. you can also find my bullshitting through <a href="https://vasudvy.github.io/hindi.html"> poems </a>
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle"></button>
 
-</p> <br>
+  <h2>Blogs</h2><br><br>
+  
+  <h3>Why Nightmares Might Actually Be Saving You</h3>
+  
+  <p>We spend roughly a third of our lives sleeping, yet the mysterious world of dreams remains one of the most fascinating aspects of human consciousness. While pleasant dreams are welcomed, nightmares often leave us disturbed and searching for answers. What if I told you that nightmares, despite their frightening nature, might actually be your brain's ingenious safety mechanism?</p>
 
-<h2>Handy Lesson</h2><br>
-<p>going too far down the wrong road.
+  <p><b>The Science Behind REM Sleep</b></p>
 
-this is the most critical of any lesson a founder imo needs to know and internalize. 
+  <p>Dreams primarily occur during REM (Rapid Eye Movement) sleep, a crucial stage that serves as the brain's repair and maintenance period. Just as deep sleep allows your body to recover physically, REM sleep is when your mind processes memories, consolidates information, and essentially "cleans house" neurologically.</p>
 
-there is no way looking forward you can pin point whether your direction is good or bad, however, only thing you can do to mitigate the risk is to develop a cash flow beforehand. <br>
+  <p>During REM sleep, your body enters a state called <b>sleep atonia</b> – a natural paralysis that prevents you from acting out your dreams. This temporary paralysis is essential for your safety, keeping you from physically responding to dream scenarios. Under normal circumstances, this process works seamlessly, and your dreams tend to be pleasant or neutral experiences.</p>
 
-cashflow : work :: compass : ship <br>
+  <p><b>When REM Sleep Goes Wrong</b></p>
 
-as simple as that.
+  <p>Problems arise when your REM sleep becomes disrupted. Several factors can cause this disruption, including memory consolidation errors, elevated stress levels, caffeine consumption, or external disturbances like noise or light. When REM sleep is interrupted, your mind abruptly shifts from dream state to wakefulness, but there's a problem – your body remains paralyzed.</p>
 
-when i say cashflow it doesnt mean money. you can always arrange money through various means : raise, debt, earn, leverage etc. money is not the problem. it is the source of money that matters the most. where is it coming from? 
+  <p>Imagine the terrifying scenario of waking up mentally but being unable to move your body. This would be a genuine nightmare, and your brain recognizes this potential crisis.</p>
 
-if in your life money and client isn't juxtaposed together, you aren't even near the term money at all. money shall always come from client, meaning money has to be an incoming function at all costs (which is the outgoing function you monitor) in order to claim the piece in between which happens to be your profit.
+  <p><b>Nightmares as Emergency Protocol</b></p>
 
-karl marx was heavily mocked by east european economists when he said that money is representation of distilled labor (something even elon once said) and this was his thesis behind the whole labor-optimization problem. however, some people knew that he is wrong. 
+  <p>This is where nightmares become your brain's emergency response system. When you need to wake up quickly but your body is still in sleep paralysis, your brain deploys what we might call "dream death" scenarios – intense, frightening experiences designed to jolt you awake.</p>
 
-money derives it value from human needs. 
-and human needs can change whenever, wherever. 
+  <p>When you experience something terrifying in a dream, such as falling, dying, or facing imminent danger, it triggers your <b>amygdala</b> – the brain's alarm system. This activation causes your adrenal glands to release stress hormones like cortisol and adrenaline, creating a powerful enough response to break through sleep paralysis and wake your body.</p>
 
-labor has no role to play in terms of epoch of the empirical sense of "need", labor is an intermediate deliverable, not the final tangible output. final tangible output is satisfaction of the persistent human need. 
+  <p><b>Reframing Nightmares</b></p>
 
-in initial days of building a product and selling it, there is a gap where the the person participating in such a thing has to cut a lot of noise. however cutting noise also takes some amount of participation which takes a lot of mental and physical energy. 
+  <p>Understanding this mechanism helps us reframe nightmares not as random torments, but as sophisticated neurological safeguards. They're your brain's way of ensuring you can escape potentially problematic sleep states. In essence, nightmares serve as biological alarm clocks when your normal wake-up systems aren't functioning properly.</p>
 
-many people assume the noise is about learning some stupid business-major stuff, programming or acquiring any relevant skill. sadly, that isn't the case.
+  <p><b>Improving Your Sleep Quality</b></p>
 
-the first thing is, the baby step is.. to understand the cause. 
+  <p>While nightmares serve a protective function, frequent occurrences often indicate underlying sleep issues that should be addressed. Here are evidence-based strategies to improve your REM sleep quality:</p>
 
-many times people do things to hear claps. they are performers and they keep performing. their cause is themselves, an idea of life they want to impose on to them, of how they see themselves... but seldom it has to do anything with real world. 
+  <ul>
+    <li><b>Optimize sleep duration:</b> Aim for 7-9 hours of consistent sleep each night to allow for proper REM cycles</li>
+    <li><b>Address emotional health:</b> Consider therapy for unresolved trauma, anxiety, or stress that may be disrupting your sleep patterns</li>
+    <li><b>Eliminate stimulants:</b> Avoid caffeine, nicotine, and other stimulants at least 8 hours before bedtime</li>
+    <li><b>Create a sleep-conducive environment:</b> Keep your bedroom cool, dark, and quiet to prevent REM disruptions</li>
+    <li><b>Establish a consistent sleep schedule:</b> Going to bed and waking up at the same time helps regulate your natural sleep cycles</li>
+  </ul>
 
-people enter into an echo-chamber where there is no input from outer world, and they do everything for the sound of the clap. often such people die of shallowness even if they continue breathing in front of you. <br>
+  <p>Nightmares, while unsettling, reveal the remarkable sophistication of our sleeping minds. Rather than viewing them as purely negative experiences, we can appreciate them as evidence of our brain's protective mechanisms at work. By understanding and addressing the root causes of disrupted REM sleep, we can reduce nightmare frequency while maintaining the respect for this fascinating aspect of human neurology.</p>
 
-<i>startup =! starting your own business.</i>
+  <footer>
+    © Vasu Dubey
+  </footer>
 
-this is a grave mistake i see everywhere. maybe because of sillicon valley tabloid but people really confuse it. 
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      
+      if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+      } else {
+        body.setAttribute('data-theme', 'dark');
+      }
+    }
 
-Most people think of a startup as just a new business, a company trying to grow fast, usually with some tech involved. But that definition misses the fundamental.
-
-A better way to see it is this: <br>
-
-> A true startup is like a field vector, it doesn’t just exist, it exerts force. <br>
-
-In physics, a field vector (like electricity or gravity) doesn’t just sit still, it changes the behavior of everything around it. That’s exactly what the best startups do.
-
-They don’t just make a product. They reshape environments, enable new behaviors, and often, create entirely new markets, not just for themselves, but for others too.
-
-If your business doesn’t create a secondary market as a byproduct, it’s probably not a startup, it’s just a business.
-
-Think about it: <br>
-
-YouTube → Created a secondary market of content creators, editors, influencer agencies, MCNs. <br>
-
-Airbnb → Enabled property managers, cleaning startups, experience hosts, and even local tourism economies. <br>
-
-Uber → Sparked the gig labor infrastructure, vehicle rentals for drivers, driver rating tools, etc. <br>
-
-Instagram → Launched the influencer economy, brand marketing platforms, photo editing tools. <br>
-
-Today, some things feel indispensable like they've always been here. But if you trace their origins under a microscope, you'd realize there was nothing inevitable about their rise.
-
-Take Instagram. It began as "Burbn", a clunky app for check-in reviews and whiskey lovers. There was no clear path from there to the social media behemoth it is now. Yet here we are.
-
-Now, step away from the business lens and think like a founder.
-
-Mark Zuckerberg was 19 when he launched what would become Facebook. The wave he rode turned into a cultural tsunami. A movie was made about him. He became a mogul, a household name, and for many, the definition of success.
-
-But was it personal success? Maybe not entirely.
-
-Zuckerberg was less a creator and more a vessel a product of the early 2000s internet culture. The right person, in the right dorm room, at the right moment. His story is less about him and more about the time he embodied. He won that era. For a decade, he was untouchable. He was the spotlight.
-
-Then came Sam Altman.
-
-I’d wager Altman believed for the last ten years that he was, in some intrinsic way, “better” than Zuck. Not in terms of revenue, valuation, or user growth. But in another, subtler way, in vision, in narrative control, in the feeling of being ahead.
-
-And in many ways, he proved it.
-
-Altman shattered long-held beliefs about what’s possible. He deserves credit for that. Still he’s not perfect. Far from it. But among his peers from Hinton to Demis Hassabis and others he seized the narrative. And now, everyone knows his name.
-
-But zoom in again. Picture the 19-year-old Altman. Just another young founder with a failed startup (Loopt), a modest exit, a survivalist streak, some post-sale travel, and a bunker. He didn’t “win” then. He was interesting, maybe promising  but not extraordinary. Yet clearly, something was brewing inside him.
-
-Now look where we are.
-
-Success is never just about the person, it’s the culture, the timing, and the willingness to stay in the game long enough to turn the tide. Altman stayed. And now, the tide is his.
-
-These companies (i mentioned earlier) became platforms and like any good platform, they allowed other people to build and profit on top of them.
-
-That’s the “field vector” effect: when a startup’s presence creates new economic activity around it, almost like gravity forming new orbits.
-
-Plenty of great businesses don’t do this and that’s okay. But we should be clear: <br>
-
-<i>A coffee shop, a freelance agency, or even a cool app may be new, tech-enabled, and profitable but if they don’t reshape the behavior of others or allow new markets to emerge, they’re not a startup in the vector sense.</i>
-
-Even many "startups" that raise VC money don't qualify. If they serve only themselves and never create an ecosystem, they’re more like closed loops, not vectors.
-
-A startup is not just a company trying to grow fast, it’s a directional force that warps the market around it, often spawning new markets as a natural byproduct.
-
-It’s not just about innovation inside the company, but about what that innovation enables outside the company.
-
-Innovation often comes from two forces working together: <br>
-
-● Creation (raw insight, discovery)
-
-● Distribution (structured form, application) <br>
-
-Think of electricity, a raw force that changed the world.
-
-Now think of GE, a company that didn’t invent electricity, but built the infrastructure to distribute it to homes, factories, cities.
-
-This is the perfect analogy for how startups and businesses work together: <br>
-
-Startups are like electricity: they generate new energy, new possibilities, and often new markets. <br>
-
-Businesses are like GE: they distribute, package, and deliver that energy to the real world in usable, profitable ways. <br>
-
-Neither works alone:
-
-Without the force, there’s nothing to distribute.
-
-Without distribution, the force stays unused, potential with no impact.
-
-Creation without distribution is a spark that fades. Distribution without creation is just recycling old power. Real innovation happens when both move in sync.Startups need businesses. Businesses need startups.
-Creation and distribution are two halves of the same current.
-
-This duality is mirrored perfectly in physics, in the lives of Michael Faraday and Carl Friedrich Gauss. <br>
-
-
-Faraday had little formal education. He didn’t speak the language of equations, but he felt the forces of nature.
-
-He discovered that moving a magnet through a coil produced an electric current i.e., electromagnetic induction. To him, the world was full of invisible lines of force. He visualized electricity and magnetism as fields, long before the math existed to describe them. <br>
-
-> Faraday created the intuition, the spark. <br>
-
-Gauss, on the other hand, was a prodigy, precise, formal, rigorous. He expressed the same physical insights using pure mathematics.
-
-His famous Gauss’s Law is a foundational equation in electromagnetism: <br>
-
-> ∮ E · dA = Q / ε₀ <br>
-
-It says: the total electric field passing through a surface depends on the charge inside.
-This law put structure around Faraday’s raw field intuition. It translated energy into form and allowed it to scale, to be taught, engineered, and applied. <br>
-
-> Gauss built the distribution system — the grid. <br>
-
-Faraday and Gauss were very different, <br>
-
-<ul>
-<li>One felt the force.</li>
-
-<li>The other measured it.</li>
-
-<li>But both were right.</li> </ul>
-
-This isn’t just physics, it’s how progress works. <br>
-
-Every startup needs a Faraday,someone to see what others can’t.
-
-Every business needs a Gauss,someone to scale, structure, and deliver it.
-
-<ul>
-<li>Creation is a spark.</li>
-<li>Distribution is the circuit.</li>
-<li>Together, they light the world.</li></ul>
-
-To do something truly meaningful, something that lasts, spreads, or reshapes the world, you need both sides of yourself working together: <br>
-
-The Faraday-side: raw creativity, vision, and instinct
-The Gauss-side: structure, logic, and precision <br>
-
-
-><i> A true startup is where the Faraday-side (creation) and Gauss-side (distribution) come together — inside a person, a team, or a product.</i><br>
-
-It generates new energy and reshapes how that energy flows through the world.
-It creates opportunity for others.
-It becomes a field vector, a platform, a ripple, a new economy.
-
-That’s what makes a startup different from just a business.
-
-Not the tech.
-Not the funding.
-But the force it generates and how it gets distributed.
-
-
-
-
-
-</p><br>
-<h2>sleep atonia</h2><br>
-<p>First, we usually dream during the REM phase of the sleep. Just like you need deep sleep for repairing the physical body, the brain is repaired during REM or the rapid eye movement sleep.
-
-During REM sleep, your body is paralyzed,a state we refer to as sleep atonia. During this time, you have dreams to keep you busy and they’re usually pleasant until your REM gets disrupted abnormally. This could be due to several factors,a fragmentation error in memory consolidation, stress, caffeine, or any external cues.
-
-Once the REM is disrupted, your mind snaps out of REM and goes into wake mode. But since your body is still paralyzed, the brain needs to wake up the body and that’s where nightmares come in handy. Because imagine waking up but still paralyzed. That’ll be a true nightmare.
-
-Anyways, so one of the things the brain uses is “dream death” to snap your body out of paralysis. When you die in a dream or something really bad happens, it triggers a response in your amygdala, causing your adrenal glands to release cortisol and adrenaline. This is enough to wake your body.
-
-And that’s why nightmares aren’t necessarily bad. They could be thought of as a safety mechanism. But if you still want to get rid of them, it’s a good idea to fix your REM sleep.
-
-Fix the sleep duration
-
-Therapy for unresolved emotions and deep-rooted issues
-
-Avoid stimulants 8 hours prior to sleep
-
-</p><br>
-
-<h2>Guilt</h2><br>
-
-<p>of all emotions a human could fathom or possess.. i believe guilt is the sole cause of suffering. and those who believe they are in guilt of something , they feel they deserve to be suffered. 
-
-
-suffering is very personal. you know you fucked up somewhere a long time ago and now you cannot unfuck what has been fucked. externally it may seem to people that you are troubled because of some work, some dispute, some thing - but off all folks in this world , only you know what it is. 
-
-trust me on this , it is very easy to runaway from people but you cannot runaway from yourself. if you don't learn to live with yourself it will become very difficult to live this life. 
-
-life is a very false narrative, only death is the truth. it is certain, it will knock your door one day. this is the only certainity in the whole world. 
-
-
-some men or women may have intellect as their weapon, some may have their charm, cunningness, talent, craft - whatever you name it (or want to name it). 
-
-
-but the world has nothing to offer more than what it already is. world has been this always even before our existence and it is this attempt to change it, that leaves a space for mankind to shape the reality but, a man carries lots of baggage. and if someone has the ability - to carry all the momentum and not stay attached to the outcome, to the profits, to the losses - that man is a sane man in the world of all mad people. 
-
-
-but this man must say at time - such lonliness, such freedom. 
-
-
-guilt is very awkward. it also gives strength but it does make you realise that the strength is a tradeoff. i mean , i am saying this with a very heavy heart. nothing matters to be honest. if you know you have fucked up , you will have to live with it. time teaches only this. 
-</p> <br>
-
-<h2>future</h2><br>
-<p>what time has taught me is patience. i have never been a very patient person , often got rejoices from the conception before anything tangible. but , i guess i like waiting. optimsing , making up scenarios in head , tinkering audience's reaction ... all while detaching myself , from a third-eye view. 
-
-healthcare excited me because it is a very difficult business. it does not really has a definition of much in itself , you cannot define healthcare ... it is an experience which embeddedizes your existence. it is based on your consumption of it . how much healthcare you consume ? what a silly question . i want to consume it all , i want it best. who do you would ask for "less" consumption of healthcare ? nobody likes to watch face receptionists make when you pay for your healthcare with penny cents you saved up for yourself. 
-
-what about emergent illnesses? as you grow as a human being , there is a lot to be taken care of . your wellbeing is everything in this game , how much would you pay for keeping it optimum ? 
-
-what a stupid question to ask. 
-
-down the lane of my years sticking with this problems i realised , actually it is deeper than what it looks like . healthcare made me re-think about biology , about origins of the universe , about our species , about brain and neuroplasticity. 
-
-all these things led me to a conclusion . i know we are living inside a painting , i just want to meet the artist. 
-
-i never studied biology . but this re-think made me question everything around us.  stimuli , receptors , motor , reflex , actions , thoughts , awareness , mind. 
-
-in these exciting times , when i see ai emerging from the shadows i tinker how will it surf the web ? 
-
-what will make machine better than human ? i want to rethink a lot.
-
-</p><br>
-
-<h2>drunken diaries</h2><br>
-<p>Existence is illusory or it is eternal. If Fyodor Dostoevsky would have produced the result of his inquiry regarding this question, he'd have been crowned as a philosopher. But he didn't. Rather, he illustrated the consequences that such intellectual pastimes may have in a man's life. But those were his thought experiments, mere situations produced by his head to write fiction. 
-
-With every experience one concludes a situation independent of variables. One imagines a function so emotionally satisfactory that instead of dealing with its domain or range, one is simply lost in the eluding oasisity of it. Not saying that the same things happened with the great Novelists and Philosophers or say with Empiricists. It's just, that that's how it is. The moment of creation is in itself so hypnotically seductive that you cannot resist but fall for it. Especially when it's your own. At that moment, the only truth that holds is: if you do not cannibalize yourself, someone else will.
-
-The question is what is this thing that compels us to waste our time by the sea till the tides and evening have matched our mood?
-
-Why do we have a constant need to romanticize everything in order to personally satisfy our deepest condolences with the emotions we have buried long ago?
-
-Why existence itself, who has perseverance of a nihilist, wear make up of a romantic?
-
- 
-
-Well, there are certainly two things: Truth and Fantasy. Truth is objective, it belongs to everybody in equal proportion irrespective of their race, cell structure or anything. It’s just there. It unquestionably doesn't bode well when left for all, however when focused on gatherings, it turns out completely great. For a model, the Truth of Humans isn't really reality for the Dogs.
-
-Then again, Fantasy is something which is profoundly abstract. It has a place with individual it doesn't rely upon some other factor other than close to home inclinations. You can twist it, reproduce it, ingest it. But it certainly isn’t true.
-
-Both go hand in hand. There’s a funny tale about it, propagated from India obviously. The tale goes like this: Quite a long time ago, in a town lived two wonderful sisters, Satya (Truth) and Kahani (Fantasy). One day a sadhu came in their doorstep requesting his bhiksha. Satya and Kahani took care of the sadhu with absolute attention to detail and regard. When Sadhu was going to leave, he gave both the sisters a mirror. First Satya looked herself in the mirror and was hypnotized by her magnificence. Then, at that point, Kahani looked herself in the mirror and was entranced by her excellence, too. Before long the contention started obviously, regarding who is more excellent? Regardless of whether it's Satya or is it Kahani? Since Sadhu was the person who gave them the mirror, the two sisters asked Sadhu for an answer. After confronting such problem, Sadhu requested the young ladies to go across the desolate road from the town. Furthermore, whosoever will draw in more individuals, she would be delegated as lovely. Both Satya and Kahani concurred. Presently, it was Satya's move. Satya left for the pathway her lure so wonderful that even a visually impaired would have indiscriminately followed it. Satya too had faith in herself that she will draw in men in hoards, however the genuine outcome was lamentable. Every one of the ones who were there in the roads, after seeing Satya strolling a tempting snare towards them, they fled and shut themselves in their homes. Satya got strained, as this is something she won't ever theorize. Her certainty was totally broken, so she gradually began to walk in reverse. However, something occurred, some idea probably clicked her head, that she turned advances and started to strip herself. Presently Satya was standing totally stripped in the road, and soon she started to stroll forward again. This time, even the young men who were miles away, after seeing satya stripped, they ran furiously towards their home. Satya knew, that she has lost. Also, that individuals don't perceive her as wonderful. She got back to Kahani. Presently it was Kahani's move. Kahani approached and right off the bat wore another saree which she brought from the market, then, at that point, she started to put on cosmetics, wore bangles, a major bindi on her forehead. What's more, in the wake of taking around a few hours, she was prepared for the opposition. The second Kahani went out to stroll toward the pathway, each and every male from the whole area showed up to view Kahani. Men came in high hoards to watch Kahani. Satya was envious and was reducing in her envy. At the point when Kahani returned, Satya promptly acknowledged her loss. Kahani supported satya by saying, "O Satya! It isn't your shortcoming that men were not drawn to you, indeed no one has at any point seen you like that. Also, Naked Satya (Naked Truth) isn't acknowledged by anybody by any stretch of the imagination. However, indeed, I am something they are acquainted with. They think about. Also, assuming you need to arrive at individuals' heart, you need to take my assistance. Since it is just when Satya is tended to with Kahani. It's a good idea to individuals and individuals spare a sight at it."
-
- Sadhu gradually began to leave the spot and chuckled, "The inventor of mirror poisoned the human heart."
-
-Frequently the instrument we use to quantify our considerations, is the very justification behind our ill being. In any case, the reason to portray this story to you was to introduce before you a structure so you can sort out that anything you realize isn't totally evident nor it is totally fantasized. You basically pick the form of the story you like, or which fulfills your mind-set. Each occasion you have experienced in your life could be found into basic part from where you can reason up to see that this is right. That you generally got the form you preferred. Of a specific occasion. The world isn't pre-determined, your existence can affect the probability of an event.
-
-Presently pushing ahead, we should discuss Suicide. Suicide is a tremendous gift to humankind, however it accompanies its own outcomes. It resembles Morpheus is furnishing you with a decision, regardless of whether to pick the Red Pill or Blue Pill. Also, you are Neo. Presently individuals might call me unfeeling for bringing such fragile point like this. Be that as it may, see, this isn't at all for anybody with self-destructive propensities. 
-
-The crucial is basic, life is basically what you see out of it. That is something what makes it abstract and profoundly beautiful. For someone who peruses Arthur Schopenhauer, or another individuals from a similar philosophical school, they might guarantee that the universe is definitely not a sane spot, I'd prefer to say, purchase a casket and lay in it till you pass on. Much thanks to you. Presently back to typical reasonable people, I was saying that life is basically what you see out of it. What you think about it. Or then again as one of my #1 individuals on Earth used to say, "you can likewise leave an imprint upon it." Yet there are examples when we as a whole of an abrupt disregard these considerations. Why would that be?
-
-Why in an instant we are always ready to ignore everything just to satisfy the momentarily make-up thought we just had? Your tiniest little break down can convince you into believing that you are worthless. Which you at times are, but you have been ignoring the fact that you are worthless from past18-30-50 years, what makes the frequency of such thought so high that at this point you have to react to your worthlessness? That is the question. How come a momentarily thought is so powerful and so dominating? Nobody exists on Purpose, may be correct, but what sensible thought made you react to it all of a sudden? What happened to your laziness?
-
-Now you see the problem I have with people who commit suicide, how come they are so quick to react? How come Ludwig Boltzmann was so quick to react? (Those who don’t know Ludwig Boltzmann, he was a physicist. Read about him, funny life he had.)
-
-Homo Sapiens aren’t a race which pre-dominantly rely on objective truth. We people compose fiction, and as it has been frequently referenced by  Yuval, that we have been living two lives ever since our inception. An imagined reality, and the effect of it on reality. Envisioned reality rules our world. For those who might get confused with these terms, it is something like this: A tiger sees a river, he goes near to the river and drinks water from it. His thirst was justified, and now he is done with it. Humans on the other hand, named the river, called it holy, made a myth around it, composed laws surrounding it. And now it affects reality. For ex: Thames River, Ganges, Jordan River etc. Tiger looks at a river objectively, he cannot think of all this. All he can think of is water. Not the myths. This is something which makes us different from other animals on planet Earth in terms of communication.
-
-There are metaphors more real than the people who walk in the street. There are images tucked away in books that live more vividly than many men and women. There are phrases from literary works that have a positively human personality. We touch, see and sense things in objects but we perceive them in subjects.The problem is that there are many more books on birds written by ornithologists than books on birds written by birds and books on ornithologists written by birds
-
-Nothing we know is absolute. We are merely making speculations out of events, learning and unlearning continuously. Still, it scares me thinking about people who get so sure and indulged in their momentarily thoughts that they decide to react upon it. The worst thing above all is, that a man knows about his own life only. One can never know what’s going on in someone else’s heart. Emil Cioran once said, “Only optimists commit suicide, optimists who no longer succeed at being optimists. The others, having no reason to live, why would they have any to die?”
-
-How come on morning you wake up and you say:
-
-Today, suddenly, I reached an absurd but unerring conclusion. In a moment, I realized that I'm nobody, absolutely nobody. When the lightening flashed, I saw that what I had thought to be a city was in fact a deserted plain and in the same sinister light that revealed me to myself, there seemed to be no sky above it. I was robbed of any possibility of having existed before the world. If I was ever reincarnated, I must have done so without myself, without a self to reincarnate. I am the outskirts of some non-existent town, the long-winded prologue to an unwritten book. I don't know how to feel or think or love. I'm a character in a novel as yet unwritten, hovering in the air and undone before I've even existed, amongst the dreams of someone who never quite managed to breathe life into me. I'm always thinking, always feeling, but my thoughts lack all reason, my emotions all feeling. I'm falling through a trapdoor, trough infinite, infinitous space, in a directionless, empty fall. My soul is a black maelstrom, a great madness spinning about a vacuum, the swirling of a vast ocean around a hole in the void, and in the waters, more like whirlwinds than waters, float images of all I ever saw or heard in the world: houses, faces, books, boxes, snatches of music and fragment of voices, all caught up in a sinister, bottomless whirlpool. And I, I myself, am the centre that exists only because the geometry of the abyss demands it; I am nothing around which all this spins, I exist so that it can spin, I am a centre that exists only because every circle has one. I, I myself, am the well in which the walls have fallen away to leave only viscous slime. I am the centre of everything surrounded by the great nothing. And it is as if hell itself was laughing within me but, instead of human touch of diabolical laughter, there's the mad croak of the dead universe, the circling cadaver of physical space, the end of all worlds drifting blackly in the wind, misshapen, anachronistic, without the God who created it, without God himself who spins in the dark of darks, impossible, unique, everything. If only I could think! If only I could feel! I dreamily and digestively drowse. I have time, between synaesthesias. And it's extraordinary to think that, if I were asked right now what I want for this short life, I could think nothing better than these long slow minutes, this absence of thought and emotion, of action and almost of sensation itself, this inner sunset of dissipated desire. And then it occurs to me, almost without thinking, that most if not all people live like this, with greater or lesser consciousness, moving forward or standing still, but still with the very same indifference towards ultimate aims, the same renunciation of their personal goals, the same watered-down life. 
-
-
-
-How? 
-</p><br>
-
-<h2>outrospect</h2><br>
-<p>first 21 years of my life were full of introspection. if you look closesly at kind of literature i have consumed, concepts i tried to understand etc all had an underline theme of awareness, consciousness, theology, self-knowledge. basically, i used these years to build an understanding of myself for myself. 
-
-i like lots of subjects and firmly believe that academia has killed the polymath. also, i realised that it is only by being a founder i can enjoy work as a polymath. 
-
-you also need to have a deep sense of detachment in yourself to truly understand this. think of yourself as dead and take rest of life what comes at you as a blessing, a sacred food supplied to you. what is important in this period is that, only now can you identify what will be the direction of your work.
-
-being a gun alone never helps, if you take yourself as a mere weapon - who has calibre, capacity and concievity - you will be only be used. become the direction , the one who points the gun. it is the target what makes the aftermath likeable, not the act of firing. 
-
-travel as much as possible.</p><br>
-
-<h2>unlawful</h2><br>
-
-<p>I as a human have lost lots of senses till now. this world amazes me. i do not understand anything about it. each time it feels like i am spiralled back to ground zero to understand about it one more time. a lot of disillusionment has created their house in me. my mind is accomodating them as guests. maybe it is because of isolation, i never have ever been this alone in my life. never been this close with myself. i have observed a lot about me till now, this solitude has given me a broader view on how my habits, behaviour and introspection has evolved over time. from early childhood till now, i have re-discovered a lot from memories i thought i understood well. A deep feeling of empathy has begun to take place in me, I was not like this earlier. I at times think, this is because of self pity. I think it is time for me to cannabalize on my vices and look forward at things with a lot more responsibility.  i have to evolve from this, otherwise i will be lost. i think, this is also a way i have discovered meditation. i am meditating even as of now i am writing this. dhyana as it is called is dynamic for me. i let time be felt passing through me, through this mortal body of mine and i experience him. i try to be as close as possible to him viz , brahma. I am a mere spectator here, not the doer. I feel like i have been scammed by attachments for so long. I believed this rendered universe to be true for a long time under the compulsion of my attachments. Attachment not in term with another human being , but within myself. To say I am is to foul oneself. What is this internal awareness that I carry around like a badge of honour. Reader, do you think I and You are different? If yes then this is precisely what I am talking about. 
-
-Our difference only exists till our mind, beyond that we are indifferent. We are one. 
-
-Others might be too early to condemn my this remark of we are one  they will do it under compulsion of their context with we are one dogma of vedanta, advait or other school of teachings. 
-
-Only true learning in this world is learning of the self. When you were a sperm directing towards the egg to make a fetus , there it started, inside that womb. You came out to see the Brahmana, you became aware of the Brahma. This is all what you had to learn , that this is nature ... and how beautiful it is. You became aware and this awareness is all what this world had to offer to you. Try to remember it, try to remember you first breath and thus ye shall find that ye are ancient than you know.  
-
-A sadhu once told me about Lord Rama. He sung a doha and announced to me - my mother is that womb, who cried was only a woman. I came out of a bag, like this, to know the brahma. O woman, who sheltered me and cried, I will kill the brahma if anyone else than me make you cry.
-
-It is a very striking announcement. Think about it - I came out of a bag ( बोरी  ) i.e., uterus.
-
-
-How close are you to yourself? Who are you? What is it that you are being? Is there any knowledge or is it all information that you are chasing? 
-
-When will you see that there is nothing to know. You already know it. It is here , it existed before mankind was even born and it will exist even after the mankind will be gone. Like the haiku , "summer grass : all that remains, of a warriors dream." 
-
-Cherish the impermanance of life. Realise that it is also your father's first life, realise it is also your friend's first life. Realise that it is a tiny frame of window opened for a very less time. What you see is a client side rendering of the universe. Your soul borrows the compute from the brahman. There are over 8 million species sharing this planet and we understand the language of only one. 
-
-Understand that when you communicate with an animal, what is that intuitive feeling, what it that intuitive interspecies communication (iic) that reflects through your soul... when did you learn it? Why did you moved your eyes a certain way , how did you comprehend what other animal meant, how is animal able to respond to your intuitiveness. 
-
-Realise this my reader. This is all there is. Only way forward is through acceleration. We have to poke life. We have to touch it and make a mark upon it. Influence life to change the course of nature. Be indebted to this opportunity. Be indebted to your awareness. See it for once and attain sthirtha right now. This very moment. I understand your mind is chanchal thus is the nature of moh , it is very formultative, indecisiveness is its emergent property. Don't stamp your existence with moh , you life will become very limited. Instead fight with it and win over it , I say ye shall meet thyself at earliest. Meet yourself as soon as possible. It is waiting for you to be discovered. Do not ignore it, listen to it. 
-
-</p><br>
-
-<h2>an ode to the dead</h2><br>
-
-<p>the very basic of a man's living spirit is his passion for adventure. The joy of life comes from our encounters with new experiences, and hence there is no greater joy than to have an endlessly changing horizon, for each day to have a new and different sun. If you want to get more out of life, you must lose your inclination for monotonous security and adopt a helter-skelter style of life that will at first appear to you to be crazy. But once you become accustomed to such a life you will see its full meaning and its incredible beauty. 
-
-
-Make a radical change in your lifestyle and begin to boldly do things which you may previously never have thought of doing, or been too hesitant to attempt. So many people live within unhappy circumstances and yet will not take the initiative to change their situation because they are conditioned to a life of security, conformity, and conservation, all of which may appear to give one peace of mind, but in reality nothing is more damaging to the adventurous spirit within a man than a secure future.
-
-
-There's something oddly different with reality, it has become boring and repetitive. Some people might find solace in it, might find meaning in it but to me it's a big play of committing an action and then forgetting those actions. The year is about to end, and also I joined college this year. Trust me on this, College is the biggest Joke one can encounter in his or her life. Biggest joke. It's a place where you learn by heart, that people's mediocrity will kill you from within. People en masses  so desperate with their noses up everyone's asses they will kill your soul, they will kill your passion, they will kill your dreams and most important of all, they will kill your desire to objectively look at things with utmost innocence. Maybe I fell in a wrong one, I will never know but whatever I saw, it didn't make much sense to me. But this aloof institutional torture, gave me a sense of freedom to explore things I always wanted to explore. I always wanted to experiment with myself. Always wanted to push myself to an extent where at least once I can measure myself to life's detour. Life hides its meaning. Many can have a nihilistic turn at this, that life is meaningless and might even quote Nietzsche or some other western philosopher in front of me but If I cannot say anything you cannot read in a fucking book, what is the use of my own consciousness? How will my experiences, how come my logics be different from our ancestors who in their search for meaning or non meaning died of syphilis. 
-
-I saw 19 winters, and in past 19 years I met many people. I lived many lives, and maybe many lives passed just by touching me. I'm nothing more than the books I have read, people I have met and women I have dated. And to be honest, I failed at most of the things. Family, love, friendships, goals, desires. A man toughened by his own defeats. But it's funny how, when you just when you change your perspective around a certain thing, the action committed, the concept that exists, its meaning, its belonging everything changes in a second. As if a thing was saying something for a long long time but now its context has been changed all together just because, I would like to quote a sher here: 
-"kis safai se qaatil ne dhoyi hai asteen,
- kis safai se qaatil ne doyi hai asteen:
- us ko maloom hi nahin;
- ki lahu bolta bhi hai." 
-
-If you get what am trying to say then good. 
-Blood speaks, things around you speak well. There have been many books written by ornithologists on birds, but there's not a single book written by birds on ornithologists. In the course of your life you realize very late, that you never knew or experienced the other side of the coin. Your entire existence is doomed with conformity. Conformity of your consciousness. It cannot be scaled. It will always perceive things only from your sensory organs. Your sensibility towards a stimuli is limited. But do you really understand what this tells us about ourselves? That in the course of nature, in front of this massivity of universe we are very small. There exists something bigger than all of us. Something grand, a grand eloquent, magnificent design to encompass all of us and still have space left for other little things to come, live, cherish and then be forgotten. 
-
-60s was a defining period for America, because the American Dream was sort of re-packaged and sold by the Americans who were part of the counterculture. It was a year a young generation was disrupting the old American Society. The industry so per say which was then run by the orthodox, the settle-ists, the conformous pricks of the society. We all have greed with which we have agreed and it's only after you think you want more than you need, this crazy breed of restless souls, they upsurfe themselves and surge. Many claim and call them crazy, bohemian, mad generation, add more adjective as per your choice but it's sad that the greatest of all business empires in the history of human civilization was in turn made by pot smoking hippies. The 21st century was made by pot-smoking hippies. 43% of India's population is under 25yrs of age. The reserved class of neglected sperms will one day grow too, I too have faith in them. But can you believe for a second, almost 50% of an entire population is below 25-30? This is crazy. People are growing to become free, people are growing to experiment with themselves, with their ideals, with things they have been taught so long. They are learning slowly that this all is pure bullshit. That their culture has been snatched from them because a political party wanted to rig the entire system for their own benefit and they preyed on Identity politics. They are learning that, institutes aren't often as they claim to be. That the olds are actually flawed and didn't know shit. Olds bred like horses and pigs and overpopulated a fucking land so hard that now it's becoming a huge fucking problem for themselves. Now, these people who made a flawed system work and exploit its nation's own population, soon they all will be dead. Lost in the mist of already forgotten. There is no reason for anyone to even keep them alive in their memory. Only those who spoke, and questioned the rigged streak will be kept alive and remembered. Not as gods or idols, but as a fellow homo sapien who lived, dreamt and died somewhere in between. A tweet a I read few months ago by stripe's cofounder about seeing this world as a big museum of passion projects, and that's exactly what it is. A civilization fueled by passion, by thinking, by doubt, by questioning, by rejection of status quo and a shared peace. 
-Ending this blog with the lines of a young poet who wrote this in 60s;
-"Come writers and critics
-who prophesize with your pen
-And keep your eyes wide
-The chance won't come again
-And don't speak too soon
-For the wheel's still in spin
-And there's no tellin' who
-That it's namin'
-For the loser now
-Will be later to win
-For the times they are a-changin'"
-
-that was Dylan, Bob Dylan. 
-</p><br>
-
-<h2>past the age of porn</h2><br>
-
-<p>as a kid past the ages of porn, the innit desire I possessed to a height was to only have sex with whosoever. To "fuck" was the thing. Exaggerated fantasia by porn and movies and thoughts of beloved tolled it well. To take a woman, to have my hands in her underpants, soon catabolically simplified her to me: her vagina only meant to be fucked, breasts only meant to be sucked, mouth meant to blow and words only meant to say "ugh, please, fast". However, situations do come fast and you experience everything and that's when after you have kissed with all the potential of your lips, fingered with all the potential of your fingers, cuddled with all the potential of your warmth, fucked with all the potential of your erectile dysfunctionality, gagged with all the potential of your penis size, bite with all the potential of your teeth, you realize kissing begins to feel like moving your lips in mud after a point. I agree, experiencing someone's skin is the utmost intimacy one can achieve but am not here to talk about love or intimacy rather about something tangible that drives the force of divisibility. 
-
-I at present can lead this blog in two directions, either I make you feel the aura of an intimate love-making that can make you bite your lips or I can spit truth about hurdles of being intimate with someone? I choose to go with the latter. 
-
-In teens it became inevitable to not look at a woman without the glass of fantasia, when looking at her it is visible that am either staring at her chest or at her back. When talking to her it is visible that my end goal should be how to end up being with her on my bed. When sharing things with her the motive should be to harness enough sympathy to get her down. When loving her the reason should be so to have her as a possession. Catcalling becomes a habit, sometimes it comes out of your mouth and sometimes it shouts subconsciously. And this whole gax creates an atmosphere of sexual tension among every node. However, it is also true that we get to know about a woman when we are intimate with her, we get to know what periods actually mean, what cysts are, what is PCOD, what is thick discharge, and what else she harnesses and how sex is actually not at all safe lest it be fun. The transition you notice in your act from joking about PMS few seconds ago to probably buying pads for your girlfriend is hilarious. The copulation movement brings a tickle with itself, but the guilt trip and regrets are by far very grave. 
-
-</p><br>
-
-<h2>wanna talk but no one's there?</h2><br>
-
-<p>it can be lonely at times. you can see life slipping away from your hands. you will find yourself in a very unspeculative isolation. 
-
-are you a rebel? 
-
-unless you will heal the trauma, nothing will change. you have to let go of the trauma. find a way. sometimes life will throw brick at your face and you will know noway to stop it from hitting your face. it will hit your face, it will hurt and it will leave a scar. now with a scar. are you ugly? do you see condemnity in your heart? are you feeling ashamed? are you feeling like a fool? 
-
-
-it is all right. let it all sink in. get your hands dirty. push yourself out for open criticism. 
-
-
-remember , a person is what emotion he hides. what is on surface is a mere facade. truth of people are the feelings they hide. 
-
-
-how did you end up here my man?  wish i could heal you. only a sweet hug sent to you brother. 
-
-tell me. did life teach you some humility? did life tell you ... you can loose? did life teach you wake up feeling okay with being yourself? did life teach you your vices? did life make you feel a little bit of a fool?
-
-ahaha. it is okay. be it so , and chuck it all up and burpp!
-
-
-kill this person. unleash the batman. let it come out. drown. throw yourself to the gallows of life. crash life. crash it directly. then it becomes easier. if you come back from ashes ... you are phoenix; if you don't you are not. it is really this simple. 
-
-
-can you come back from ashes again and again , each time . can you be a different person every day. can you handle this much movement? can you just keep evolving? can you just become the best version of yourself and kill it again to become the best version of yourself and then kill it again. keep cannibalizing yourself. eat it all. if you love me , eat me. then i will be in your guts, you and i will be one. if you love me, eat me. 
-
-this world. this life. this fear of failure. come out of it. take yourself as dead and rest of the life as blessing. i am telling you. you are dead already. there is no you. experience this loss of *you* , this is a creation for the space of new. please look this new world through my eyes, not yours. :)
-
-dont hurt yourself. it is all right. it is all right man. it is all right. don't worry. don't worry for a thing my man. fail with more grit. fail more. man. right here , we are now ... breathing in one rythm of life. we are here my brother. right now at this moment. alive. breathing. do you know who isnt here right now? ... picasso, kubrick, jobs, lennon, alexander. they are not. dirac isnt. boltzmann isnt. but do you know who is? demis. ilya. they are. they are breathing. them breathing is far more valuable than some country's entire civilization existence since antiquity. they are men. they are shaping and giving a shape to the future. 
-
-what is death? ... do you think you will call it *living* after you loose a loved one? 
-
-you wont. death is being forgotten. not to be remembered by anybody. being replacable. 
-
-are you replacable? do you understand the feeling of being replaced? do you see the cactus?
-
-...lol, am i being too blunt? probably yes. but brother this is necessary. ~~~ feel me. 
-
-
-life made many men tremble before. why you think you are the first? dont beg to life , it wont give you. dont seek pardon. let death be here and not brisk a blink. let it see who we are. feel this i am, it is the only truth. at extreme end , it is the only truth. for you and for everyone else. 
-
-dont think someone will care for you like once they did. life happens to everyone. breath in , dont make it too heavy. dont be too heavy. relax. it is okay to be not okay. show me who u are my returning from the ashes. cannot be undead eh? ... that fire in your eyes... i am a fan!! i love how you are so sure of yourself. you dont even know what it all is but that fire ... that fire in your eyes is burning me. stay hungry, stay foolish my friend. stay hungry, stay foolish.
-
-
-earn it. earn it from the gallows.  
-
-</p><br>
-
-<h2>everything before now</h2> <br>
-<p>everything before now; 
-
-
-everything before now lead me where I stand now to opt among many possibilities to jump to a next set of conclusions in sample space to then again
-choose a thing from many other things to traverse myself on another different situation of conclusion and thus the game of chance continues to exist till 
-one day I drop dead and conclude the game with certainity, passing my latest last second before dropping dead as the last liveous fraction of time I lived. 
-
-I frankly don't care much about this cycle but it really does construct and destruct the psyche of our mood and that's shit. 
-I was thinking if we could condition our mood, train it to apt to necessary emotions at a given time. Like switching to our convenience, 
-for an example, suppose it's a funeral and you are ought to be sad but you know clouding yourself with such a thing will slow your progress
-as a normal natural living homo Sapiens in the essence of subjectivity. It's like, if at given circumstances you could've rationale your mind 
-to change the course of outcomes in your favor in long term instead of making short term flees due to lack of contempt with your mood and your submission runs you.
-
-A strange question for mockery I asked myself, that someone really high functioning can ask me that, "Cancer is killing me but no instead of being sad I will change my POV to disease's and feel from their side like 
-if only diseases had emotion they must really feel sad after being cured from the person's body, tragic symbiotic love story" or anything absurd, make it up I don't know.
-
-I will tell you about relations, why do people name something? because naming something has recalling utilities. You can recall something really quick from memory if you have a 
-sense of knowness for it, this knowness can come from anything gut, senses, vision, instinct, language et cetera. Naming comes with its own use cases. Say, you have a name for a person, then
-you must also have a name for the relation with such a person(stranger, acquaintance, friend, lover, parent, legal et cetera) and that's how you subscribe to establish an order of work 
-to communicate with the person, you basically establish a common ground. Suppose there's a child and she apparently has an elder brother, when she turns four she calls his elder brother
-only by his first name, now when she continues to age she keeps calling him by his first name. Parents on many occasions try to teach her to add "Bhaiya" after it, often conditioned she does it
-but majorly our tongue slips. Now there's a notion: what if, to her mind, she doesn't categorize her establishing grounds with sets of names and relations what if to her the first name itself
-was a sense of relation for the other person. She knows her relation to his elder by his first name. He's only his name to you. Like instead of saying, "ye mera Bhaiya hai" she will only say
-"ye mera Rahul hai". Afterall your attempt is only limited to your subjectivity hence short memory, hence you can name things which will only occur in fewer numbers in your life and know them as relations too.
-How do you learn words? like, say there's this fruit Guava, you also learn that it's called bihi, amrood, peru etc. different languages, different name, same meaning and same relation. So if a child
-conditions herself to only make choices of certain elements under her own structure she can call it amrood for the rest of her life and not distinct it between name and a relation to the thing that its a fruit
-even in fruit its a certain type of food, those certain type themselves differ in terms of how they're grown; details man(you can even fucking question on plant kingdom and shit). 
-
-You live your life in terms of interaction. Interaction with people, objects, places, or an information packet. Everything contains some sense of information in it; take your own date of birth as an example it's an information
-which informs another person about the day on which you were born, ironically, that date to yourself is a kind of information because it was given to you by someone else maybe your parents in most of the cases. Like it was them
-who told you when it's your birthday, I don't know if you yourself ever experienced the moment of creation and gave it a unit of time. Till the moment you gained consciousness to interact with the world you were already living 
-in a conditioned world and were trained of its habits. You only accumulated information and acted logically upon them, you never experienced something firsthand, and if you did it's ineffable because that you sense, you response
-to the stimuli and then motor have some sort of knowness for it but you don't have a name for the emotional cycle you went through to explain it in English alphabetical manner or in any other thing. This sounds like I'm preaching 
-empiricism but I also believe that's all that there is out there in the practical world. 
-
-You stroll your life between your subjective presence and objective interaction and because subjects are distinct, individual, they process everything distinctively hence everyone understands everything differently.
-and whenever a large chunk of these subjects match the frequency of a common objective wave they experience something 'similar' in terms of group and then name it something common for them and now they have an understanding 
-of such a thing and also views and predictions on how others might have felt to some basic level. Obviously you can never know what's going on in someone else's heart. 
-
-
-
-Everyone's life is rooted differently and you will never know the other side of it because you perceive subjectively; you never lived another person, experienced another person's consciousness. Not only of another person but 
-of any other thing. Your interaction is only one way limited and you cannot piece out yourself you set it in someone else's paradigm, that'll be a lost of you(I don't know if only death gives you that or its answers lie in reincarnation theory or something). Simply your existence is concentrated, don't know if it's bordered by flesh.
-
-
-In the beginning when I said, that you pick out of many possibilities, you pick it with a state of conditioned mind and information accumulated thus far by you. Yet when often you look in retrospect you question yourself...what if?
-
-Like when you did that, then also you knew that this thing exists, all this blabber I did exists. Yet when you look in retrospect you always find a room for another thought. Evolutionary. Never be complete, okay thanks Tyler Durden. But do I become a rolling stone? but that will leave me with no stamp of space. Here will come a choice, I can opt for space and then get trapped with the desire to complete it and I will end up being owned by the space, I will subscribe to an identity and then identity will define my abouts. Its sickening. In a game of choice, how do I measure myself?
-slowly? with gradual change? calculus? 
-
-I cannot completely articulate the anecdote, I don't even have energy to google it up and then paste it down here because I'm too wasted and it's getting fun writing this shit so I will simply give a gist of it to you, it went something like this: 
-
-Once Richard Feynman was in a garden or somewhere with an artist friend of his. He was looking at a flower when the artist came and said, "you scientists always go dissect the thing and write about it, never truly look at a flower and appreciate its beauty for its colors and structure" Feynman says, "well I can see all that, and I believe science actually adds more beauty to my interpretation of this flower for I know the process of pollination that must have been there for this flower to be present and I know of pores and things, it adds depth to its presence." 
-
-
-A great art is nothing without a great interpreter. As often said, beauty lies in the eyes of the beholder. Everyone has a different inclination for terms. 
-But should I study human existence in completeness of it ? with its science, with its art, with its myth, with its presence of information and absence of experience, with its predictions, with its limitations? 
-
-How do I even interpret myself? as a biological organism with Chemistry churning inside who is governed by the laws of physics? or in civilizational term as a human who has a thing he calls soul? a matter? conscious in its own being? 
-
-If only I could experience every fraction of nature one by one not all together but am also a symphony of it all playing together in force? in bits only if I could have experienced only temperature, or only time, or only wave et cetera to know what all this is. 
-
-
-Problem of improbable events add more fun to this thing, black swan, I can never know what next but that's a far vision I'm asking for, what about present? 
-How often thoughts in hind sight are so noisy that it clouds the vision for present, I mean present is the building block of future. It's merely a motif, a blank space and we fill it to form the structure of the crystal. But if our sight is clouded with both visuals and audio how then are we supposed to make an attempt at it with utmost conviction? How plainly do I pick a emotion suited for a situation if I don't take time to step back and paint the present with contempt? does it need finger style painting, or brush or is it actually a graphic design that I need? how do I pick that. Hind sight controls a lot, I learnt now only how streamlined you become when you look at 'now'. When you see, you process and commit action. When you change yourself to work, when you become a verb instead of a withstood noun. 
-
-Many people become noun in their own lives as they grow, those people are nothing more than dead people.</p><br>
-
-<h2>1729</h2><br>
-
-<p><i>People with no morals often considered themselves more free, but mostly they lacked the ability to feel or love. - Bukowski.</i><br>
-
-
-Foreign men are annoucing fate of humanity in a post-scarcity era. I think it is a perfect time to pick up a war. I think it is a perfect time for showmanship. I think it is a perfect time to conquest all our ancestors. Make history obselete. No alexander, No ashoka.
-
-New age World. New age Kings.</p><br>
-
-
-<footer style="text-align: center; padding: 1em;">
-  © Vasu Dubey
-</footer>
+    // Initialize theme based on system preference
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.body.setAttribute('data-theme', 'dark');
+    }
+  </script>
 </body>
+
 </html>
