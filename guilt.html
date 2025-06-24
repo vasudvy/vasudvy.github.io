@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>/vd</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Georgia&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-color: #faf9f7;
+      --text-color: #1a1a1a;
+      --text-secondary: #333;
+      --link-color: #2c2c2c;
+      --border-color: #e8e2d5;
+      --hover-bg: rgba(0, 0, 0, 0.05);
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #0f0f0f;
+      --text-color: #e8e8e8;
+      --text-secondary: #cccccc;
+      --link-color: #d4d4d4;
+      --border-color: #2a2a2a;
+      --hover-bg: rgba(255, 255, 255, 0.1);
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 80px 40px 40px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      position: relative;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--border-color);
+      border: 2px solid var(--text-color);
+      width: 60px;
+      height: 30px;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      outline: none;
+    }
+
+    .theme-toggle::before {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 22px;
+      height: 22px;
+      background: var(--text-color);
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+
+    [data-theme="dark"] .theme-toggle::before {
+      transform: translateX(28px);
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.05);
+    }
+
+    h3 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--text-color);
+      margin-bottom: 40px;
+      text-align: left;
+      letter-spacing: -0.5px;
+    }
+
+    p {
+      margin-bottom: 20px;
+      color: var(--text-secondary);
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    b {
+      font-weight: 600;
+      color: var(--text-color);
+    }
+
+    ul {
+      margin: 10px 0 20px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    ul li {
+      margin-bottom: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      position: relative;
+      padding-left: 15px;
+    }
+
+    ul li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--text-color);
+      font-weight: 500;
+    }
+
+    a {
+      color: var(--link-color);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      transition: all 0.2s ease;
+    }
+
+    a:hover {
+      background-color: var(--hover-bg);
+      text-decoration-thickness: 2px;
+    }
+
+    br {
+      display: block;
+      margin: 15px 0;
+      content: "";
+    }
+
+    footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      font-size: 14px;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 60px 20px 20px;
+        font-size: 15px;
+      }
+      
+      h3 {
+        font-size: 1.75rem;
+      }
+      
+      .theme-toggle {
+        top: 1rem;
+        right: 1rem;
+        width: 50px;
+        height: 25px;
+        border-radius: 12.5px;
+      }
+      
+      .theme-toggle::before {
+        width: 19px;
+        height: 19px;
+      }
+      
+      [data-theme="dark"] .theme-toggle::before {
+        transform: translateX(23px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle"></button>
+
+  <h3>Fractured Identity</h3><br><br>
+  <p>Of all emotions a human could fathom or possess, I believe guilt is the sole cause of suffering. And those who believe they are in guilt of something, they feel they deserve to be suffered. Suffering is very personal. You know you fucked up somewhere a long time ago and now you cannot unfuck what has been fucked. Externally it may seem to people that you are troubled because of some work, some dispute, some thing - but of all folks in this world, only you know what it is.<br><br>
+
+Trust me on this, it is very easy to runaway from people but you cannot runaway from yourself. If you don't learn to live with yourself it will become very difficult to live this life.<br><br>
+
+When I think about the fractured nature of identity, I'm reminded of Freud's psychosexual development theory - though modern psychology has largely abandoned this framework. Freud believed our personality develops through five distinct stages: the Oral stage (0-1 years) where pleasure is derived through the mouth, sucking and biting; the Anal stage (1-3 years) where control and pleasure come from bowel movements and toilet training; the Phallic stage (3-6 years) where children discover their genitals and develop unconscious sexual desires for the opposite-sex parent; the Latency stage (6-puberty) where sexual feelings are dormant and children focus on developing skills and friendships; and finally the Genital stage (puberty onwards) where mature sexual interests emerge.<br><br>
+
+Though contemporary psychology has moved beyond these rigid stages, what strikes me isn't their accuracy but the underlying assumption that our identity is formed through these early fragmentations of pleasure and pain, satisfaction and denial. Perhaps our sense of self was always meant to be fractured.<br><br>
+
+I as a human have lost lots of senses till now. This world amazes me. I do not understand anything about it. Each time it feels like I am spiralled back to ground zero to understand about it one more time. A lot of disillusionment has created their house in me. My mind is accommodating them as guests. Maybe it is because of isolation, I never have ever been this alone in my life. Never been this close with myself. I have observed a lot about me till now, this solitude has given me a broader view on how my habits, behaviour and introspection has evolved over time.<br><br>
+
+From early childhood till now, I have re-discovered a lot from memories I thought I understood well. A deep feeling of empathy has begun to take place in me, I was not like this earlier. I at times think, this is because of self pity. I think it is time for me to cannibalize on my vices and look forward at things with a lot more responsibility. I have to evolve from this, otherwise I will be lost.<br><br>
+
+This meeting with self is what terrifies us most. It's why we seek dissociation through whatever means necessary. Some of us find it in psychedelics, watching our consciousness slip away from the edges of our awareness until we're observing ourselves from somewhere else entirely. Others find it in harder substances - cocaine that makes you feel like you're the main character in someone else's movie, or DMT that dissolve the boundaries between self and not-self so completely that you forget there was ever a self to begin with.<br><br>
+
+Substance abuse isn't just about pleasure - it's about the desperate need to step outside the prison of your own consciousness, to experience what it feels like to not be yourself for a while. When you're high, you're watching your life happen to someone else.<br><br>
+
+But here's what I learned: dissociation through substances is like trying to solve a puzzle by throwing the pieces in the air. Sure, for a moment you don't have to look at the incomplete picture, but when you come down, the pieces are scattered even further apart.<br><br>
+
+I think, this is also a way I have discovered meditation. I am meditating even as of now I am writing this. <i>Dhyana</i> as it is called is dynamic for me. I let time be felt passing through me, through this mortal body of mine and I experience him. I try to be as close as possible to him viz, <i>brahma</i>. I am a mere spectator here, not the doer. I feel like I have been scammed by attachments for so long. I believed this rendered universe to be true for a long time under the compulsion of my attachments. Attachment not in term with another human being, but within myself.<br><br>
+
+To say I am is to foul oneself. What is this internal awareness that I carry around like a badge of honour. Reader, do you think I and You are different? If yes then this is precisely what I am talking about. Our difference only exists till our mind, beyond that we are indifferent. We are one.<br><br>
+
+A wanderer once told me about Lord Rama. He sung a doha and announced to me - <i>"my mother is that womb, who cried was only a woman. I came out of a bag, like this, to know the brahma. O woman, who sheltered me and cried, I will kill the brahma if anyone else than me make you cry."</i> It is a very striking announcement. Think about it - I came out of a bag <i>(बोरी)</i> i.e., uterus.<br><br>
+
+The real dissociation happens not when you're high, but when you're completely sober and suddenly realize you're watching yourself live your life. You're sitting in a room, talking to people, going through the motions, but there's this other you - the observer - who's watching it all happen with a kind of detached curiosity. Who is this person speaking? Why are they saying these things? What are they trying to prove?<br><br>
+
+Life is a very false narrative, only death is the truth. It is certain, it will knock your door one day. This is the only certainty in the whole world. Some men or women may have intellect as their weapon, some may have their charm, cunningness, talent, craft - whatever you name it. But the world has nothing to offer more than what it already is.<br><br>
+
+How close are you to yourself? Who are you? What is it that you are being? Is there any knowledge or is it all information that you are chasing? When will you see that there is nothing to know. You already know it. It is here, it existed before mankind was even born and it will exist even after the mankind will be gone. Like the haiku,<i> "summer grass: all that remains, of a warriors dream."</i><br><br>
+
+Cherish the impermanence of life. Realise that it is also your father's first life, realise it is also your friend's first life. Realise that it is a tiny frame of window opened for a very less time. What you see is a client side rendering of the universe. Your soul borrows the compute from the brahman. There are over 8 million species sharing this planet and we understand the language of only one.<br><br>
+
+Understand that when you communicate with an animal, what is that intuitive feeling, what it that intuitive interspecies communication that reflects through your soul... when did you learn it? Why did you move your eyes a certain way, how did you comprehend what other animal meant, how is animal able to respond to your intuitiveness.<br><br>
+
+Being a gun alone never helps. If you take yourself as a mere weapon - who has calibre, capacity and conceivity - you will only be used. Become the direction, the one who points the gun. It is the target what makes the aftermath likeable, not the act of firing.<br><br>
+
+This fracturing isn't a bug in the system - it's a feature. When we experience dissociation, when we feel like we're watching ourselves from the outside, when we question whether the person we were yesterday is the same person we are today, we're not losing our minds. We're discovering the multiplicity that was always there.<br><br>
+
+This is all there is. Once you came out of that uterus you became aware of the brahma and encountered the brahmana. It is a very simple thing to observe and have an empirical archive of in memory. To notice for once who you are and to internalize that only way forward is through acceleration. What mankind has achieved in totality is so great and beauitful. We have to poke life. We have to touch it and make a mark upon it. Influence life to change the course of nature. Be indebted to this opportunity. Be indebted to your awareness. See it for once and attain <i>sthirtha</i> right now. This very moment. I understand your mind is chanchal thus is the nature of moh, it is very formulative, indecisiveness is its emergent property. Don't stamp your existence with moh, your life will become very limited. Instead fight with it and win over it, I say ye shall meet thyself at earliest.<br><br>
+
+Meet yourself as soon as possible. It is waiting for you to be discovered. Do not ignore it, listen to it. Travel as much as possible. Not because it will help you find yourself, but because it will help you lose yourself in the most beautiful way possible. The fractured identity isn't something to be healed or made whole. It's something to be understood, accepted, even celebrated. Each fragment carries its own wisdom, its own perspective, its own truth.</p>
+  
+  <footer>
+    © Vasu Dubey
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      
+      if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+      } else {
+        body.setAttribute('data-theme', 'dark');
+      }
+    }
+
+    // Initialize theme based on system preference
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.body.setAttribute('data-theme', 'dark');
+    }
+  </script>
+</body>
+
+</html>
