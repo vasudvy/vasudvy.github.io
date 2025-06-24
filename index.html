@@ -5,33 +5,235 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>/vd</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Georgia&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-color: #faf9f7;
+      --text-color: #1a1a1a;
+      --text-secondary: #333;
+      --link-color: #2c2c2c;
+      --border-color: #e8e2d5;
+      --hover-bg: rgba(0, 0, 0, 0.05);
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #0f0f0f;
+      --text-color: #e8e8e8;
+      --text-secondary: #cccccc;
+      --link-color: #d4d4d4;
+      --border-color: #2a2a2a;
+      --hover-bg: rgba(255, 255, 255, 0.1);
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 80px 40px 40px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      position: relative;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--border-color);
+      border: 2px solid var(--text-color);
+      width: 60px;
+      height: 30px;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      position: relative;
+      outline: none;
+    }
+
+    .theme-toggle::before {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 22px;
+      height: 22px;
+      background: var(--text-color);
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+
+    [data-theme="dark"] .theme-toggle::before {
+      transform: translateX(28px);
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.05);
+    }
+
+    h3 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--text-color);
+      margin-bottom: 40px;
+      text-align: center;
+      letter-spacing: -0.5px;
+    }
+
+    p {
+      margin-bottom: 20px;
+      color: var(--text-secondary);
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    b {
+      font-weight: 600;
+      color: var(--text-color);
+    }
+
+    ul {
+      margin: 10px 0 20px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    ul li {
+      margin-bottom: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      position: relative;
+      padding-left: 15px;
+    }
+
+    ul li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--text-color);
+      font-weight: 500;
+    }
+
+    a {
+      color: var(--link-color);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      transition: all 0.2s ease;
+    }
+
+    a:hover {
+      background-color: var(--hover-bg);
+      text-decoration-thickness: 2px;
+    }
+
+    br {
+      display: block;
+      margin: 15px 0;
+      content: "";
+    }
+
+    footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      font-size: 14px;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 60px 20px 20px;
+        font-size: 15px;
+      }
+      
+      h3 {
+        font-size: 1.75rem;
+      }
+      
+      .theme-toggle {
+        top: 15px;
+        right: 15px;
+        width: 50px;
+        height: 25px;
+        border-radius: 12.5px;
+      }
+      
+      .theme-toggle::before {
+        width: 19px;
+        height: 19px;
+      }
+      
+      [data-theme="dark"] .theme-toggle::before {
+        transform: translateX(23px);
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <h3>Vasu Dubey</h3>
-  <p>Hi, I am Vasu. I work at <a href="https://keen-lamington-218231.netlify.app/">os1</a> where we are helping people with speech impairment speak again using artificial intelligence and digital voice prosthesis. I enrolled for a BTech program but later dropped out after second semester. I love cinema and literature, if not working you can find me simping around red dead redemption,dark souls iii, or diablo. Here is my <a href=" https://boxd.it/Hhj94">letterboxd</a> I will put my goodreads here soon.</p> <br>
- <p>I seldom write blogs and post it <a href="https://vasudvy.github.io/blolg.html">here</a></p><br>
-
-  <p><b>Things I find interesting</b> :</p>
-  <ul><b>Engineering Photosynthesis:</b> Mastering photosynthesis will be humanity's biggest win for ages to come. If you are working in this field, I would love to connect and share notes.</ul> 
-  <ul><b>AI Safety:</b> AGI will be actualized by sheer will of humanity and we need to be sure that it is safe and aligned with humans.</ul>
-  <ul><b>Power Systems:</b> We need more innovation across the compartments of power systems to build a sustainable future.</ul>
-  <ul><b>Inter-species Communication:</b> I came across <a href="https://www.earthspecies.org/">Earth Species Project</a> and it made an impression on me. Millions of species live on earth yet we understand the language of only one.</ul>
-  <ul><b>Biology:</b> I think 21st century will change our perception around biology and I am very excited to explore that.</ul>
-<br>
-
-  <p><b>You can find me -</b></p>
-  <ul><a href="https://www.linkedin.com/in/vasu-dubey-b191461b4">LinkedIn</a></ul>
-  <ul><a href="https://x.com/bettercallneoo">Twitter</a> (only shitposting)</ul>
-
-<ul>Email: vasudy02[at]gmail[dot]com</ul>
-<ul>My PGP Keys : updating soon* </ul>
-
-  <footer style="text-align: center; padding: 1em;">
-  © Vasu Dubey
-</footer>
-</body>
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle"></button>
   
+  <h3>Vasu Dubey</h3>
+  
+  <p>Hi, I am Vasu. I am currently working on regenerative speech for speech imapired parients using artificial intelligence and digital voice prosthesis. I enrolled for a BTech program but later dropped out after second semester. I love cinema and literature, if not working you can find me simping around red dead redemption,dark souls iii, or diablo. Here is my <a href=" https://boxd.it/Hhj94">letterboxd</a> I will put my goodreads here soon.</p>
+  
+  <br>
+  
+  <p>I seldom write blogs and post it <a href="https://vasudvy.github.io/blolg.html">here</a></p>
+  
+  <br>
+
+  <p><b>Things I find interesting</b>:</p>
+  <ul>
+    <li><b>Engineering Photosynthesis:</b> Mastering photosynthesis will be humanity's biggest win for ages to come. If you are working in this field, I would love to connect and share notes.</li>
+    <li><b>AI Safety:</b> AGI will be actualized by sheer will of humanity and we need to be sure that it is safe and aligned with humans.</li>
+    <li><b>Power Systems:</b> We need more innovation across the compartments of power systems to build a sustainable future.</li>
+    <li><b>Inter-species Communication:</b> I came across <a href="https://www.earthspecies.org/">Earth Species Project</a> and it made an impression on me. Millions of species live on earth yet we understand the language of only one.</li>
+    <li><b>Biology:</b> I think 21st century will change our perception around biology and I am very excited to explore that.</li>
+  </ul>
+  
+  <br>
+
+  <p><b>You can find me</b>:</p>
+  <ul>
+    <li><a href="https://www.linkedin.com/in/vasu-dubey-b191461b4">LinkedIn</a></li>
+    <li><a href="https://x.com/bettercallneoo">Twitter</a> (only shitposting)</li>
+    <li>Email: vasudy02[at]gmail[dot]com</li>
+    <li>My PGP Keys: updating soon*</li>
+  </ul>
+
+  <footer>
+    © Vasu Dubey
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      
+      if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+      } else {
+        body.setAttribute('data-theme', 'dark');
+      }
+    }
+
+    // Initialize theme based on system preference
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.body.setAttribute('data-theme', 'dark');
+    }
+  </script>
+</body>
 
 </html>
