@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>/vd</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Georgia&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-color: #faf9f7;
+      --text-color: #1a1a1a;
+      --text-secondary: #333;
+      --link-color: #2c2c2c;
+      --border-color: #e8e2d5;
+      --hover-bg: rgba(0, 0, 0, 0.05);
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #0f0f0f;
+      --text-color: #e8e8e8;
+      --text-secondary: #cccccc;
+      --link-color: #d4d4d4;
+      --border-color: #2a2a2a;
+      --hover-bg: rgba(255, 255, 255, 0.1);
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 80px 40px 40px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      position: relative;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--border-color);
+      border: 2px solid var(--text-color);
+      width: 60px;
+      height: 30px;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      outline: none;
+    }
+
+    .theme-toggle::before {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 22px;
+      height: 22px;
+      background: var(--text-color);
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+
+    [data-theme="dark"] .theme-toggle::before {
+      transform: translateX(28px);
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.05);
+    }
+
+    h3 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--text-color);
+      margin-bottom: 40px;
+      text-align: left;
+      letter-spacing: -0.5px;
+    }
+
+    p {
+      margin-bottom: 20px;
+      color: var(--text-secondary);
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    b {
+      font-weight: 600;
+      color: var(--text-color);
+    }
+
+    ul {
+      margin: 10px 0 20px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    ul li {
+      margin-bottom: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      position: relative;
+      padding-left: 15px;
+    }
+
+    ul li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--text-color);
+      font-weight: 500;
+    }
+
+    a {
+      color: var(--link-color);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      transition: all 0.2s ease;
+    }
+
+    a:hover {
+      background-color: var(--hover-bg);
+      text-decoration-thickness: 2px;
+    }
+
+    br {
+      display: block;
+      margin: 15px 0;
+      content: "";
+    }
+
+    footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      font-size: 14px;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 60px 20px 20px;
+        font-size: 15px;
+      }
+      
+      h3 {
+        font-size: 1.75rem;
+      }
+      
+      .theme-toggle {
+        top: 1rem;
+        right: 1rem;
+        width: 50px;
+        height: 25px;
+        border-radius: 12.5px;
+      }
+      
+      .theme-toggle::before {
+        width: 19px;
+        height: 19px;
+      }
+      
+      [data-theme="dark"] .theme-toggle::before {
+        transform: translateX(23px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle"></button>
+
+  <h3>Drunken Diaries</h3><br><br>
+  <p><i>Existence is illusory or it is eternal?</i><br><br> If Fyodor Dostoevsky had produced the result of his inquiry regarding this question, he'd have been crowned as a philosopher. But he didn't. Rather, he illustrated the consequences that such intellectual pastimes may have in a man's life through his fiction. Those were his thought experiments, mere situations produced by his head to write stories that grip us more than any philosophical treatise ever could.<br><br>
+
+With every experience one concludes a situation independent of variables. One imagines a function so emotionally satisfactory that instead of dealing with its domain or range, one is simply lost in the eluding oasisity of it. The moment of creation is in itself so hypnotically seductive that you cannot resist but fall for it. Especially when it's your own. At that moment, the only truth that holds is: if you do not cannibalize yourself, someone else will. <br><br>
+
+But what is this thing that compels us to waste our time by the sea till the tides and evening have matched our mood? Why do we have a constant need to romanticize everything in order to personally satisfy our deepest condolences with the emotions we have buried long ago? Why does existence itself, who has the perseverance of a nihilist, wear makeup of a romantic?<br><br>
+
+There are certainly two things: Truth and Fantasy. Truth is objective, it belongs to everybody in equal proportion irrespective of their race, cell structure or anything. It's just there. Fantasy is something which is profoundly personal. It belongs to the individual, it doesn't depend on any other factor other than personal inclinations. You can twist it, reproduce it, digest it. But it certainly isn't true. Both go hand in hand.<br><br>
+
+There's a funny tale about it, propagated from India. Long ago, in a town lived two beautiful sisters, Satya (Truth) and Kahani (Fantasy). One day a sadhu came to their doorstep requesting alms. Both sisters fed the sadhu with attention and respect. When he was about to leave, he gave both sisters a mirror. First Satya looked at herself and was mesmerized by her beauty. Then Kahani looked at herself and was entranced by her beauty too. Soon the argument began, regarding who is more beautiful. Since the sadhu gave them the mirror, both sisters asked him for an answer.<br><br>
+
+The sadhu asked the girls to walk across the main road of the town, and whosoever attracts more people would be crowned as beautiful. Both agreed. Satya went first. Her beauty was so captivating that even a blind man would have followed it. Satya had faith in herself that she would attract men in hordes, but the real outcome was tragic. Everyone who saw Satya walking toward them fled and shut themselves in their homes. Satya got tensed. Her confidence was completely broken, so she slowly started to walk backward. But something clicked in her head, she turned forward and began to strip herself. Now Satya was standing completely naked in the road. This time, even the boys who were miles away, after seeing naked Satya, ran furiously toward their homes. Satya knew she had lost.<br><br>
+
+Now it was Kahani's turn. Kahani approached and first wore a new saree, then began to put on makeup, wore bangles, a big bindi on her forehead. After taking several hours, she was ready. The moment Kahani stepped out to walk toward the pathway, every single male from the entire neighborhood appeared to see Kahani. Men came in high hordes to watch her. When Kahani returned, Satya immediately accepted her defeat. Kahani comforted Satya saying, "O Satya! It isn't your fault that men were not attracted to you. No one has ever seen naked truth like that. Naked Truth isn't accepted by anyone at all. But I am something they are familiar with. And if you want to reach people's hearts, you need to take my help. It is only when Satya is addressed with Kahani that it makes sense to people."<br><br>
+
+The sadhu slowly started to leave and laughed, <i><b>"The inventor of mirror poisoned the human heart."</b></i><br><br>
+
+Often the instrument we use to measure our thoughts is the very reason for our suffering. The reason to describe this story was to present before you a framework so you can figure out that nothing you know is completely true nor completely fantasized. You simply pick the version of the story you like, or which satisfies your mood. Each event you have experienced in your life could be broken into parts from where you can see that you always got the version you preferred. The world isn't pre-determined, your existence can affect the probability of an event.<br><br>
+
+But here's what troubles me most. Life is basically what you see out of it, what you think about it. There are moments when we suddenly forget these thoughts. Why is that? Why in an instant are we always ready to ignore everything just to satisfy the momentarily makeup thought we just had? Your tiniest little breakdown can convince you into believing that you are worthless. Which you sometimes are, but you have been ignoring the fact that you are worthless for the past 18-30-50 years. What makes the frequency of such thought so high that at this point you have to react to your worthlessness? How come a momentary thought is so powerful and so dominating?<br><br>
+
+Homo Sapiens aren't a race which predominantly relies on objective truth. We people compose fiction, and we have been living two lives ever since our inception. An imagined reality, and the effect of it on reality. Imagined reality rules our world. A tiger sees a river, he goes near and drinks water from it. His thirst was justified, and now he is done. Humans, on the other hand, named the river, called it holy, made myths around it, composed laws surrounding it. And now it affects reality. Tiger looks at a river objectively, he cannot think of myths. All he can think of is water. This is what makes us different from other animals in terms of communication.<br><br>
+
+There are metaphors more real than the people who walk in the street. There are images tucked away in books that live more vividly than many men and women. There are phrases from literary works that have a positively human personality. We touch, see and sense things in objects but we perceive them in subjects. Nothing we know is absolute. We are merely making speculations out of events, learning and unlearning continuously.<br><br>
+
+How come one morning you wake up and suddenly reach an absurd but unerring conclusion? In a moment, you realize that you're nobody, absolutely nobody. You become the outskirts of some non-existent town, the long-winded prologue to an unwritten book. You don't know how to feel or think or love. You're a character in a novel as yet unwritten, hovering in the air and undone before you've even existed, amongst the dreams of someone who never quite managed to breathe life into you.<br><br>
+
+Your soul becomes a black maelstrom, a great madness spinning about a vacuum, the swirling of a vast ocean around a hole in the void. You are the center that exists only because the geometry of the abyss demands it. You are nothing around which all this spins, you exist so that it can spin. You are the center of everything surrounded by the great nothing.<br><br>
+
+But most people live like this, with greater or lesser consciousness, moving forward or standing still, but still with the same indifference toward ultimate aims, the same renunciation of their personal goals, the same watered-down life. The frightening thing is how a single moment of clarity can make you see all of this at once, and how that moment can feel more real than years of living in comfortable delusion.</p>
+  
+  <footer>
+    © Vasu Dubey
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      
+      if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+      } else {
+        body.setAttribute('data-theme', 'dark');
+      }
+    }
+
+    // Initialize theme based on system preference
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.body.setAttribute('data-theme', 'dark');
+    }
+  </script>
+</body>
+
+</html>
