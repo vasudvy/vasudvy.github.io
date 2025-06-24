@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>/vd</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Georgia&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-color: #faf9f7;
+      --text-color: #1a1a1a;
+      --text-secondary: #333;
+      --link-color: #2c2c2c;
+      --border-color: #e8e2d5;
+      --hover-bg: rgba(0, 0, 0, 0.05);
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #0f0f0f;
+      --text-color: #e8e8e8;
+      --text-secondary: #cccccc;
+      --link-color: #d4d4d4;
+      --border-color: #2a2a2a;
+      --hover-bg: rgba(255, 255, 255, 0.1);
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 80px 40px 40px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      position: relative;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--border-color);
+      border: 2px solid var(--text-color);
+      width: 60px;
+      height: 30px;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      outline: none;
+    }
+
+    .theme-toggle::before {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 22px;
+      height: 22px;
+      background: var(--text-color);
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+
+    [data-theme="dark"] .theme-toggle::before {
+      transform: translateX(28px);
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.05);
+    }
+
+    h3 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--text-color);
+      margin-bottom: 40px;
+      text-align: left;
+      letter-spacing: -0.5px;
+    }
+
+    p {
+      margin-bottom: 20px;
+      color: var(--text-secondary);
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    b {
+      font-weight: 600;
+      color: var(--text-color);
+    }
+
+    ul {
+      margin: 10px 0 20px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    ul li {
+      margin-bottom: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      position: relative;
+      padding-left: 15px;
+    }
+
+    ul li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--text-color);
+      font-weight: 500;
+    }
+
+    a {
+      color: var(--link-color);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      transition: all 0.2s ease;
+    }
+
+    a:hover {
+      background-color: var(--hover-bg);
+      text-decoration-thickness: 2px;
+    }
+
+    br {
+      display: block;
+      margin: 15px 0;
+      content: "";
+    }
+
+    footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      font-size: 14px;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 60px 20px 20px;
+        font-size: 15px;
+      }
+      
+      h3 {
+        font-size: 1.75rem;
+      }
+      
+      .theme-toggle {
+        top: 1rem;
+        right: 1rem;
+        width: 50px;
+        height: 25px;
+        border-radius: 12.5px;
+      }
+      
+      .theme-toggle::before {
+        width: 19px;
+        height: 19px;
+      }
+      
+      [data-theme="dark"] .theme-toggle::before {
+        transform: translateX(23px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle"></button>
+
+  <h3>Iqbal & Allama</h3><br><br>
+
+  <p><i>qais diwana-e-nazzara-e-mahmil na raha,<br> hausle wo na rahe hum na rahe dil na raha - allama iqbal</i></p>
+
+  <p>There exists a peculiar intimacy in the way history remembers Muhammad Iqbal—not merely as Iqbal the philosopher, or Iqbal the poet, but as <b><i>Allama</i><b> Iqbal, a title that transforms a name into reverence. Yet beneath this venerated designation lies a man whose inner contradictions and evolving consciousness shaped not just his own destiny, but the destiny of millions who would later call Pakistan home. <br><br>
+
+Muhammad Iqbal was born in 1877 in Sialkot, in what was then British India, into a family that straddled the delicate balance between tradition and modernity. His father, Sheikh Noor Muhammad, was a tailor—a detail that seems almost deliberately humble when considering the intellectual empire his son would build. But perhaps this modest beginning was precisely what gifted Iqbal with his most profound quality: the ability to speak to both the learned and the common man, to weave philosophy into verse that could move hearts in drawing rooms and village squares alike.<br><br>
+
+The young Iqbal was a student who devoured knowledge with an almost mystical hunger. At Government College Lahore, he encountered the works of European philosophers, yet his mind remained anchored in Islamic thought. This was not mere academic eclecticism—it was the beginning of a lifelong struggle to reconcile the intellectual treasures of the West with the spiritual depth of the East. In his own words, he sought to "recapture the early enthusiasm of Islam" while engaging with the modern world.<br><br>
+
+Iqbal's poetry reveals a man in constant dialogue with himself, with God, and with the future. His verses throb with an almost physical urgency—the urgency of someone who sees his people caught between worlds and desperately seeks to offer them a bridge. When he wrote <i>"Saare Jahan Se Achha Hindustan Hamara"</i> (Better than the entire world is our Hindustan), he was not merely composing patriotic verse; he was articulating the complex love of a man for a land that both nurtured and constrained him.<br><br>
+
+But Iqbal's relationship with his homeland was never simple. As years passed, his poetry grew more introspective, more questioning. The same man who had celebrated the unity of India began to envision something different—a separate space where Muslims could fully realize their potential. This was not a rejection born of hatred, but of a profound understanding that sometimes it requires letting go.<br><br>
+
+His masterwork, the <i>Asrar-e-Khudi</i> (Secrets of the Self), reads like a philosophical autobiography. Through allegory and metaphor, Iqbal explored the concept of <i>khudi</i>—the self or ego—not as Western individualism might conceive it, but as a dynamic force that could either elevate or destroy. He saw in the Muslim community a slumbering giant, and his poetry became a call to awakening.<br><br>
+
+Long before Pakistan existed as a political reality, it lived in the realm of feeling—and it was Iqbal who gave shape to this feeling. His 1930 address to the All-India Muslim League in Allahabad was more than a political speech; it was a vision cast in the language of necessity and hope. He spoke of a "North-West Indian Muslim state" not as a fantasy, but as an inevitable conclusion to the logic of cultural and religious distinctiveness.<br><br>
+
+What made Iqbal's contribution to the Pakistan movement so powerful was his ability to transform political aspiration into spiritual quest. He did not merely argue for separate territories; he argued for separate souls. In his conception, Pakistan was not just a country—it was a laboratory for Islamic renaissance, a place where the faith could once again become a living, breathing force for human advancement.<br><br>
+
+This vision resonated because it spoke to something deeper than political grievance. Iqbal understood that identity is not just about who you are, but about who you can become. He offered Muslims not just a homeland, but a destiny.<br><br>
+
+<i>The Disillusionment with Gandhi</i>
+
+Perhaps no relationship better illustrates Iqbal's complex inner world than his evolving attitude toward Mahatma Gandhi. Initially, Iqbal harbored respect for Gandhi's moral authority and his ability to mobilize the masses. During the Khilafat movement (1919-1924), when Muslims across India united to protest the dismantling of the Ottoman Caliphate, there seemed to be a possibility of Hindu-Muslim unity under Gandhi's leadership.<br><br>
+
+But Iqbal's idealism was tempered by a philosopher's eye for contradiction. As the Khilafat movement faded and Gandhi's approach to politics revealed itself more fully, Iqbal grew increasingly disillusioned. He began to see Gandhi not as a bridge between communities, but as a barrier to Muslim self-realization. Gandhi's emphasis on non-violence, his almost mystical approach to politics, and his vision of a unified India struck Iqbal as fundamentally at odds with what he believed Muslims needed.<br><br>
+
+The break was not sudden but gradual, like a friendship that dies not from betrayal but from growing apart. As Iqbal observed Gandhi's maneuvering during and after the Khilafat movement, he began to sense something that troubled him deeply—Gandhi's true interest lay not in genuine Hindu-Muslim unity, but in positioning himself as a leader who could speak for Muslims as well as Hindus. It was a masterful political calculation, but one that Iqbal saw through with the clarity of a philosopher who understood the difference between authentic leadership and opportunistic positioning.<br><br>
+
+What disgusted Iqbal was not necessarily Gandhi's political leverage—after all, politics demands a certain pragmatism. Rather, it was Gandhi's method and mindset that repelled him. Iqbal perceived in Gandhi a man who specialized in raising dust rather than raising the level of discourse and consciousness. Where genuine leadership should elevate and inspire people toward higher purposes, Gandhi's approach seemed to Iqbal to be one of perpetual agitation without substantial transformation, of stirring emotions without deepening understanding.<br><br>
+
+This was not mere political disagreement—it was a clash of worldviews about the very nature of leadership and progress. Where Gandhi preached surrender and acceptance, Iqbal advocated for creative struggle and self-assertion. Where Gandhi seemed content to mobilize the masses through symbolism and spectacle, Iqbal demanded the more difficult work of intellectual and spiritual awakening.<br><br>
+
+In his later years, Iqbal carried the weight of a man who had seen too far into the future. He died in 1938, nine years before Pakistan became reality, yet his influence on the independence movement was profound. Leaders like Muhammad Ali Jinnah, who had once seemed purely secular in orientation, began to adopt the language and vision that Iqbal had articulated.<br><br>
+
+But being a prophet is a lonely calling. Iqbal's final years were marked by illness and a growing sense of urgency about the future of Muslims in the subcontinent. His correspondence from this period reveals a man wrestling with doubt—not about his vision, but about whether his people would prove worthy of it. He feared that the Pakistan he envisioned might become mere geography without the spiritual transformation he believed essential.<br><br>
+
+Today, as we look back at Allama Iqbal, we see a figure who defies easy categorization. He was simultaneously a traditionalist and a modernist, a nationalist and an internationalist, a mystic and a political thinker. His life raises questions that remain relevant: Can spiritual values survive in the modern world? Is it possible to be both rooted and universal? How do we honor the past while embracing the future?<br><br>
+
+Iqbal's greatest achievement may have been his refusal to choose between these apparent contradictions. Instead, he lived them, explored them, and ultimately transcended them. In doing so, he offered not just a blueprint for a nation, but a template for the modern Muslim intellectual—someone who could engage with the world while remaining true to the deepest sources of meaning.<br><br>
+
+The man who signed his letters as <i>"Iqbal"</i> but is remembered as <i>"Allama"</i> understood that true greatness lies not in avoiding life's contradictions, but in wrestling with them until they yield their secrets. In his poetry, his philosophy, and his vision for Pakistan, he showed us that the highest form of love—whether for God, for community, or for an idea—is one that dares to imagine transformation.<br><br>
+
+Perhaps this is why we call him Allama—not just because he was learned, but because he had the courage to learn from his own doubts, to grow through his own contradictions, and to offer that growth as a gift to the future.</p>
+  
+  <footer>
+    © Vasu Dubey
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      
+      if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+      } else {
+        body.setAttribute('data-theme', 'dark');
+      }
+    }
+
+    // Initialize theme based on system preference
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.body.setAttribute('data-theme', 'dark');
+    }
+  </script>
+</body>
+
+</html>
