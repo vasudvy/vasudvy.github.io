@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>/vd</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Georgia&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-color: #faf9f7;
+      --text-color: #1a1a1a;
+      --text-secondary: #333;
+      --link-color: #2c2c2c;
+      --border-color: #e8e2d5;
+      --hover-bg: rgba(0, 0, 0, 0.05);
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #0f0f0f;
+      --text-color: #e8e8e8;
+      --text-secondary: #cccccc;
+      --link-color: #d4d4d4;
+      --border-color: #2a2a2a;
+      --hover-bg: rgba(255, 255, 255, 0.1);
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 80px 40px 40px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      position: relative;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--border-color);
+      border: 2px solid var(--text-color);
+      width: 60px;
+      height: 30px;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      outline: none;
+    }
+
+    .theme-toggle::before {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 22px;
+      height: 22px;
+      background: var(--text-color);
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+
+    [data-theme="dark"] .theme-toggle::before {
+      transform: translateX(28px);
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.05);
+    }
+
+    h3 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--text-color);
+      margin-bottom: 40px;
+      text-align: left;
+      letter-spacing: -0.5px;
+    }
+
+    p {
+      margin-bottom: 20px;
+      color: var(--text-secondary);
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    b {
+      font-weight: 600;
+      color: var(--text-color);
+    }
+
+    ul {
+      margin: 10px 0 20px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    ul li {
+      margin-bottom: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      position: relative;
+      padding-left: 15px;
+    }
+
+    ul li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--text-color);
+      font-weight: 500;
+    }
+
+    a {
+      color: var(--link-color);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      transition: all 0.2s ease;
+    }
+
+    a:hover {
+      background-color: var(--hover-bg);
+      text-decoration-thickness: 2px;
+    }
+
+    br {
+      display: block;
+      margin: 15px 0;
+      content: "";
+    }
+
+    footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      font-size: 14px;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 60px 20px 20px;
+        font-size: 15px;
+      }
+      
+      h3 {
+        font-size: 1.75rem;
+      }
+      
+      .theme-toggle {
+        top: 1rem;
+        right: 1rem;
+        width: 50px;
+        height: 25px;
+        border-radius: 12.5px;
+      }
+      
+      .theme-toggle::before {
+        width: 19px;
+        height: 19px;
+      }
+      
+      [data-theme="dark"] .theme-toggle::before {
+        transform: translateX(23px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle"></button>
+
+  <h3>Ode to the dead</h3><br><br>
+  <p><i>The very basic of a man's living spirit is his passion for adventure. The joy of life comes from our encounters with new experiences, and hence there is no greater joy than to have an endlessly changing horizon, for each day to have a new and different sun. If you want to get more out of life, you must lose your inclination for monotonous security and adopt a helter-skelter style of life that will at first appear to you to be crazy. But once you become accustomed to such a life you will see its full meaning and its incredible beauty. ~ Christopher McCandless aka Alexander Supertramp</i><br><br>
+
+Make a radical change in your lifestyle and begin to boldly do things which you may previously never have thought of doing. So many people live within unhappy circumstances and yet will not take the initiative to change their situation because they are conditioned to a life of security, conformity, and conservation. In reality nothing is more damaging to the adventurous spirit within a man than a secure future.<br><br>
+
+There's something oddly different with reality - it has become boring and repetitive. Some people might find solace in it, might find meaning in it, but to me it's a big play of committing an action and then forgetting those actions. The year is about to end, and I joined college this year. Trust me on this: College is the biggest joke one can encounter in his or her life. It's a place where you learn by heart that people's mediocrity will kill you from within. People en masse so desperate with their noses up everyone's asses they will kill your soul, they will kill your passion, they will kill your dreams and most important of all, they will kill your desire to objectively look at things with utmost innocence.<br><br>
+
+But this aloof institutional torture gave me a sense of freedom to explore things I always wanted to explore. I always wanted to experiment with myself, to push myself to an extent where at least once I can measure myself to life's detour. Life hides its meaning. Many can have a nihilistic turn at this, quoting Nietzsche or some western philosopher, but if I cannot say anything you cannot read in a fucking book, what is the use of my own consciousness? How will my experiences, my logic be different from our ancestors who in their search for meaning died of syphilis?<br><br>
+
+I saw 19 winters, and in past 19 years I met many people. I lived many lives, and maybe many lives passed just by touching me. I'm nothing more than the books I have read, people I have met and women I have dated. And to be honest, I failed at most things. Family, love, friendships, goals, desires. A man toughened by his own defeats. But it's funny how when you change your perspective around a certain thing, the action committed, the concept that exists, its meaning, its belonging everything changes in a second. As if a thing was saying something for a long time but now its context has been changed altogether.<br><br>
+
+<i>There have been many books written by ornithologists on birds, but there's not a single book written by birds on ornithologists. - Nassim Taleb's tweet</i><br><br>
+
+In the course of your life you realize very late that you never knew or experienced the other side of the coin. Your entire existence is doomed with conformity. Conformity of your consciousness. It cannot be scaled. It will always perceive things only from your sensory organs. But do you really understand what this tells us about ourselves? That in the course of nature, in front of this massivity of universe we are very small. There exists something bigger than all of us. Something grand, a magnificent design to encompass all of us and still have space left for other little things to come, live, cherish and then be forgotten.<br><br>
+
+The 60s was a defining period for America because the American Dream was re-packaged and sold by Americans who were part of the counterculture. It was when a young generation was disrupting the old American society, the industry run by the orthodox, the conformist pricks of society. We all have greed with which we have agreed, and it's only after you think you want more than you need that this crazy breed of restless souls surge. Many claim and call them crazy, bohemian, mad generation, but it's remarkable that the greatest business empires in the history of human civilization were made by those same rebels. The 21st century was built by those who refused to conform. <br><br>
+
+43% of India's population is under 25 years of age. The reserved class of neglected potential will one day grow too. Can you believe for a second that almost 50% of an entire population is below 25-30? This is extraordinary. People are growing to become free, to experiment with themselves, with their ideals, with things they have been taught so long. They are learning slowly that much of it is pure bullshit. That their culture has been manipulated because political parties wanted to rig the entire system for their own benefit, preying on identity politics. They are learning that institutes aren't often as they claim to be. That the old generation was actually flawed and didn't know shit. <br><br>
+
+The old bred like horses and pigs and overpopulated the land so hard that now it's becoming a huge problem. These people who made a flawed system work and exploited the nation's own population will soon all be dead. Lost in the mist of the already forgotten. There is no reason for anyone to keep them alive in memory. Only those who spoke and questioned the rigged system will be remembered. Not as gods or idols, but as fellow humans who lived, dreamt and died somewhere in between.<br><br>
+
+I read a tweet months ago about <b>seeing this world as a big museum of passion projects,</b> and that's exactly what it is. A civilization fueled by passion, by thinking, by doubt, by questioning, by rejection of status quo and shared peace. The wheel is still spinning, and there's no telling who it's naming. The losers now will be later to win. The times, they are changing, and this is our ode to those who came before - the dead who built the world we're now tearing down to build anew.</p>
+ 
+  <footer>
+    © Vasu Dubey
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      
+      if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+      } else {
+        body.setAttribute('data-theme', 'dark');
+      }
+    }
+
+    // Initialize theme based on system preference
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.body.setAttribute('data-theme', 'dark');
+    }
+  </script>
+</body>
+
+</html>
