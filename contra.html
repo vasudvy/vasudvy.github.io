@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>/vd</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Georgia&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-color: #faf9f7;
+      --text-color: #1a1a1a;
+      --text-secondary: #333;
+      --link-color: #2c2c2c;
+      --border-color: #e8e2d5;
+      --hover-bg: rgba(0, 0, 0, 0.05);
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #0f0f0f;
+      --text-color: #e8e8e8;
+      --text-secondary: #cccccc;
+      --link-color: #d4d4d4;
+      --border-color: #2a2a2a;
+      --hover-bg: rgba(255, 255, 255, 0.1);
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 80px 40px 40px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      position: relative;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--border-color);
+      border: 2px solid var(--text-color);
+      width: 60px;
+      height: 30px;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      outline: none;
+    }
+
+    .theme-toggle::before {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 22px;
+      height: 22px;
+      background: var(--text-color);
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+
+    [data-theme="dark"] .theme-toggle::before {
+      transform: translateX(28px);
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.05);
+    }
+
+    h3 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--text-color);
+      margin-bottom: 40px;
+      text-align: left;
+      letter-spacing: -0.5px;
+    }
+
+    p {
+      margin-bottom: 20px;
+      color: var(--text-secondary);
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    b {
+      font-weight: 600;
+      color: var(--text-color);
+    }
+
+    ul {
+      margin: 10px 0 20px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    ul li {
+      margin-bottom: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      position: relative;
+      padding-left: 15px;
+    }
+
+    ul li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--text-color);
+      font-weight: 500;
+    }
+
+    a {
+      color: var(--link-color);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      transition: all 0.2s ease;
+    }
+
+    a:hover {
+      background-color: var(--hover-bg);
+      text-decoration-thickness: 2px;
+    }
+
+    br {
+      display: block;
+      margin: 15px 0;
+      content: "";
+    }
+
+    footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      font-size: 14px;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 60px 20px 20px;
+        font-size: 15px;
+      }
+      
+      h3 {
+        font-size: 1.75rem;
+      }
+      
+      .theme-toggle {
+        top: 1rem;
+        right: 1rem;
+        width: 50px;
+        height: 25px;
+        border-radius: 12.5px;
+      }
+      
+      .theme-toggle::before {
+        width: 19px;
+        height: 19px;
+      }
+      
+      [data-theme="dark"] .theme-toggle::before {
+        transform: translateX(23px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle"></button>
+
+  <h3>Mankind tamed infinity</h3><br><br>
+  <p>Picture this: you're watching a thrown baseball arc through the air, and you want to know exactly where it will land, or how fast it's moving at any given moment. Today, we solve this with calculus in seconds. But for most of human history, questions about motion, change, and curved shapes were among the deepest mysteries our species faced. <br><br>
+
+The story of calculus isn't just about two brilliant mathematicians having a eureka moment. It's a tale spanning over two millennia, involving civilizations across the globe, each contributing essential pieces to one of humanity's greatest intellectual achievements. This is the story of how we learned to tame infinity itself.<br><br>
+
+In the sun-drenched courtyards of ancient Greece, around 400 BCE, mathematicians were grappling with problems that seemed impossible. How do you find the area of a circle? How do you calculate the volume of a sphere? These weren't just academic exercises, but fundamental questions about the nature of space and measurement.<br><br>
+
+<i><b>Eudoxus of Cnidus</b></i> developed what we now call the <i><u>"method of exhaustion,"</u></i> a technique so clever it would make modern mathematicians smile with recognition. Imagine trying to find the area of a circle by filling it with polygons. Start with a square inside the circle, then an octagon, then a 16-sided figure, and so on. Each time, you get closer to the circle's true area. Eudoxus realized that by making the polygons have more and more sides, approaching infinity, you could capture the circle's area exactly.<br><br>
+
+This was revolutionary thinking. The Greeks were essentially performing what we now call <u>"taking a limit,"</u> one of the core concepts of calculus, though they didn't have the mathematical language to express it that way.<br><br>
+
+<i><b>Archimedes of Syracuse</b></i>, perhaps the greatest mathematician of antiquity, pushed these ideas even further. In his work <u>"The Method,"</u> he described how he would mentally slice complex shapes into infinitely thin strips to find their areas and volumes. He calculated the area under a parabola, found the surface area of a sphere, and even estimated pi to remarkable accuracy. His geometric intuition was so advanced that some historians consider him the first person to truly think in calculus terms.<br><br>
+
+But the Greeks had a crucial limitation. Their mathematics was purely geometric. They could visualize these infinite processes, but they lacked the algebraic tools to generalize them. Each problem required its own custom geometric proof. What they needed was a way to translate geometric insights into symbolic language that could be manipulated and extended.<br><br>
+
+While Europe entered what we call the Dark Ages, mathematical innovation flourished in other parts of the world. In medieval India, a brilliant mathematician named <i><b>Madhava of Sangamagrama</b></i> was making discoveries that wouldn't be rediscovered in Europe for another 300 years.<br><br>
+
+Working in Kerala around 1400 CE, Madhava developed infinite series expansions for trigonometric functions. He found that you could express the sine of an angle as an infinite sum of terms, each more precise than the last. This was calculus thinking in action, though he called it something else entirely. Madhava's work on infinite series was so advanced that historians now refer to his discoveries as "Madhava's calculus."<br><br>
+
+His insights didn't remain isolated. The <i>Kerala School of Mathematics</i> continued his work, developing techniques for calculating derivatives and integrals centuries before these concepts had names. They used these methods for astronomical calculations, tracking the positions of planets with unprecedented accuracy.<br><br>
+
+Meanwhile, in the Islamic world, scholars were preserving and extending Greek mathematical knowledge while developing their own innovations. Mathematicians like <i><b>Ibn al-Haytham</b></i> (known in the West as Alhazen) were studying the properties of curves and developing early ideas about what we now call integration. They were asking questions about areas under curves and volumes of complex shapes, laying crucial groundwork for what was to come.<br><br>
+
+
+By the 1600s, European mathematics was experiencing a renaissance. The rediscovery of ancient Greek texts, combined with new algebraic techniques imported from the Islamic world and India, created a perfect storm of mathematical innovation.<br><br>
+
+<i><b>René Descartes</b></i> revolutionized mathematics by inventing coordinate geometry. For the first time, curves could be described by equations, and geometric problems could be solved algebraically. This was the bridge the Greeks had been missing. Suddenly, the behavior of curves could be studied systematically using algebraic manipulation.<br><br>
+
+<i><b>Pierre de Fermat</b></i>, working alongside Descartes, developed methods for finding tangent lines to curves and locating maximum and minimum points. His technique involved a clever algebraic trick: he would consider two points on a curve very close together, calculate the slope of the line between them, and then imagine what would happen as the points got infinitely close. <br><br>
+
+<i><b>Johannes Kepler</b></i>, studying planetary motion, developed his own geometric methods for calculating areas and volumes. His work <i><u>"Nova Stereometria"</u></i> described techniques for finding volumes by thinking of solids as composed of infinitely many thin slices. He was essentially performing integration, driven by his need to understand the elliptical orbits of planets.<br><br>
+
+The Italian mathematician <i><b>Bonaventura Cavalieri</b></i> formalized these slicing techniques into what became known as <i><u>"Cavalieri's principle."</u></i> He showed that if two solids have the same cross-sectional area at every height, then they have the same volume. This principle became a standard tool for calculating volumes and areas.<br><br>
+
+By the mid-1600s, all the pieces were in place. Mathematicians had geometric intuition about limits and infinite processes from the Greeks. They had algebraic techniques for manipulating equations from Islamic and European scholars. They had coordinate geometry to connect algebra with curves. They had physical problems about motion and change that demanded mathematical solutions.<br><br>
+
+What was missing was someone to see the big picture, to recognize that all these scattered techniques were part of a single, unified mathematical framework. The stage was set for a revolution.<br><br>
+
+
+
+In the 1660s, two mathematical geniuses working independently would finally piece together the calculus puzzle. Their approaches were so different that they almost seem like separate inventions, yet both arrived at the same fundamental insights.
+
+<i><b>Isaac Newton</b></i>, barely out of his teens, was driven by physical intuition. The Great Plague had closed Cambridge University, sending him home to the countryside where he had time to think deeply about motion and mathematics. He was obsessed with understanding how things change over time. How does the speed of a falling apple change from moment to moment? How can you describe the changing velocity of a planet in its orbit?<br><br>
+
+Newton invented what he called <i><u>"the method of fluxions,"</u></i> thinking of changing quantities as flowing like water. He imagined curves as traced out by moving points, and developed techniques for finding the rate of change (what we call the derivative) and the accumulation of change (what we call the integral). His notation was based on dots over variables, representing rates of change.<br><br>
+
+Meanwhile, in Germany, <i><b>Gottfried Wilhelm Leibniz</b></i> was approaching the same problems from a more abstract, philosophical perspective. He was fascinated by the mathematical structure underlying these techniques. Where Newton saw physics, Leibniz saw pure mathematics.<br><br>
+
+Leibniz developed a more systematic notation and approach. He invented the symbols we still use today: <i>dx</i> for an infinitesimal change in x, <i>∫</i> for integration, and d/dx for differentiation. His notation was so well-designed that it made calculus easier to learn, use, and extend. While Newton's approach was powerful, Leibniz's was more accessible and generalizable.<br><br>
+
+
+Both Newton and Leibniz discovered what we now call the <i>Fundamental Theorem of Calculus: differentiation and integration are inverse operations.</i> This was the key insight that unified all the scattered techniques developed over centuries. The Greeks' method of exhaustion, Fermat's tangent-finding techniques, Cavalieri's slicing methods, they were all part of the same mathematical framework.<br><br>
+
+This realization was like discovering that addition and subtraction are opposites, but infinitely more profound. It meant that every problem about rates of change could be solved by thinking about accumulation, and vice versa. It transformed isolated techniques into a unified mathematical language.<br><br>
+
+Unfortunately, the glory of this discovery was marred by one of history's most bitter scientific controversies. Newton had developed his methods first, in the mid-1660s, but kept them largely private for decades. Leibniz developed his approach independently in the mid-1670s, but published first.<br><br>
+
+When Leibniz's work appeared in print, Newton's supporters accused him of stealing ideas from unpublished Newton manuscripts. Leibniz's supporters fired back, claiming priority for their champion. The dispute divided the mathematical community for decades, with English mathematicians following Newton's approach and continental Europeans using Leibniz's methods.<br><br>
+
+Today, we recognize both men as co-inventors of calculus. Newton's physical intuition provided the motivation and many of the key insights. Leibniz's systematic approach and superior notation made calculus accessible to the broader mathematical community.<br><br>
+
+The invention of calculus was perhaps the most important mathematical development in human history. For the first time, mathematicians had a systematic way to study change and motion. The implications were staggering.<br><br>
+
+In physics, calculus became the language of the universe. Newton used it to derive the law of universal gravitation and explain planetary motion. Engineers used it to design bridges and machines. Economists used it to model markets and growth. Biologists used it to understand population dynamics.<br><br>
+
+But perhaps most importantly, calculus changed how we think about the infinite. The Greeks had been afraid of infinity, treating it as a philosophical paradox. Calculus showed that infinity could be tamed, controlled, and used as a practical tool. This opened up entirely new areas of mathematics and science.<br><br>
+
+Today, calculus is everywhere. Every time you use GPS, calculus is calculating your position. Every digital image you see has been processed using calculus-based algorithms. The weather forecast, the design of your car, the medicine you take, all depend on calculus-based calculations.<br><br>
+
+But the story of calculus teaches us something deeper about how knowledge develops. It wasn't the work of isolated geniuses having sudden insights. It was the product of centuries of accumulated wisdom, passed down through cultures and civilizations, each adding their own piece to the puzzle.<br><br>
+
+The ancient Greeks gave us geometric intuition about limits. Indian mathematicians developed infinite series. Islamic scholars preserved and extended these ideas. Renaissance Europeans created the algebraic tools needed for generalization. Newton and Leibniz finally assembled these pieces into a unified framework.<br><br>
+
+This is how science truly progresses: not through isolated flashes of genius, but through the patient accumulation of insights across generations and cultures. The story of calculus is ultimately a story about the power of human curiosity and collaboration, spanning centuries and continents, to unlock the deepest secrets of our universe.<br><br>
+
+In learning calculus today, we're not just mastering a mathematical technique. We're participating in one of humanity's greatest intellectual adventures, standing on the shoulders of giants who spent lifetimes wrestling with the mysteries of change and infinity. Their gift to us is the power to describe and predict the behavior of our dynamic world, from the motion of planets to the flow of blood through our veins.<br><br>
+
+The road to calculus was long and winding, but it led us to one of our species' most powerful tools for understanding reality itself.</p>
+  
+  <footer>
+    © Vasu Dubey
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      
+      if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+      } else {
+        body.setAttribute('data-theme', 'dark');
+      }
+    }
+
+    // Initialize theme based on system preference
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.body.setAttribute('data-theme', 'dark');
+    }
+  </script>
+</body>
+
+</html>
