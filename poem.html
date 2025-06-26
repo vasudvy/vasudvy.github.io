@@ -21,6 +21,8 @@
       --link-color: #2c2c2c;
       --border-color: #e8e2d5;
       --hover-bg: rgba(0, 0, 0, 0.05);
+      --translation-bg: #f5f3f0;
+      --button-bg: #e8e2d5;
     }
 
     [data-theme="dark"] {
@@ -30,6 +32,8 @@
       --link-color: #d4d4d4;
       --border-color: #2a2a2a;
       --hover-bg: rgba(255, 255, 255, 0.1);
+      --translation-bg: #1a1a1a;
+      --button-bg: #2a2a2a;
     }
 
     body {
@@ -89,38 +93,95 @@
       letter-spacing: -0.5px;
     }
 
-    p {
-      margin-bottom: 20px;
+    .intro {
+      margin-bottom: 40px;
       color: var(--text-secondary);
       font-weight: 400;
       line-height: 1.7;
     }
 
+    .poem-container {
+      margin-bottom: 50px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .poem-container:last-of-type {
+      border-bottom: none;
+    }
+
+    .poem-text {
+      font-style: italic;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      color: var(--text-secondary);
+    }
+
+    .poem-text br {
+      display: block;
+      margin: 8px 0;
+      content: "";
+    }
+
+    .translation-toggle {
+      background: var(--button-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: 'Georgia', serif;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      margin-bottom: 15px;
+      display: inline-block;
+    }
+
+    .translation-toggle:hover {
+      background: var(--hover-bg);
+      transform: translateY(-1px);
+    }
+
+    .translation-content {
+      background: var(--translation-bg);
+      border-left: 3px solid var(--text-color);
+      padding: 20px;
+      margin-top: 15px;
+      border-radius: 0 8px 8px 0;
+      display: none;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+    }
+
+    .translation-content.show {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .translation-content p {
+      margin-bottom: 15px;
+      color: var(--text-secondary);
+      font-style: normal;
+      line-height: 1.6;
+    }
+
+    .translation-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .divider {
+      text-align: center;
+      margin: 40px 0;
+      color: var(--text-secondary);
+      font-size: 18px;
+      letter-spacing: 2px;
+    }
+
     b {
       font-weight: 600;
       color: var(--text-color);
-    }
-
-    ul {
-      margin: 10px 0 20px 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    ul li {
-      margin-bottom: 15px;
-      color: var(--text-secondary);
-      line-height: 1.6;
-      position: relative;
-      padding-left: 15px;
-    }
-
-    ul li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: var(--text-color);
-      font-weight: 500;
     }
 
     a {
@@ -134,12 +195,6 @@
     a:hover {
       background-color: var(--hover-bg);
       text-decoration-thickness: 2px;
-    }
-
-    br {
-      display: block;
-      margin: 15px 0;
-      content: "";
     }
 
     footer {
@@ -177,6 +232,10 @@
       [data-theme="dark"] .theme-toggle::before {
         transform: translateX(23px);
       }
+
+      .translation-content {
+        padding: 15px;
+      }
     }
   </style>
 </head>
@@ -184,171 +243,358 @@
 <body>
   <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle"></button>
 
-  <h3>Tarana-e-Khudi</h3><br><br>
-  <p>collection of poems written by me in urdu and hindi language, script remains roman (i will later add devnagri). all of it was written over a period of 2019-2021. my pen name is <i>shaad</i></p><br><br>
+  <h3>Tarana-e-Khudi</h3>
 
-  <p> waqt ke saath khud ko tabaahiyaan kiye hue,<br>
-ab bhi hain hum naqsh-e-wafa zinda kiye hue<br><br>
+  <div class="intro">
+    <p>Collection of poems written by me in Urdu and Hindi language, script remains Roman (I will later add Devnagri). All of it was written over a period of 2019-2022. My pen name is <i>Shaad.</i></p>
+  </div>
 
-har shab hai dil mein gardish-e-soz-e-hijr ki,<br>
-har subah tere zikr ko sajda kiye hue<br><br>
+  <div class="poem-container">
+    <div class="poem-text">
+      waqt ke saath khud ko tabaahiyaan kiye hue,<br>
+      ab bhi hain hum naqsh-e-wafa zinda kiye hue<br><br>
 
-aaina-khaana hai ye wajood mera aajkal,<br>
-har aks mein tujhī ko tamaasha kiye hue<br><br>
+      har shab hai dil mein gardish-e-soz-e-hijr ki,<br>
+      har subah tere zikr ko sajda kiye hue<br><br>
 
-tanha hai dil magar hai basi tujhī ki sada,<br>
-khaamosh lab hain, dil ko rawaansa kiye hue<br><br>
+      aaina-khaana hai ye wajood mera aajkal,<br>
+      har aks mein tujhī ko tamaasha kiye hue<br><br>
 
-hasti se tark-e-hausla kar baithe hain hum,<br>
-jeete hain phir bhi tera hi sapna kiye hue<br><br>
+      tanha hai dil magar hai basi tujhī ki sada,<br>
+      khaamosh lab hain, dil ko rawaansa kiye hue<br><br>
 
-duniya ki har nafas ko ab dekha hai yoon,<br>
-har sannate ko dil se hum-aawaaza kiye hue<br><br>
+      hasti se tark-e-hausla kar baithe hain hum,<br>
+      jeete hain phir bhi tera hi sapna kiye hue<br><br>
 
-'shaad' ab bhi ho kyun goshah-nasheen,<br>
-aalam-e-tajheez-o-takfeen kiye hue.<br><br>
+      duniya ki har nafas ko ab dekha hai yoon,<br>
+      har sannate ko dil se hum-aawaaza kiye hue<br><br>
 
------------<br><br>
+      'shaad' ab bhi ho kyun goshah-nasheen,<br>
+      aalam-e-tajheez-o-takfeen kiye hue.
+    </div>
+    
+    <button class="translation-toggle" onclick="toggleTranslation(this)">Show Translation</button>
+    
+    <div class="translation-content">
+      <p>With time, I have ruined myself,<br>
+      Yet I still keep the mark of loyalty alive.</p>
+      
+      <p>Every night, my heart turns in the pain of separation,<br>
+      Every morning, I bow down to your memory.</p>
+      
+      <p>These days, my being is like a house of mirrors,<br>
+      In every reflection I only see you performing.</p>
+      
+      <p>The heart is lonely, but your voice still lives in it,<br>
+      My lips are silent, but my heart keeps moving forward.</p>
+      
+      <p>I've given up hope in life,<br>
+      Yet I still continue to live, dreaming only of you.</p>
+      
+      <p>Now I see every breath in the world this way,<br>
+      I echo every silence of the world with my heart.</p>
+      
+      <p>Why are you still withdrawn from society, Shaad,<br>
+      Dressed in all white on your pyre ready for funeral?</p>
+    </div>
+  </div>
 
-tumne dekha fakat aankhon ko,<br>
-tumne aankhon mein kahaan dekha hai?<br><br>
+  <div class="poem-container">
+    <div class="poem-text">
+      tumne dekha fakat aankhon ko,<br>
+      tumne aankhon mein kahaan dekha hai?<br><br>
 
-kehte ho ki aaoge hamare khayalon mein,<br>
-humne tumhare khwabon ko kahaan dekha hai?<br><br>
+      kehte ho ki aaoge hamare khayalon mein,<br>
+      humne tumhare khwabon ko kahaan dekha hai?<br><br>
 
-qaafir kehte hain ki bala-e-kaif hai wo,<br>
-kuuche mein kisi ne hamare janaze ko uth'te dekha hai?<br><br>
+      qaafir kehte hain ki bala-e-kaif hai wo,<br>
+      kuuche mein kisi ne hamare janaze ko uth'te dekha hai?<br><br>
 
-laakh baha do tum nehrein khoon ki,<br>
-kisi ne kabhi mashooq ko chaukhta chhorte dekha hai?<br><br>
+      laakh baha do tum nehrein khoon ki,<br>
+      kisi ne kabhi mashooq ko chaukhta chhorte dekha hai?<br><br>
 
-ba ilzaam hai hamara badan aaj dam-ba-dam,<br>
-wali ne aaj ek Kaleem ko may-o-jam mein dekha hai.<br><br>
+      ba ilzaam hai hamara badan aaj dam-ba-dam,<br>
+      wali ne aaj ek Kaleem ko may-o-jam mein dekha hai.<br><br>
 
-darati hai dil ko aaj bhi dast-o-viraangi, <br>
-rind ko humne aaj liye saghar-e-jam jo dekha hai.<br><br>
+      darati hai dil ko aaj bhi dast-o-viraangi,<br>
+      rind ko humne aaj liye saghar-e-jam jo dekha hai.<br><br>
 
-bahut mushkil se uthi thi awaaz o koh-e-kamar,<br>
-boltey aaj aankhon se kisi be-zubaan ko dekha hai.<br><br>
+      bahut mushkil se uthi thi awaaz o koh-e-kamar,<br>
+      boltey aaj aankhon se kisi be-zubaan ko dekha hai.
+    </div>
+    
+    <button class="translation-toggle" onclick="toggleTranslation(this)">Show Translation</button>
+    
+    <div class="translation-content">
+      <p>You only looked into the eyes,<br>
+      But did you ever see what's inside them?</p>
+      
+      <p>You say you'll come into my thoughts,<br>
+      But I've never seen myself in your dreams?</p>
+      
+      <p>Infidels call her beautiful enough to kill anybody,<br>
+      But has anyone seen my funeral pass through her street?</p>
+      
+      <p>You may shed rivers of blood,<br>
+      But has anyone seen a lover leaving her courtyard?</p>
+      
+      <p>My entire being is of a sinner breath by breath,<br>
+      The saints have seen a prophet indulging in wine today.</p>
+      
+      <p>Loneliness still frightens the heart,<br>
+      But we saw a drunkard holding the cup of jamshed today</p>
+      
+      <p>It was so hard for a voice to rise from the pain of chest and back<br>
+      I saw a speechless speaking through his eyes today.</p>
+    </div>
+  </div>
 
--------<br><br>
+  <div class="poem-container">
+    <div class="poem-text">
+      hota hai riyaaz e bachpan<br>
+      riyaaz e jawani se behad muktalif,<br>
+      razaa utarti nahin ragon mein,<br>
+      chamde se <i>'suu'</i> guzar jaane ke baad tak.<br><br>
 
-hota hai riyaaz e bachpan<br>
-riyaaz e jawani se behad muktalif,<br>
-razaa utarti nahin ragon mein,<br>
-chamde se <i>'suu'</i> guzar jaane ke baad tak.<br><br>
+      meri khudi nakaabposh hai,<br>
+      teri ayaat'on ke libaas mein<br>
+      sardi failti nahin zehen mein,<br>
+      jism o mashooq se gaer guzar jaane ke baad tak.<br><br>
 
-meri khudi nakaabposh hai,<br>
-teri ayaat'on ke libaas mein<br>
-sardi failti nahin zehen mein,<br>
-jism o mashooq se gaer guzar jaane ke baad tak.<br><br>
+      dafnaega koh-e-majan ek roz<br>
+      tujhe bhi apne talak 'shaad'<br>
+      makaam nahin hota biyabaan,<br>
+      bazaar-o-fughan se guzar jaane ke baad tak.
+    </div>
+    
+    <button class="translation-toggle" onclick="toggleTranslation(this)">Show Translation</button>
+    
+    <div class="translation-content">
+      <p>The practice of childhood<br>
+      Is very different from the practice of youth.</p>
+      
+      <p>Will doesn't steep into veins,<br>
+      Until it has pierced through the skin.</p>
+      
+      <p>My sense of self is veiled,<br>
+      Dressed in the verses of your signs.</p>
+      
+      <p>Cold doesn't spread into the mind,<br>
+      Until a stranger passes through the beloved's body.</p>
+      
+      <p>One day, the mountain of longing will bury,<br>
+      Even you, Shaad, in its own way.</p>
+      
+      <p>One doesn't find solace in wilderness<br>
+      Until he has passed through the markets and mourning.</p>
+    </div>
+  </div>
 
-dafnaega koh-e-majan ek roz<br>
-tujhe bhi apne talak 'shaad' <br>
-makaam nahin hota biyabaan, <br>
-bazaar-o-fughan se guzar jaane ke baad tak.<br><br>
+  <div class="poem-container">
+    <div class="poem-text">
+      fikr hai hijaab ki<br>
+      hai yugul-e-shab-o-namabar hi<br>
+      aae koyi ki yaadein banein<br>
+      yaadein banein kaagaz tehreer e ilzaam ki.
+    </div>
+    
+    <button class="translation-toggle" onclick="toggleTranslation(this)">Show Translation</button>
+    
+    <div class="translation-content">
+      <p>My concern is the veil,<br>
+      A knot of night and unnamed messengers of love—<br>
+      Let someone come, so memories may be born<br>
+      Let those memories become pages, inscribed with accusations.</p>
+    </div>
+  </div>
 
--------<br><br>
+  <div class="poem-container">
+    <div class="poem-text">
+      ragon mein daudta hai lahu<br>
+      ab tujhse tabeer mangta<br>
+      agar ashq na banein<br>
+      tou fir ye junuun kya de?<br><br>
 
-fikr hai hijaab ki<br>
-hai yugul-e-shab-o-namabar hi<br>
-aae koyi ki yaadein banein<br>
-yaadein banein kaagaz tehreer e ilzaam ki.<br><br>
+      tasawwur ke sehra mein<br>
+      tanhaa bhatakti hai sadaa<br>
+      jo tuu hi na mile<br>
+      tou fir ye safar kya de?<br><br>
 
--------<br><br>
+      basi hain ungliyon mein<br>
+      kirchiyaan kisi duaa ki ab bhi<br>
+      chuyein na tere khayal ko<br>
+      tou fir ye yakeen kya de?<br><br>
 
-ragon mein daudta hai lahu<br>
-ab tujhse tabeer mangta<br>
-agar ashq na banein<br>
-tou fir ye junuun kya de?<br><br>
+      guzarti hai sabaa<br>
+      tere aariz ko chuukar<br>
+      banaein agar ye sama o gulaal<br>
+      tou fir gul ko karobaar kya de?<br><br>
 
-tasawwur ke sehra mein<br>
-tanhaa bhatakti hai sadaa<br>
-jo tuu hi na mile<br>
-tou fir ye safar kya de?<br><br>
+      kis safai se qaatil ne<br>
+      cheena hai lakht e jigar<br>
+      tere hi haanth se nikle<br>
+      tou fir dil daleel kya de?<br><br>
 
-basi hain ungliyon mein<br>
-kirchiyaan kisi duaa ki ab bhi<br>
-chuyein na tere khayal ko<br>
-tou fir ye yakeen kya de?<br><br>
+      tu jurm banke baitha hai<br>
+      sokh o duaa ke mayyar par<br>
+      tere hi naam se hai uth'ti<br>
+      tou fir ye inquilab kya de?<br><br>
 
-guzarti hai sabaa<br>
-tere aariz ko chuukar<br>
-banaein agar ye sama o gulaal<br>
-tou fir gul ko karobaar kya de?<br><br>
+      iss dil o veerane mein<br>
+      sirf ek naam bacha hai 'shaad'<br>
+      wo bhi mit gaya<br>
+      tou fir khuda kya de?
+    </div>
+    
+    <button class="translation-toggle" onclick="toggleTranslation(this)">Show Translation</button>
+    
+    <div class="translation-content">
+      <p>Blood runs in the veins<br>
+      now seeking interpretation from you<br>
+      if it doesn't become tears<br>
+      then what can this madness give?</p>
+      
+      <p>In the desert of imagination<br>
+      the voice wanders alone<br>
+      if you yourself don't meet<br>
+      then what can this journey give?</p>
+      
+      <p>Fragments of some prayer<br>
+      still reside in the fingers<br>
+      if they don't touch your thoughts<br>
+      then what can this faith give?</p>
+      
+      <p>The breeze passes by,<br>
+      Touching your cheek,<br>
+      If that alone turns up atmosphere with full of colors,<br>
+      What business then these flowers give?</p>
+      
+      <p>With what cleverness has the killer<br>
+      snatched the piece of heart<br>
+      if it comes from your own hand<br>
+      then what argument can the heart give?</p>
+      
+      <p>You sit as a crime<br>
+      on the scale of grief and prayer<br>
+      if it rises in your very name<br>
+      then what can this revolution give?</p>
+      
+      <p>In this heart's wilderness<br>
+      only one name remains, 'Shaad'<br>
+      if that too is erased<br>
+      then what can God give?</p>
+    </div>
+  </div>
 
-kis safai se qaatil ne<br>
-cheena hai lakht e jigar<br>
-tere hi haanth se nikle<br>
-tou fir dil daleel kya de?<br><br>
+  <div class="poem-container">
+    <div class="poem-text">
+      duniya ko dekha tou maayusiyan ghar ban gayin<br>
+      har khushi ki teh mein ek be-sada dar ban gayin<br><br>
 
-tu jurm banke baitha hai<br>
-sokh o duaa ke mayyar par<br>
-tere hi naam se hai uth'ti<br>
-tou fir ye inquilab kya de?<br><br>
+      jo naksh the kal talak ayaton jaise lage<br>
+      wohi aaj aankhon mein gard e safar ban gayin<br><br>
 
-iss dil o veerane mein<br>
-sirf ek naam bacha hai 'shaad'<br>
-wo bhi mit gaya<br>
-tou fir khuda kya de?<br><br>
+      mashreek bhi mera magar sahil'on se door<br>
+      kashtiyaan meri taa-umr hi lehar ban gayin<br><br>
 
+      ab talluk ki tijaarat hai har suu zaari<br>
+      dosti bhi yahan dast e safar ban gayin<br><br>
 
--------<br><br>
+      'Shaad' kahun kis'sey ki kya hai<br>
+      zindagi jo ek shab gazida sehar ban gayi
+    </div>
+    
+    <button class="translation-toggle" onclick="toggleTranslation(this)">Show Translation</button>
+    
+    <div class="translation-content">
+      <p>When I looked at the world, disappointments became home<br>
+      beneath every happiness, a silent fear became the foundation</p>
+      
+      <p>The patterns that until yesterday seemed like verses<br>
+      today became dust of travel in the eyes</p>
+      
+      <p>It is indeed my life, but far from shores<br>
+      my existence became waves for a lifetime</p>
+      
+      <p>Now there's trade of relationships everywhere<br>
+      friendship too here became a helping hand for journey</p>
+      
+      <p>'Shaad', what can I tell anyone about what it is<br>
+      life that became a night-bitten dawn</p>
+    </div>
+  </div>
 
-duniya ko dekha tou maayusiyan ghar ban gayin<br>
-har khushi ki teh mein ek be-sada dar ban gayin<br><br>
+  <div class="poem-container">
+    <div class="poem-text">
+      dil hi tou hai tera zikr kare ya khuda keh de<br>
+      har dhadkan ab tujhi se rabu-ruba keh de<br><br>
 
-jo naksh the kal talak ayaton jaise lage<br>
-wohi aaj aankhon mein gard e safar ban gayin<br><br>
+      har raah guzar mein tera noor dhundte hain hum<br>
+      jahaan kho gaya hai tu usi ko raasta keh dein<br><br>
 
-mashreek bhi mera magar sahil'on se door<br>
-kashtiyaan meri taa-umr hi lehar ban gayin<br><br>
+      na dekha tujhko zahir mein magar kya kam hai ye<br>
+      har parde ke peeche sirf tera hi chehra keh dein<br><br>
 
-ab talluk ki tijaarat hai har suu zaari<br>
-dosti bhi yahan dast e safar ban gayin<br><br>
+      hum ne har naksh mein tujhi ko ukera hai<br>
+      ab pat'thar bhi agar boley tou uska pata keh dein<br><br>
 
-'Shaad' kahun kis'sey ki kya hai<br>
-zindagi jo ek shab gazida sehar ban gayi<br><br>
+      'Shaad' tou mita hai roz usi ki talaash mein<br>
+      jisey na paaye kabhi, waahi aasra keh dein
+    </div>
+    
+    <button class="translation-toggle" onclick="toggleTranslation(this)">Show Translation</button>
+    
+    <div class="translation-content">
+      <p>It's only the heart, shall it speak your name, or call you God?<br>
+      Now every heart beat wants to see you face to face.</p>
+      
+      <p>On every path, we search for your light—<br>
+      Where you were lost, now we claim those streets our only path.</p>
+      
+      <p>We've not seen you in the open, but even so—<br>
+      isn't it enough behind every veil, its only your face we see.</p>
+      
+      <p>In every shape, we carved only you—<br>
+      If even a stone near me speaks, it'll speak of your address.</p>
+      
+      <p>'Shaad' is erased daily in the search for you—<br>
+      Shall we call the one we never found our only shelter?</p>
+    </div>
+  </div>
 
+  <div class="poem-container">
+    <div class="poem-text">
+      har aah mein sadaa tera hi naam hota<br>
+      jo dil na tuut'ta tou koyi paighaam hota<br><br>
 
--------<br><br>
+      teri bazm tale jo ubhri thi nazar palat ke<br>
+      bas wo nazzara hi mera imaan hota<br><br>
 
+      bikhar gayen hain khwaab mere aanchal mein<br>
+      teri palkon pe teherta tou anjaam hota<br><br>
 
-dil hi tou hai tera zikr kare ya khuda keh de<br>
-har dhadkan ab tujhi se rabu-ruba keh de<br><br>
+      main khud se bhi gaya teri talaash mein<br>
+      tu saamne hota tou kya mera ayyam hota?
+    </div>
+    
+    <button class="translation-toggle" onclick="toggleTranslation(this)">Show Translation</button>
+    
+    <div class="translation-content">
+      <p>Every sigh carries only your name—<br>
+      Had this heart not broken, what message might it hold?</p>
+      
+      <p>When I turned back in your gathering,<br>
+      That one glance would have become my faith.</p>
+      
+      <p>My dreams now lie scattered in my lap—<br>
+      Had they rested on your lashes, what ending would've come?</p>
+      
+      <p>I even lost myself in the search for you—<br>
+      Had you stood before me,<br>
+      What might my days have become?</p>
+    </div>
+  </div>
 
-har raah guzar mein tera noor dhundte hain hum<br>
-jahaan kho gaya hai tu usi ko raasta keh dein<br><br>
-
-na dekha tujhko zahir mein magar kya kam hai ye<br>
-har parde ke peeche sirf tera hi chehra keh dein<br><br>
-
-hum ne har naksh mein tujhi ko ukera hai<br>
-ab pat'thar bhi agar boley tou uska pata keh dein<br><br>
-
-'Shaad' tou mita hai roz usi ki talaash mein<br>
-jisey na paaye kabhi, waahi aasra keh dein<br><br>
-
-
--------<br><br>
-
-har aah mein sadaa tera hi naam hota<br>
-jo dil na tuut'ta tou koyi paighaam hota<br><br>
-
-teri bazm tale jo ubhri thi nazar palat ke<br>
-bas wo nazzara hi mera imaan hota<br><br>
-
-bikhar gayen hain khwaab mere aanchal mein<br>
-teri palkon pe teherta tou anjaam hota<br><br>
-
-main khud se bhi gaya teri talaash mein<br>
-tu saamne hota tou kya mera ayyam hota?<br><br>
-
--------<br><br>
-
-
- </p>
-  
   <footer>
     © Vasu Dubey
   </footer>
@@ -361,6 +607,25 @@ tu saamne hota tou kya mera ayyam hota?<br><br>
         body.removeAttribute('data-theme');
       } else {
         body.setAttribute('data-theme', 'dark');
+      }
+    }
+
+    function toggleTranslation(button) {
+      const translationContent = button.nextElementSibling;
+      const isShowing = translationContent.classList.contains('show');
+      
+      if (isShowing) {
+        translationContent.classList.remove('show');
+        button.textContent = 'Show Translation';
+        setTimeout(() => {
+          translationContent.style.display = 'none';
+        }, 300);
+      } else {
+        translationContent.style.display = 'block';
+        setTimeout(() => {
+          translationContent.classList.add('show');
+        }, 10);
+        button.textContent = 'Hide Translation';
       }
     }
 
