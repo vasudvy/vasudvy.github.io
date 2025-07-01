@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>/vd</title>
+  <title>Resonance - One Pager</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Georgia&display=swap');
 
@@ -89,6 +89,14 @@
       letter-spacing: -0.5px;
     }
 
+    h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-color);
+      margin: 30px 0 20px 0;
+      letter-spacing: -0.3px;
+    }
+
     p {
       margin-bottom: 20px;
       color: var(--text-secondary);
@@ -123,6 +131,17 @@
       font-weight: 500;
     }
 
+    ol {
+      margin: 10px 0 20px 20px;
+      padding: 0;
+    }
+
+    ol li {
+      margin-bottom: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
     a {
       color: var(--link-color);
       text-decoration: underline;
@@ -140,6 +159,33 @@
       display: block;
       margin: 15px 0;
       content: "";
+    }
+
+    .asset {
+      margin: 25px 0;
+      padding: 15px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      background-color: var(--bg-color);
+    }
+
+    .asset-title {
+      font-weight: 600;
+      color: var(--text-color);
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+
+    video {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 5px;
     }
 
     footer {
@@ -184,25 +230,60 @@
 <body>
   <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle"></button>
   
-  <h3>Vasu Dubey</h3>
+  <h3>Resonance, One Pager</h3>
   
-  <p>Hi, I am Vasu. I am working on generative voice for speech impaired patients these days. 
- <br><br>
+  <h4>This is the state of artificial speech today</h4>
 
-Here is my <a href=" https://boxd.it/Hhj94">letterboxd</a> I will put my goodreads here soon.</p><br>
-  
-  <p>I seldom write blogs and post it <a href="https://vasudvy.github.io/blog.html">here</a></p><br>
+  <div class="asset">
+    <div class="asset-title">Asset 1: Voice Prosthesis</div>
+    <video controls>
+      <source src="https://vasudvy.github.io/videoplayback(2).mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
 
-<p>Few <a href="">questions</a> which i revisit time to time.<br>
-  
-  <p><b>Contact</b>:</p>
-  <ul>
-    <li>Email: vasudy02[at]gmail[dot]com</li>
-    <li>My PGP Keys: updating soon*</li>
-  </ul>
+  <div class="asset">
+    <div class="asset-title">Asset 2: Electrolarynx</div>
+    <audio controls>
+      <source src="https://vasudvy.github.io/videoplayback.m4a" type="audio/mp4">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <div class="asset">
+    <div class="asset-title">Asset 3: Resonance Potential</div>
+    <audio controls>
+      <source src="https://vasudvy.github.io/Call%20recording%20-918035738735_250603_180038.m4a" type="audio/mp4">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <p><b>Problem</b>:<br><br>
+
+Adults who lose speech ability after stroke or vocal cord surgery face significant communication barriers. Existing solutions provide poor speech quality and user experience, leading to social isolation and reduced quality of life.</p><br>
+
+<p><b>Our Solution</b>:<br><br>
+
+We are creating Resonance, an AI-prosodic generator that translates laryngeal muscle signals into prosodic vibrations. User's mouth and lip movement become filters, transforming these vibrations into audible, natural sounding speech.</p><br>
+
+<p><b>USP of Resonance</b>:</p>
+<ul>
+  <li>Non invasive</li>
+  <li>Gets better with usage</li>
+  <li>Affordable for user compared to device and surgery costs</li>
+  <li>Empowers self expression</li>
+</ul>
+
+<p><b>Technical Breakdown of Resonance</b>:</p>
+<ol>
+  <li><b>Sensors</b>: To track muscle movements, with mixed materials</li>
+  <li><b>Neural Network (Edge AI)</b>: To translate muscle signals into phoneme patterns</li>
+  <li><b>Actuator</b>: AI-controlled actuator for prosody generation</li>
+  <li><b>Mouth & Lip Movements</b>: Translate prosody into audible speech</li>
+</ol>
 
   <footer>
-    © Vasu Dubey
+    © Resonance Project 2025
   </footer>
 
   <script>
