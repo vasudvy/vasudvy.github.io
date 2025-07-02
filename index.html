@@ -47,7 +47,7 @@
 <tr><td>
 
 <!-- Intro Section -->
-<div id="intro">
+<div id="intro" style="display: block;">
 <h1>This is the state of artificial speech today</h1>
 
 <table border="1" cellpadding="10" cellspacing="0" width="100%">
@@ -366,37 +366,69 @@ function adjustLayout() {
 function showSection(sectionId) {
     var sections = ['intro', 'problem', 'solution', 'how-it-works', 'traction', 'tech-breakdown', 'insights', 'market'];
     
+    // Hide all sections
     for (var i = 0; i < sections.length; i++) {
-        document.getElementById(sections[i]).style.display = 'none';
+        var sectionElement = document.getElementById(sections[i]);
+        if (sectionElement) {
+            sectionElement.style.display = 'none';
+        }
+        
+        // Reset navigation styling
         var navLink = document.getElementById('nav-' + sections[i]);
-        if (navLink) {
+        if (navLink && navLink.parentNode) {
             navLink.parentNode.bgcolor = '';
-            navLink.innerHTML = navLink.innerHTML.replace('<b>', '').replace('</b>', '');
+            var content = navLink.innerHTML;
+            if (content) {
+                navLink.innerHTML = content.replace(/<\/?b>/g, '');
+            }
         }
     }
     
-    document.getElementById(sectionId).style.display = 'block';
+    // Show selected section
+    var targetSection = document.getElementById(sectionId);
+    if (targetSection) {
+        targetSection.style.display = 'block';
+    }
     
+    // Update navigation styling
     var activeNav = document.getElementById('nav-' + sectionId);
-    if (activeNav) {
+    if (activeNav && activeNav.parentNode) {
         activeNav.parentNode.bgcolor = '#f0f0f0';
-        if (activeNav.innerHTML.indexOf('<b>') === -1) {
-            activeNav.innerHTML = '<b>' + activeNav.innerHTML + '</b>';
+        var content = activeNav.innerHTML;
+        if (content && content.indexOf('<b>') === -1) {
+            activeNav.innerHTML = '<b>' + content + '</b>';
         }
     }
     
+    // Update mobile select
     var mobileSelect = document.querySelector('#mobile-nav select');
     if (mobileSelect) {
         mobileSelect.value = sectionId;
     }
 }
 
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    adjustLayout();
+    showSection('intro');
+});
+
+// Also handle window load as backup
 window.onload = function() {
     adjustLayout();
     showSection('intro');
 };
 
 window.onresize = adjustLayout;
+
+// Initialize immediately if DOM is already loaded
+if (document.readyState === 'loading') {
+    // Do nothing, DOMContentLoaded will fire
+} else {
+    // DOM is already loaded
+    adjustLayout();
+    showSection('intro');
+}
 </script>
 
 </body>
