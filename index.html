@@ -1,307 +1,389 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Resonance - One Pager</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Georgia&display=swap');
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --bg-color: #faf9f7;
-      --text-color: #1a1a1a;
-      --text-secondary: #333;
-      --link-color: #2c2c2c;
-      --border-color: #e8e2d5;
-      --hover-bg: rgba(0, 0, 0, 0.05);
-    }
-
-    [data-theme="dark"] {
-      --bg-color: #0f0f0f;
-      --text-color: #e8e8e8;
-      --text-secondary: #cccccc;
-      --link-color: #d4d4d4;
-      --border-color: #2a2a2a;
-      --hover-bg: rgba(255, 255, 255, 0.1);
-    }
-
-    body {
-      font-family: 'Georgia', serif;
-      font-size: 16px;
-      line-height: 1.6;
-      color: var(--text-color);
-      background-color: var(--bg-color);
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 80px 40px 40px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      position: relative;
-    }
-
-    .theme-toggle {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: var(--border-color);
-      border: 2px solid var(--text-color);
-      width: 60px;
-      height: 30px;
-      border-radius: 15px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      z-index: 1000;
-      outline: none;
-    }
-
-    .theme-toggle::before {
-      content: '';
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      width: 22px;
-      height: 22px;
-      background: var(--text-color);
-      border-radius: 50%;
-      transition: transform 0.3s ease;
-    }
-
-    [data-theme="dark"] .theme-toggle::before {
-      transform: translateX(28px);
-    }
-
-    .theme-toggle:hover {
-      transform: scale(1.05);
-    }
-
-    h3 {
-      font-size: 2rem;
-      font-weight: 600;
-      color: var(--text-color);
-      margin-bottom: 40px;
-      text-align: left;
-      letter-spacing: -0.5px;
-    }
-
-    h4 {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--text-color);
-      margin: 30px 0 20px 0;
-      letter-spacing: -0.3px;
-    }
-
-    p {
-      margin-bottom: 20px;
-      color: var(--text-secondary);
-      font-weight: 400;
-      line-height: 1.7;
-    }
-
-    b {
-      font-weight: 600;
-      color: var(--text-color);
-    }
-
-    ul {
-      margin: 10px 0 20px 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    ul li {
-      margin-bottom: 15px;
-      color: var(--text-secondary);
-      line-height: 1.6;
-      position: relative;
-      padding-left: 15px;
-    }
-
-    ul li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: var(--text-color);
-      font-weight: 500;
-    }
-
-    ol {
-      margin: 10px 0 20px 20px;
-      padding: 0;
-    }
-
-    ol li {
-      margin-bottom: 15px;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-
-    a {
-      color: var(--link-color);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      text-decoration-thickness: 1px;
-      transition: all 0.2s ease;
-    }
-
-    a:hover {
-      background-color: var(--hover-bg);
-      text-decoration-thickness: 2px;
-    }
-
-    br {
-      display: block;
-      margin: 15px 0;
-      content: "";
-    }
-
-    .asset {
-      margin: 25px 0;
-      padding: 15px;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      background-color: var(--bg-color);
-    }
-
-    .asset-title {
-      font-weight: 600;
-      color: var(--text-color);
-      margin-bottom: 10px;
-      font-size: 0.95rem;
-    }
-
-    video {
-      width: 100%;
-      max-width: 100%;
-      height: auto;
-      border-radius: 6px;
-    }
-
-    audio {
-      width: 100%;
-      margin-top: 5px;
-    }
-
-    footer {
-      margin-top: 60px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border-color);
-      font-size: 14px;
-      color: var(--text-secondary);
-      text-align: center;
-    }
-
-    @media (max-width: 600px) {
-      body {
-        padding: 60px 20px 20px;
-        font-size: 15px;
-      }
-      
-      h3 {
-        font-size: 1.75rem;
-      }
-      
-      .theme-toggle {
-        top: 1rem;
-        right: 1rem;
-        width: 50px;
-        height: 25px;
-        border-radius: 12.5px;
-      }
-      
-      .theme-toggle::before {
-        width: 19px;
-        height: 19px;
-      }
-      
-      [data-theme="dark"] .theme-toggle::before {
-        transform: translateX(23px);
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resonance - Speech Prosthesis</title>
 </head>
+<body bgcolor="#ffffff" text="#000000" link="#0000ee" vlink="#551a8b">
 
-<body>
-  <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle"></button>
-  
-  <h3>Resonance, <br>One Pager</h3>
-  
-  <h4>This is the state of artificial speech today</h4>
+<!-- Mobile Navigation -->
+<div id="mobile-nav" style="display:none;">
+<form>
+<select onchange="showSection(this.value)">
+<option value="intro">Intro.</option>
+<option value="problem">Problem</option>
+<option value="solution">Solution</option>
+<option value="how-it-works">How it works</option>
+<option value="traction">Traction</option>
+<option value="tech-breakdown">Tech Breakdown</option>
+<option value="insights">Insights</option>
+<option value="market">Market</option>
+</select>
+</form>
+<hr>
+</div>
 
-  <div class="asset">
-    <div class="asset-title">Voice Prosthesis (Surgery)</div>
-    <video controls>
-      <source src="https://drive.google.com/file/d/1EczeOOBIwngx5oHyzh7eK3IvV_FUtL4N/view?usp=drivesdk" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
 
-  <div class="asset">
-    <div class="asset-title">Electrolarynx Device</div>
-    <audio controls>
-      <source src="https://vasudvy.github.io/videoplayback.m4a" type="audio/mp4">
-      Your browser does not support the audio element.
-    </audio>
-  </div>
+<!-- Desktop Sidebar -->
+<td width="200" valign="top" id="sidebar">
+<table width="100%" border="1" cellpadding="8" cellspacing="0">
+<tr><td bgcolor="#f0f0f0"><a href="#" onclick="showSection('intro')" id="nav-intro"><b>Intro.</b></a></td></tr>
+<tr><td><a href="#" onclick="showSection('problem')" id="nav-problem">Problem</a></td></tr>
+<tr><td><a href="#" onclick="showSection('solution')" id="nav-solution">Solution</a></td></tr>
+<tr><td><a href="#" onclick="showSection('how-it-works')" id="nav-how-it-works">How it works</a></td></tr>
+<tr><td><a href="#" onclick="showSection('traction')" id="nav-traction">Traction</a></td></tr>
+<tr><td><a href="#" onclick="showSection('tech-breakdown')" id="nav-tech-breakdown">Tech Breakdown</a></td></tr>
+<tr><td><a href="#" onclick="showSection('insights')" id="nav-insights">Insights</a></td></tr>
+<tr><td><a href="#" onclick="showSection('market')" id="nav-market">Market</a></td></tr>
+</table>
+</td>
 
-  <div class="asset">
-    <div class="asset-title">Resonance Potential</div>
-    <audio controls>
-      <source src="https://vasudvy.github.io/Call%20recording%20-918035738735_250603_180038.m4a" type="audio/mp4">
-      Your browser does not support the audio element.
-    </audio>
-  </div>
+<!-- Main Content -->
+<td valign="top">
+<table width="100%" border="0" cellpadding="20" cellspacing="0">
+<tr><td>
 
-  <p><b>Problem</b>:<br><br>
+<!-- Intro Section -->
+<div id="intro">
+<h1>This is the state of artificial speech today</h1>
 
-Adults who lose speech ability after stroke or vocal cord surgery face significant communication barriers. Existing solutions provide poor speech quality and user experience, leading to social isolation and reduced quality of life.</p><br>
+<table border="1" cellpadding="10" cellspacing="0" width="100%">
+<tr><td align="center">
+<table border="0" cellpadding="20" cellspacing="0" width="100%" bgcolor="#000000">
+<tr><td align="center">
+<font color="#ffffff" size="3">📹 Voice Prosthesis Demo Video (with subtitles)</font>
+</td></tr>
+</table>
+<i>Current voice prosthesis technology demonstration</i>
+</td></tr>
+</table>
 
-<p><b>Our Solution</b>:<br><br>
+<br>
 
-We are creating Resonance, an AI-prosodic generator that translates laryngeal muscle signals into prosodic vibrations. User's mouth and lip movement become filters, transforming these vibrations into audible, natural sounding speech.</p><br>
+<table border="1" cellpadding="10" cellspacing="0" width="100%">
+<tr><td>
+<b>Electrolarynx</b><br><br>
+<table border="0" cellpadding="10" cellspacing="0" width="100%" bgcolor="#f5f5f5">
+<tr><td align="center">🔊 Audio Sample - Traditional Electrolarynx</td></tr>
+</table>
+</td></tr>
+</table>
 
-<p><b>USP of Resonance</b>:</p>
+<br><br>
+
+<table border="1" cellpadding="10" cellspacing="0" width="100%">
+<tr><td>
+<b>More audible, natural sounding speech (Resonance potential)</b><br><br>
+<table border="0" cellpadding="10" cellspacing="0" width="100%" bgcolor="#f5f5f5">
+<tr><td align="center">🔊 Audio Sample - Enhanced Natural Speech</td></tr>
+</table>
+</td></tr>
+</table>
+</div>
+
+<!-- Problem Section -->
+<div id="problem" style="display:none;">
+<h1>Problem</h1>
+
+<p>Adults who lose speech ability after stroke or vocal cord surgery face significant communication barriers. Existing solutions provide poor speech quality and user experience, leading to social isolation and reduced quality of life.</p>
+
 <ul>
-  <li>Non invasive</li>
-  <li>Gets better with usage</li>
-  <li>Affordable for user compared to device and surgery costs</li>
-  <li>Empowers self expression</li>
+<li><b>Devices incur hefty upfront cost.</b></li>
+<li><b>Surgeries are expensive with 30% failure rates</b></li>
+<li><b>Neck-mounted devices stream audio via speakers from neck creating uncanny experience.</b></li>
+</ul>
+</div>
+
+<!-- Solution Section -->
+<div id="solution" style="display:none;">
+<h1>Solution</h1>
+
+<table border="1" cellpadding="20" cellspacing="0">
+<tr><td align="center" bgcolor="#f0f0f0">
+🔬 Resonance Device Image<br>
+<small>Neck patch prosthetic device</small>
+</td></tr>
+</table>
+
+<br>
+
+<p>We are creating <b>Resonance</b> a device which user can wear as patch on neck and using AI the device generates prosodic vibrations which are filtered out as audible speech through user's natural mouth & lip movement.</p>
+
+<ul>
+<li><b>Non invasive:</b> requires no surgery</li>
+<li><b>Adaptive:</b> gets better with usage</li>
+<li><b>Audible:</b> interpretable speech for end-listener</li>
+</ul>
+</div>
+
+<!-- How it Works Section -->
+<div id="how-it-works" style="display:none;">
+<h1>How it Works</h1>
+
+<table border="1" cellpadding="15" cellspacing="0" width="100%">
+<tr><td align="center">
+
+<table border="0" cellpadding="10" cellspacing="0">
+<tr><td align="center" bgcolor="#e0e0e0"><b>1. Sensors capture laryngeal muscle signals</b></td></tr>
+<tr><td align="center">↓</td></tr>
+<tr><td align="center" bgcolor="#e0e0e0"><b>2. Trained ML model translates signals to phoneme patterns</b></td></tr>
+<tr><td align="center">↓</td></tr>
+<tr><td align="center" bgcolor="#e0e0e0"><b>3. AI generates prosodic vibrations delivered by actuator</b></td></tr>
+<tr><td align="center">↓</td></tr>
+<tr><td align="center" bgcolor="#e0e0e0"><b>4. Electromechanical force applied to user's face</b></td></tr>
+<tr><td align="center">↓</td></tr>
+<tr><td align="center" bgcolor="#e0e0e0"><b>5. Mouth and lip movements filter vibrations as speech<br>with real-time prosodic adjustment</b></td></tr>
+</table>
+
+</td></tr>
+</table>
+</div>
+
+<!-- Traction Section -->
+<div id="traction" style="display:none;">
+<h1>Traction</h1>
+
+<h2>Development Progress</h2>
+
+<ul>
+<li><b>ML model for translation</b> - Signal processing algorithm developed</li>
+<li><b>Conducted interviews with ENT surgeons & laryngectomy patients</b> - Market validation completed</li>
 </ul>
 
-<p><b>Technical Breakdown of Resonance</b>:</p>
-<ol>
-  <li><b>Sensors</b>: To track muscle movements, with mixed materials</li>
-  <li><b>Neural Network (Edge AI)</b>: To translate muscle signals into phoneme patterns</li>
-  <li><b>Actuator</b>: AI-controlled actuator for prosody generation</li>
-  <li><b>Mouth & Lip Movements</b>: Translate prosody into audible speech</li>
-</ol>
+<h2>Immediate Focus</h2>
 
-  <footer>
-    © Resonance Project 2025
-  </footer>
+<table border="1" cellpadding="15" cellspacing="0" width="100%">
+<tr bgcolor="#f0f0f0">
+<th>Priority</th>
+<th>Status</th>
+</tr>
+<tr>
+<td><b>Hardware assembly and first prototype development</b></td>
+<td>In Progress</td>
+</tr>
+<tr>
+<td><b>Distribution line achieved for POC with real world user</b></td>
+<td>Target Q2 2025</td>
+</tr>
+</table>
+</div>
 
-  <script>
-    function toggleTheme() {
-      const body = document.body;
-      
-      if (body.getAttribute('data-theme') === 'dark') {
-        body.removeAttribute('data-theme');
-      } else {
-        body.setAttribute('data-theme', 'dark');
-      }
+<!-- Tech Breakdown Section -->
+<div id="tech-breakdown" style="display:none;">
+<h1>Tech Breakdown</h1>
+
+<h2>Hardware Components</h2>
+
+<table border="1" cellpadding="10" cellspacing="0" width="100%">
+<tr bgcolor="#f0f0f0">
+<th>Component</th>
+<th>Function</th>
+<th>Specifications</th>
+</tr>
+<tr>
+<td><b>EMG Sensors</b></td>
+<td>Muscle signal detection</td>
+<td>24-bit resolution, 1kHz sampling</td>
+</tr>
+<tr>
+<td><b>Processing Unit</b></td>
+<td>ML inference & signal processing</td>
+<td>ARM Cortex-M7, 400MHz</td>
+</tr>
+<tr>
+<td><b>Haptic Actuator</b></td>
+<td>Vibration generation</td>
+<td>80-300Hz spectrum, 0.5g force</td>
+</tr>
+<tr>
+<td><b>Battery Module</b></td>
+<td>Power supply</td>
+<td>Li-Po 3.7V, 8-hour usage</td>
+</tr>
+<tr>
+<td><b>Wireless Module</b></td>
+<td>Connectivity & updates</td>
+<td>Bluetooth 5.0, OTA capable</td>
+</tr>
+</table>
+
+<h2>Software Architecture</h2>
+
+<table border="1" cellpadding="15" cellspacing="0" width="100%">
+<tr><td align="center">
+
+<table border="0" cellpadding="10" cellspacing="0">
+<tr><td align="center" bgcolor="#e0e0e0"><b>Signal Acquisition Layer</b><br>EMG preprocessing & filtering</td></tr>
+<tr><td align="center">↓</td></tr>
+<tr><td align="center" bgcolor="#e0e0e0"><b>ML Inference Engine</b><br>TensorFlow Lite model execution</td></tr>
+<tr><td align="center">↓</td></tr>
+<tr><td align="center" bgcolor="#e0e0e0"><b>Prosodic Generator</b><br>Dynamic vibration synthesis</td></tr>
+<tr><td align="center">↓</td></tr>
+<tr><td align="center" bgcolor="#e0e0e0"><b>Actuator Control</b><br>Real-time vibration delivery</td></tr>
+</table>
+
+</td></tr>
+</table>
+</div>
+
+<!-- Insights Section -->
+<div id="insights" style="display:none;">
+<h1>Insights</h1>
+
+<h2>AI Prosodic Generator</h2>
+
+<p>We are training an AI prosodic generator that generates dynamic vibration movements across <b>80-300Hz spectrum</b>. It matches prosody with phoneme and sets up exact tone for vibration.</p>
+
+<table border="1" cellpadding="10" cellspacing="0" width="100%">
+<tr bgcolor="#f0f0f0">
+<th>Frequency Range</th>
+<th>Phoneme Type</th>
+<th>Vibration Pattern</th>
+</tr>
+<tr>
+<td>80-120Hz</td>
+<td>Vowels (a, e, i, o, u)</td>
+<td>Sustained resonance</td>
+</tr>
+<tr>
+<td>120-200Hz</td>
+<td>Consonants (b, d, g, m, n)</td>
+<td>Pulsed modulation</td>
+</tr>
+<tr>
+<td>200-300Hz</td>
+<td>Fricatives (f, s, sh, th)</td>
+<td>High-frequency bursts</td>
+</tr>
+</table>
+
+<h2>Key Clinical Insight</h2>
+
+<p>In post-surgical patients, <b>muscle movement is not lost</b>. This means we can track muscle movements to create necessary vibration patterns for speech reconstruction.</p>
+
+<table border="1" cellpadding="15" cellspacing="0" width="100%">
+<tr><td>
+<b>Preserved Functions:</b>
+<ul>
+<li>Laryngeal muscle contractions</li>
+<li>Diaphragmatic movement patterns</li>
+<li>Oral articulation reflexes</li>
+<li>Neural pathway integrity</li>
+</ul>
+</td></tr>
+</table>
+</div>
+<div id="market" style="display:none;">
+<h1>Market</h1>
+
+<h2>Market Size</h2>
+
+<table border="1" cellpadding="15" cellspacing="0" width="100%">
+<tr>
+<td align="center" width="33%">
+<b>300,000</b><br>
+Annual laryngectomy procedures<br>
+<b>Immediate Users</b>
+</td>
+<td align="center" width="33%">
+<b>18M+</b><br>
+Global patients with stroke and post-surgical vocal damage<br>
+<b>SAM</b>
+</td>
+<td align="center" width="33%">
+<b>175M+</b><br>
+Global people with speech impairment<br>
+<b>TAM</b>
+</td>
+</tr>
+</table>
+
+<h2>User LTV Profiles</h2>
+
+<table border="1" cellpadding="10" cellspacing="0" width="100%">
+<tr bgcolor="#f0f0f0">
+<th>Duration</th>
+<th>User Percentage</th>
+<th>Profile</th>
+</tr>
+<tr>
+<td><b>1-3 years</b></td>
+<td align="center">30%</td>
+<td>Early adopters, trial users</td>
+</tr>
+<tr>
+<td><b>4-10 years</b></td>
+<td align="center">45%</td>
+<td>Regular long-term users</td>
+</tr>
+<tr>
+<td><b>10+ years</b></td>
+<td align="center">25%</td>
+<td>Lifetime committed users</td>
+</tr>
+</table>
+</div>
+
+</td></tr>
+</table>
+</td>
+
+</tr>
+</table>
+
+<script>
+function isMobile() {
+    return window.innerWidth <= 600;
+}
+
+function adjustLayout() {
+    if (isMobile()) {
+        document.getElementById('mobile-nav').style.display = 'block';
+        document.getElementById('sidebar').style.display = 'none';
+    } else {
+        document.getElementById('mobile-nav').style.display = 'none';
+        document.getElementById('sidebar').style.display = 'table-cell';
     }
+}
 
-    // Initialize theme based on system preference
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.body.setAttribute('data-theme', 'dark');
+function showSection(sectionId) {
+    var sections = ['intro', 'problem', 'solution', 'how-it-works', 'traction', 'tech-breakdown', 'insights', 'market'];
+    
+    for (var i = 0; i < sections.length; i++) {
+        document.getElementById(sections[i]).style.display = 'none';
+        var navLink = document.getElementById('nav-' + sections[i]);
+        if (navLink) {
+            navLink.parentNode.bgcolor = '';
+            navLink.innerHTML = navLink.innerHTML.replace('<b>', '').replace('</b>', '');
+        }
     }
-  </script>
+    
+    document.getElementById(sectionId).style.display = 'block';
+    
+    var activeNav = document.getElementById('nav-' + sectionId);
+    if (activeNav) {
+        activeNav.parentNode.bgcolor = '#f0f0f0';
+        if (activeNav.innerHTML.indexOf('<b>') === -1) {
+            activeNav.innerHTML = '<b>' + activeNav.innerHTML + '</b>';
+        }
+    }
+    
+    var mobileSelect = document.querySelector('#mobile-nav select');
+    if (mobileSelect) {
+        mobileSelect.value = sectionId;
+    }
+}
+
+window.onload = function() {
+    adjustLayout();
+    showSection('intro');
+};
+
+window.onresize = adjustLayout;
+</script>
+
 </body>
-
 </html>
