@@ -1,399 +1,690 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Resonance - Speech Prosthesis</title>
-</head>
-<body bgcolor="#ffffff" text="#000000" link="#0000ee" vlink="#551a8b">
-
-<!-- Mobile Navigation -->
-<div id="mobile-nav" style="display:none;">
-<form>
-<select onchange="showSection(this.value)">
-<option value="intro">Intro.</option>
-<option value="problem">Problem</option>
-<option value="solution">Solution</option>
-<option value="how-it-works">How it works</option>
-<option value="traction">Traction</option>
-<option value="insights">Insights</option>
-<option value="market">Market</option>
-</select>
-</form>
-<hr>
-</div>
-
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-<tr>
-
-<!-- Desktop Sidebar -->
-<td width="200" valign="top" id="sidebar">
-<table width="100%" border="1" cellpadding="8" cellspacing="0">
-<tr><td bgcolor="#f0f0f0"><a href="#" onclick="showSection('intro')" id="nav-intro"><b>Intro.</b></a></td></tr>
-<tr><td><a href="#" onclick="showSection('problem')" id="nav-problem">Problem</a></td></tr>
-<tr><td><a href="#" onclick="showSection('solution')" id="nav-solution">Solution</a></td></tr>
-<tr><td><a href="#" onclick="showSection('how-it-works')" id="nav-how-it-works">How it works</a></td></tr>
-<tr><td><a href="#" onclick="showSection('traction')" id="nav-traction">Traction</a></td></tr>
-<tr><td><a href="#" onclick="showSection('insights')" id="nav-insights">Insights</a></td></tr>
-<tr><td><a href="#" onclick="showSection('market')" id="nav-market">Market</a></td></tr>
-</table>
-</td>
-
-<!-- Main Content -->
-<td valign="top">
-<table width="100%" border="0" cellpadding="20" cellspacing="0">
-<tr><td>
-
-<!-- Intro Section -->
-<div id="intro" style="display: block;">
-<h1>This is the state of artificial speech today</h1>
-
-<table border="1" cellpadding="10" cellspacing="0" width="100%">
-<tr><td align="center">
-<video width="100%" height="300" controls style="max-width: 600px;">
-<source src="https://vasudvy.github.io/sppro.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-<br><br>
-<i>Current voice prosthesis technology demonstration<br>
-<ul><li>expensive, monotone & requires long term care</li></i>
-</td></tr>
-</table>
-
-<br>
-
-<table border="1" cellpadding="10" cellspacing="0" width="100%">
-<tr><td>
-<b>Electrolarynx</b><br><br>
-<audio controls style="width: 100%;">
-<source src="https://vasudvy.github.io/videoplayback.m4a" type="audio/mp4">
-Your browser does not support the audio element.
-</audio>
-<br><br>
-<i>Traditional electrolarynx speech quality</i>
-</td></tr>
-</table>
-
-<br><br>
-
-<table border="1" cellpadding="10" cellspacing="0" width="100%">
-<tr><td>
-<b>More audible, natural sounding speech (Resonance potential)</b><br><br>
-<audio controls style="width: 100%;">
-<source src="https://vasudvy.github.io/demospv.m4a" type="audio/mp4">
-Your browser does not support the audio element.
-</audio>
-<br><br>
-<i>Generative voice-muscle interface.</i>
-</td></tr>
-</table>
-</div>
-
-<!-- Problem Section -->
-<div id="problem" style="display:none;">
-<h1>Problem</h1>
-
-<p>Adults who lose speech ability after stroke or vocal cord surgery face significant communication barriers. Existing solutions provide poor speech quality and user experience, leading to social isolation and reduced quality of life.</p>
-
-<table style="border-collapse: collapse; width: 100%; font-size: 14px; margin-top: 20px;">
-<tr style="background-color: #f5f5f5;">
-<th style="border: 1px solid #ddd; padding: 12px; text-align: left; font-weight: bold;">Current Alternatives</th>
-<th style="border: 1px solid #ddd; padding: 12px; text-align: left; font-weight: bold;">Limitations</th>
-</tr>
-<tr>
-<td style="border: 1px solid #ddd; padding: 10px;"><b>AAC Devices</b></td>
-<td style="border: 1px solid #ddd; padding: 10px;"><b>Hefty upfront cost</b></td>
-</tr>
-<tr style="background-color: #f9f9f9;">
-<td style="border: 1px solid #ddd; padding: 10px;"><b>Electrolarynx Devices</b></td>
-<td style="border: 1px solid #ddd; padding: 10px;"><b>Robotic voice quality and social stigma</b></td>
-</tr>
-<tr>
-<td style="border: 1px solid #ddd; padding: 10px;"><b>Surgical Interventions</b></td>
-<td style="border: 1px solid #ddd; padding: 10px;"><b>Expensive with 30% failure rates</b></td>
-</tr>
-<tr style="background-color: #f9f9f9;">
-<td style="border: 1px solid #ddd; padding: 10px;"><b>Neck-mounted Devices</b></td>
-<td style="border: 1px solid #ddd; padding: 10px;"><b>Stream audio via speakers from neck creating uncanny experience</b></td>
-</tr>
-<tr>
-<td style="border: 1px solid #ddd; padding: 10px;"><b>Speech Therapy</b></td>
-<td style="border: 1px solid #ddd; padding: 10px;"><b>Natural-recovery has high dropoff rates</b></td>
-</tr>
-</table>
-</div>
-
-<!-- Solution Section -->
-<div id="solution" style="display:none;">
-<h1>Solution</h1>
-
-<table border="1" cellpadding="20" cellspacing="0" width="100%">
-<tr><td align="center" bgcolor="#f0f0f0">
-<img src="https://vasudvy.github.io/spmodel.jpeg" alt="Resonance Device" style="max-width: 400px; width: 100%; height: auto;">
-<br><br>
-<small>Neck patch prosthetic device</small>
-</td></tr>
-</table>
-
-<br>
-
-<p>We are creating <b>Resonance</b> a device which user can wear as patch on neck and using AI the device generates prosodic vibrations which are filtered out as audible speech through user's natural mouth & lip movement.</p>
-
-<ul>
-<li><b>Non invasive:</b> requires no surgery</li>
-<li><b>Adaptive:</b> gets better with usage</li>
-<li><b>Audible:</b> interpretable speech for end-listener</li>
-</ul>
-</div>
-
-<!-- How it Works Section -->
-<div id="how-it-works" style="display:none;">
-<h1>How it Works</h1><br><br>
-
-<table border="1" cellpadding="15" cellspacing="0" width="100%">
-<tr><td align="center">
-<img src="https://vasudvy.github.io/sparch.png" alt="How Resonance Works" style="max-width: 500px; width: 100%; height: auto; margin-bottom: 20px;">
-</td></tr>
-</table>
-
-<table border="1" cellpadding="15" cellspacing="0" width="100%">
-<tr><td align="center">
-
-<table border="0" cellpadding="10" cellspacing="0">
-<tr><td align="center" bgcolor="#e0e0e0"><b>1. Sensors capture laryngeal muscle signals</b></td></tr>
-<tr><td align="center">↓</td></tr>
-<tr><td align="center" bgcolor="#e0e0e0"><b>2. Trained ML model translates signals to phoneme patterns</b></td></tr>
-<tr><td align="center">↓</td></tr>
-<tr><td align="center" bgcolor="#e0e0e0"><b>3. AI generates prosodic vibrations delivered by actuator</b></td></tr>
-<tr><td align="center">↓</td></tr>
-<tr><td align="center" bgcolor="#e0e0e0"><b>4. Electromechanical vibrations applied to user's face</b></td></tr>
-<tr><td align="center">↓</td></tr>
-<tr><td align="center" bgcolor="#e0e0e0"><b>5. Mouth and lip movements filter vibrations as speech<br>with real-time prosodic adjustment</b></td></tr>
-</table>
-
-</td></tr>
-</table>
-</div>
-
-
-<!-- Traction Section -->
-<div id="traction" style="display:none;">
-<h1>Traction</h1>
-
-<h2>Development Progress</h2>
-
-<ul>
-<li><b>ML model for translation</b> - Signal processing algorithm in place.</li>
-<li><b>Conducted interviews with ENT surgeons & laryngectomy patients</b> - Market validation completed</li>
-</ul>
-
-<h2>Immediate Focus</h2>
-
-<table border="1" cellpadding="15" cellspacing="0" width="100%">
-<tr bgcolor="#f0f0f0">
-<th>Priority</th>
-<th>Status</th>
-</tr>
-<tr>
-<td><b>Hardware assembly and first prototype development</b></td>
-<td>In Progress</td>
-</tr>
-<tr>
-<td><b>Distribution line achieved for POC with real world user</b></td>
-<td>Aug-Sept 2025</td>
-</tr>
-</table>
-</div>
-
-
-<!-- Insights Section -->
-<div id="insights" style="display:none;">
-<h1>Insights</h1>
-
-<h2>AI Prosodic Generator</h2>
-
-<p>We are training an AI prosodic generator that generates dynamic vibration movements across <b>80-300Hz spectrum</b>. It matches prosody with phoneme and sets up exact tone for vibration.</p>
-
-<table border="1" cellpadding="10" cellspacing="0" width="100%">
-<tr bgcolor="#f0f0f0">
-<th>Frequency Range</th>
-<th>Phoneme Type</th>
-<th>Vibration Pattern</th>
-</tr>
-<tr>
-<td>80-120Hz</td>
-<td>Vowels (a, e, i, o, u)</td>
-<td>Sustained resonance</td>
-</tr>
-<tr>
-<td>120-200Hz</td>
-<td>Consonants (b, d, g, m, n)</td>
-<td>Pulsed modulation</td>
-</tr>
-<tr>
-<td>200-300Hz</td>
-<td>Fricatives (f, s, sh, th)</td>
-<td>High-frequency bursts</td>
-</tr>
-</table>
-
-<h2>Key Clinical Insight</h2>
-
-<p>In post-surgical patients, <b>muscle movement is not always lost</b>. This means we can track muscle movements to create necessary vibration patterns for speech reconstruction.</p>
-
-<table border="1" cellpadding="15" cellspacing="0" width="100%">
-<tr><td>
-<b>Preserved Functions:</b>
-<ul>
-<li>Laryngeal muscle contractions</li>
-<li>Diaphragmatic movement patterns</li>
-<li>Oral articulation reflexes</li>
-<li>Neural pathway integrity</li>
-</ul>
-</td></tr>
-</table>
-</div>
-
-<div id="market" style="display:none;">
-<h1>Market</h1>
-
-<h2>Market Size</h2>
-<p>This population pays across $500-1000 in periodic therapy sessions. Upfront $800-$2500 in assistive tech or $5000-10,000+ on prosthesis out of their wallet. </p>
-
-<table border="1" cellpadding="15" cellspacing="0" width="100%">
-<tr>
-<td align="center" width="33%">
-<b>300,000</b><br>
-Annual laryngectomy procedures<br>
-<b>Immediate Users</b>
-</td>
-<td align="center" width="33%">
-<b>18M+</b><br>
-Global patients with stroke and post-surgical vocal damage<br>
-<b>SAM</b>
-</td>
-<td align="center" width="33%">
-<b>175M+</b><br>
-Global people with speech impairment<br>
-<b>TAM</b>
-</td>
-</tr>
-</table>
-
-<h2>User LTV Profiles</h2>
-
-<table border="1" cellpadding="10" cellspacing="0" width="100%">
-<tr bgcolor="#f0f0f0">
-<th>Duration</th>
-<th>User Percentage</th>
-<th>Profile</th>
-</tr>
-<tr>
-<td><b>1-3 years</b></td>
-<td align="center">30%</td>
-<td>Early adopters, trial users</td>
-</tr>
-<tr>
-<td><b>4-10 years</b></td>
-<td align="center">45%</td>
-<td>Regular long-term users</td>
-</tr>
-<tr>
-<td><b>10+ years</b></td>
-<td align="center">25%</td>
-<td>Lifetime committed users</td>
-</tr>
-</table>
-</div>
-</td></tr>
-</table>
-</td>
-
-</tr>
-</table>
-
-<script>
-function isMobile() {
-    return window.innerWidth <= 600;
-}
-
-function adjustLayout() {
-    if (isMobile()) {
-        document.getElementById('mobile-nav').style.display = 'block';
-        document.getElementById('sidebar').style.display = 'none';
-    } else {
-        document.getElementById('mobile-nav').style.display = 'none';
-        document.getElementById('sidebar').style.display = 'table-cell';
-    }
-}
-
-function showSection(sectionId) {
-    var sections = ['intro', 'problem', 'solution', 'how-it-works', 'traction', 'tech-breakdown', 'insights', 'market'];
-    
-    // Hide all sections
-    for (var i = 0; i < sections.length; i++) {
-        var sectionElement = document.getElementById(sections[i]);
-        if (sectionElement) {
-            sectionElement.style.display = 'none';
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resonance - Speech Prosthesis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
-        // Reset navigation styling
-        var navLink = document.getElementById('nav-' + sections[i]);
-        if (navLink && navLink.parentNode) {
-            navLink.parentNode.bgcolor = '';
-            var content = navLink.innerHTML;
-            if (content) {
-                navLink.innerHTML = content.replace(/<\/?b>/g, '');
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #2c2c2c;
+            background-color: #faf9f6;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            gap: 30px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 220px;
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 0;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-item {
+            display: block;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: #444;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background-color 0.2s ease;
+            font-weight: 500;
+        }
+
+        .nav-item:hover {
+            background-color: #f8f8f8;
+        }
+
+        .nav-item.active {
+            background-color: #f0f0f0;
+            color: #000;
+            font-weight: 600;
+            border-left: 4px solid #333;
+        }
+
+        .nav-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            color: #1a1a1a;
+            font-weight: 600;
+            border-bottom: 3px solid #333;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin: 30px 0 15px 0;
+            color: #2c2c2c;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+            color: #333;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        /* Media containers */
+        .media-container {
+            background-color: #f8f8f8;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 25px;
+            margin: 25px 0;
+            text-align: center;
+        }
+
+        .media-container h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        video, audio {
+            max-width: 100%;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+
+        video {
+            border: 1px solid #ddd;
+        }
+
+        audio {
+            width: 100%;
+        }
+
+        .media-caption {
+            font-style: italic;
+            color: #666;
+            margin-top: 10px;
+            font-size: 0.95em;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            font-size: 0.95em;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #f5f5f5;
+            font-weight: 600;
+            color: #333;
+            border-bottom: 2px solid #ddd;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        tr:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+
+        li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        /* Images */
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        .image-caption {
+            font-style: italic;
+            color: #666;
+            margin-top: 8px;
+            font-size: 0.9em;
+        }
+
+        /* Highlight sections */
+        .highlight-box {
+            background-color: #f5f5f5;
+            border-left: 4px solid #333;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .highlight-box h3 {
+            margin-top: 0;
+        }
+
+        /* Process flow */
+        .process-container {
+            background-color: #f8f8f8;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .process-step {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 10px 0;
+            font-weight: 500;
+        }
+
+        .process-arrow {
+            text-align: center;
+            font-size: 1.5em;
+            color: #666;
+            margin: 5px 0;
+        }
+
+        /* Market stats */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .stat-card {
+            background-color: #f8f8f8;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .stat-description {
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: none;
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-nav select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: #fff;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                gap: 20px;
+                padding: 15px;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .mobile-nav {
+                display: block;
+            }
+
+            .main-content {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            th, td {
+                padding: 10px;
             }
         }
-    }
-    
-    // Show selected section
-    var targetSection = document.getElementById(sectionId);
-    if (targetSection) {
-        targetSection.style.display = 'block';
-    }
-    
-    // Update navigation styling
-    var activeNav = document.getElementById('nav-' + sectionId);
-    if (activeNav && activeNav.parentNode) {
-        activeNav.parentNode.bgcolor = '#f0f0f0';
-        var content = activeNav.innerHTML;
-        if (content && content.indexOf('<b>') === -1) {
-            activeNav.innerHTML = '<b>' + content + '</b>';
+
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.6em;
+            }
+
+            th, td {
+                padding: 8px;
+            }
         }
-    }
-    
-    // Update mobile select
-    var mobileSelect = document.querySelector('#mobile-nav select');
-    if (mobileSelect) {
-        mobileSelect.value = sectionId;
-    }
-}
+    </style>
+</head>
+<body>
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <select onchange="showSection(this.value)">
+            <option value="intro">Introduction</option>
+            <option value="problem">Problem</option>
+            <option value="solution">Solution</option>
+            <option value="how-it-works">How it Works</option>
+            <option value="traction">Traction</option>
+            <option value="insights">Insights</option>
+            <option value="market">Market</option>
+        </select>
+    </div>
 
-// Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
-    adjustLayout();
-    showSection('intro');
-});
+    <div class="container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <a href="#" class="nav-item active" onclick="showSection('intro')" id="nav-intro">Introduction</a>
+            <a href="#" class="nav-item" onclick="showSection('problem')" id="nav-problem">Problem</a>
+            <a href="#" class="nav-item" onclick="showSection('solution')" id="nav-solution">Solution</a>
+            <a href="#" class="nav-item" onclick="showSection('how-it-works')" id="nav-how-it-works">How it Works</a>
+            <a href="#" class="nav-item" onclick="showSection('traction')" id="nav-traction">Traction</a>
+            <a href="#" class="nav-item" onclick="showSection('insights')" id="nav-insights">Insights</a>
+            <a href="#" class="nav-item" onclick="showSection('market')" id="nav-market">Market</a>
+        </nav>
 
-// Also handle window load as backup
-window.onload = function() {
-    adjustLayout();
-    showSection('intro');
-};
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Intro Section -->
+            <div id="intro" class="section active">
+                <h1>The State of Artificial Speech Today</h1>
+                
+                <div class="media-container">
+                    <video width="100%" height="300" controls>
+                        <source src="https://vasudvy.github.io/sppro.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="media-caption">
+                        Current voice prosthesis technology demonstration<br>
+                        <strong>Expensive, monotone & requires long term care</strong>
+                    </div>
+                </div>
 
-window.onresize = adjustLayout;
+                <div class="media-container">
+                    <h3>Traditional Electrolarynx</h3>
+                    <audio controls>
+                        <source src="https://vasudvy.github.io/videoplayback.m4a" type="audio/mp4">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <div class="media-caption">Traditional electrolarynx speech quality</div>
+                </div>
 
-// Initialize immediately if DOM is already loaded
-if (document.readyState === 'loading') {
-    // Do nothing, DOMContentLoaded will fire
-} else {
-    // DOM is already loaded
-    adjustLayout();
-    showSection('intro');
-}
-</script>
+                <div class="media-container">
+                    <h3>Resonance Stimulation Demo</h3>
+                    <audio controls>
+                        <source src="https://vasudvy.github.io/demospv.m4a" type="audio/mp4">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <div class="media-caption">More audible, natural sounding speech with generative voice-muscle interface</div>
+                </div>
+            </div>
 
+            <!-- Problem Section -->
+            <div id="problem" class="section">
+                <h1>Problem Statement</h1>
+                
+                <p>Adults who lose speech ability after stroke or vocal cord surgery face significant communication barriers. Existing solutions provide poor speech quality and user experience, leading to social isolation and reduced quality of life.</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Current Alternatives</th>
+                            <th>Primary Limitations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>AAC Devices</strong></td>
+                            <td>Hefty upfront cost</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Electrolarynx Devices</strong></td>
+                            <td>Robotic voice quality and social stigma</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Surgical Interventions</strong></td>
+                            <td>Expensive with 30% failure rates</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Neck-mounted Devices</strong></td>
+                            <td>Stream audio via speakers creating uncanny experience</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Speech Therapy</strong></td>
+                            <td>Natural-recovery has high dropout rates</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Solution Section -->
+            <div id="solution" class="section">
+                <h1>Our Solution: Resonance</h1>
+                
+                <div class="image-container">
+                    <img src="https://vasudvy.github.io/spmodel.jpeg" alt="Resonance Device">
+                    <div class="image-caption">Neck patch prosthetic device</div>
+                </div>
+
+                <p>We are developing <strong>Resonance</strong>, a wearable device that users can apply as a patch on their neck. Using artificial intelligence, the device generates prosodic vibrations which are filtered into audible speech through the user's natural mouth and lip movements.</p>
+
+                <div class="highlight-box">
+                    <h3>Key Advantages</h3>
+                    <ul>
+                        <li><strong>Non-invasive:</strong> Requires no surgical intervention</li>
+                        <li><strong>Adaptive:</strong> Improves performance with continued usage</li>
+                        <li><strong>Natural:</strong> Produces interpretable speech for listeners</li>
+                        <li><strong>Accessible:</strong> Cost-effective alternative to existing solutions</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- How it Works Section -->
+            <div id="how-it-works" class="section">
+                <h1>Technical Implementation</h1>
+                
+                <div class="image-container">
+                    <img src="https://vasudvy.github.io/sparch.png" alt="Resonance Architecture">
+                    <div class="image-caption">System architecture diagram</div>
+                </div>
+
+                <div class="process-container">
+                    <h3>Processing Pipeline</h3>
+                    
+                    <div class="process-step">
+                        <strong>Step 1:</strong> Sensors capture laryngeal muscle signals
+                    </div>
+                    <div class="process-arrow">↓</div>
+                    
+                    <div class="process-step">
+                        <strong>Step 2:</strong> Trained ML model translates signals to phoneme patterns
+                    </div>
+                    <div class="process-arrow">↓</div>
+                    
+                    <div class="process-step">
+                        <strong>Step 3:</strong> AI generates prosodic vibrations delivered by actuator
+                    </div>
+                    <div class="process-arrow">↓</div>
+                    
+                    <div class="process-step">
+                        <strong>Step 4:</strong> Electromechanical vibrations applied to user's vocal tract
+                    </div>
+                    <div class="process-arrow">↓</div>
+                    
+                    <div class="process-step">
+                        <strong>Step 5:</strong> Mouth and lip movements filter vibrations into speech with real-time prosodic adjustment
+                    </div>
+                </div>
+            </div>
+
+            <!-- Traction Section -->
+            <div id="traction" class="section">
+                <h1>Current Progress and Traction</h1>
+
+                <h2>Development Milestones</h2>
+                <ul>
+                    <li><strong>Machine Learning Model:</strong> Signal processing algorithm successfully implemented</li>
+                    <li><strong>Market Validation:</strong> Conducted comprehensive interviews with ENT surgeons and laryngectomy patients</li>
+                    <li><strong>Patient Registry Validation:</strong> 5+ patients in funnel to test for proof-of-concept after delivery./li>
+                </ul>
+
+                <h2>Immediate Development Focus</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Development Priority</th>
+                            <th>Current Status</th>
+                            <th>Timeline</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Hardware assembly and first prototype development</td>
+                            <td>In Progress</td>
+                            <td>Within 5 months</td>
+                        </tr>
+                        <tr>
+                            <td>Clinical proof-of-concept with real-world users</td>
+                            <td>Planned</td>
+                            <td>Aug-Sept 2025</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Insights Section -->
+            <div id="insights" class="section">
+                <h1>Technical Insights and Innovation</h1>
+
+                <h2>AI Prosodic Generator</h2>
+                <p>Our system employs a sophisticated AI prosodic generator that produces dynamic vibration patterns across the <strong>80-300Hz frequency spectrum</strong>. The system intelligently matches prosody with phoneme characteristics and calibrates precise vibrational tones.</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Frequency Range (Hz)</th>
+                            <th>Phoneme Classification</th>
+                            <th>Vibration Pattern</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>80-120</td>
+                            <td>Vowels (a, e, i, o, u)</td>
+                            <td>Sustained resonance</td>
+                        </tr>
+                        <tr>
+                            <td>120-200</td>
+                            <td>Consonants (b, d, g, m, n)</td>
+                            <td>Pulsed modulation</td>
+                        </tr>
+                        <tr>
+                            <td>200-300</td>
+                            <td>Fricatives (f, s, sh, th)</td>
+                            <td>High-frequency bursts</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Critical Clinical Discovery</h2>
+                <p>Our research reveals that in post-surgical patients, <strong>muscular movement capacity is frequently preserved</strong>. This insight enables our system to detect and utilize existing muscle contractions to generate appropriate vibration patterns for speech reconstruction.</p>
+
+                <div class="highlight-box">
+                    <h3>Preserved Physiological Functions</h3>
+                    <ul>
+                        <li><strong>Laryngeal muscle contractions</strong> - Voluntary control retained</li>
+                        <li><strong>Diaphragmatic movement patterns</strong> - Breathing coordination intact</li>
+                        <li><strong>Oral articulation reflexes</strong> - Mouth and tongue mobility preserved</li>
+                        <li><strong>Neural pathway integrity</strong> - Motor control pathways functional</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Market Section -->
+            <div id="market" class="section">
+                <h1>Market Analysis and Opportunity</h1>
+
+                <h2>Economic Context</h2>
+                <p>The target population currently invests $500-1,000 annually in periodic therapy sessions, with upfront expenditures ranging from $800-2,500 for assistive technology devices, or $5,000-10,000+ for prosthetic interventions, typically paid out-of-pocket.</p>
+
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-number">300K</div>
+                        <div class="stat-label">Annual laryngectomy procedures</div>
+                        <div class="stat-description">Immediate Target Users</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">18M+</div>
+                        <div class="stat-label">Global patients with stroke and post-surgical vocal damage</div>
+                        <div class="stat-description">Serviceable Addressable Market</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">175M+</div>
+                        <div class="stat-label">Global population with speech impairment</div>
+                        <div class="stat-description">Total Addressable Market</div>
+                    </div>
+                </div>
+
+                <h2>User Lifetime Value Analysis</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Usage Duration</th>
+                            <th>User Percentage</th>
+                            <th>User Profile Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1-3 years</td>
+                            <td>30%</td>
+                            <td>Early adopters and trial users</td>
+                        </tr>
+                        <tr>
+                            <td>4-10 years</td>
+                            <td>45%</td>
+                            <td>Regular long-term users</td>
+                        </tr>
+                        <tr>
+                            <td>10+ years</td>
+                            <td>25%</td>
+                            <td>Lifetime committed users</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all nav items
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to corresponding nav item
+            document.getElementById('nav-' + sectionId).classList.add('active');
+            
+            // Update mobile select
+            const mobileSelect = document.querySelector('.mobile-nav select');
+            if (mobileSelect) {
+                mobileSelect.value = sectionId;
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('intro');
+        });
+    </script>
 </body>
 </html>
