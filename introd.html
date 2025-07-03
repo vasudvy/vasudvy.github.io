@@ -1,14 +1,68 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Embedded Video</title>
+    <title>Portrait Video Player</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        
+        .video-container {
+            position: relative;
+            max-width: 720px;
+            width: 100%;
+            background-color: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+            aspect-ratio: 720 / 1080;
+        }
+        
+        /* Responsive design for mobile */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .video-container {
+                max-width: 100%;
+                border-radius: 8px;
+            }
+        }
+        
+        /* Custom video controls styling */
+        video::-webkit-media-controls-panel {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        video::-webkit-media-controls-play-button {
+            background-color: #fff;
+            border-radius: 50%;
+        }
+    </style>
 </head>
 <body>
-    <video width="800" height="600" controls>
-        <source src="https://vasudvy.github.io/videointro.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+    <div class="video-container">
+        <video controls preload="metadata">
+            <source src="https://vasudvy.github.io/videointro.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
 </body>
 </html>
