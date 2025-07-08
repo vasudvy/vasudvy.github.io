@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TetrisCoin Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #222;
+            color: white;
+        }
+        
+        .game-container {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        
+        .game-board {
+            border: 2px solid #fff;
+            background: #000;
+        }
+        
+        .stats {
+            background: #333;
+            padding: 20px;
+            border-radius: 5px;
+            min-width: 200px;
+        }
+        
+        .coin-display {
+            background: #444;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .coin-amount {
+            font-size: 24px;
+            font-weight: bold;
+            color: #FFD700;
+        }
+        
+        .controls {
+            margin-top: 20px;
+        }
+        
+        .btn {
+            background: #555;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        
+        .btn:hover {
+            background: #666;
+        }
+        
+        .game-over {
+            text-align: center;
+            color: #ff4444;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <canvas id="gameCanvas" class="game-board" width="300" height="600"></canvas>
+        <div class="stats">
+            <div class="coin-display">
+                <div>TetrisCoins</div>
+                <div class="coin-amount" id="coinCount">0</div>
+            </div>
+            
+            <div>
+                <div><strong>Score:</strong> <span id="score">0</span></div>
+                <div><strong>Lines:</strong> <span id="lines">0</span></div>
+                <div><strong>Level:</strong> <span id="level">1</span></div>
+            </div>
+            
+            <div class="controls">
+                <button class="btn" onclick="startGame()">Start Game</button>
+                <button class="btn" onclick="pauseGame()">Pause</button>
+                <button class="btn" onclick="resetGame()">Reset</button>
+            </div>
+            
+            <div style="margin-top: 20px; font-size: 14px;">
+                <strong>Controls:</strong><br>
+                ← → Move<br>
+                ↓ Soft Drop<br>
+                ↑ Rotate<br>
+                Space Hard Drop
+            </div>
+            
+            <div style="margin-top: 20px; font-size: 14px;">
+                <strong>Coin Rewards:</strong><br>
+                1 line = 1 coin<br>
+                2 lines = 3 coins<br>
+                3 lines = 6 coins<br>
+                4 lines = 12 coins
+            </div>
+            
+            <div id="gameOverMsg" class="game-over" style="display: none;">
+                Game Over!
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const COLS = 10;
+        const ROWS = 20;
+        const BLOCK_SIZE = 30;
+        
+        // Game state
+        let board = [];
+        let currentPiece = null;
+        let gameRunning = false;
+        let gamePaused = false;
+        let score = 0;
+        let lines = 0;
+        let level = 1;
+        let coins = 0;
+        let dropTime = 0;
+        let lastTime = 0;
+        
+        // Tetris pieces
+        const PIECES = [
+            // I piece
+            [
+                [1, 1, 1, 1]
+            ],
+            // O piece
+            [
+                [1, 1],
+                [1, 1]
+            ],
+            // T piece
+            [
+                [0, 1, 0],
+                [1, 1, 1]
+            ],
+            // S piece
+            [
+                [0, 1, 1],
+                [1, 1, 0]
+            ],
+            // Z piece
+            [
+                [1, 1, 0],
+                [0, 1, 1]
+            ],
+            // J piece
+            [
+                [1, 0, 0],
+                [1, 1, 1]
+            ],
+            // L piece
+            [
+                [0, 0, 1],
+                [1, 1, 1]
+            ]
+        ];
+        
+        const COLORS = ['#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#FF00FF', '#00FFFF', '#FFA500'];
+        
+        // Initialize game
+        function init() {
+            board = Array(ROWS).fill().map(() => Array(COLS).fill(0));
+            updateDisplay();
+        }
+        
+        function createPiece() {
+            const pieceIndex = Math.floor(Math.random() * PIECES.length);
+            return {
+                shape: PIECES[pieceIndex],
+                color: COLORS[pieceIndex],
+                x: Math.floor(COLS / 2) - Math.floor(PIECES[pieceIndex][0].length / 2),
+                y: 0
+            };
+        }
+        
+        function drawBlock(x, y, color) {
+            ctx.fillStyle = color;
+            ctx.fillRect(x * BLOCK_SIZE, y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE);
+            ctx.strokeStyle = '#333';
+            ctx.strokeRect(x * BLOCK_SIZE, y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE);
+        }
+        
+        function drawBoard() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw placed pieces
+            for (let y = 0; y < ROWS; y++) {
+                for (let x = 0; x < COLS; x++) {
+                    if (board[y][x]) {
+                        drawBlock(x, y, board[y][x]);
+                    }
+                }
+            }
+            
+            // Draw current piece
+            if (currentPiece) {
+                for (let y = 0; y < currentPiece.shape.length; y++) {
+                    for (let x = 0; x < currentPiece.shape[y].length; x++) {
+                        if (currentPiece.shape[y][x]) {
+                            drawBlock(currentPiece.x + x, currentPiece.y + y, currentPiece.color);
+                        }
+                    }
+                }
+            }
+        }
+        
+        function isValidMove(piece, dx, dy, newShape) {
+            const shape = newShape || piece.shape;
+            const newX = piece.x + dx;
+            const newY = piece.y + dy;
+            
+            for (let y = 0; y < shape.length; y++) {
+                for (let x = 0; x < shape[y].length; x++) {
+                    if (shape[y][x]) {
+                        const boardX = newX + x;
+                        const boardY = newY + y;
+                        
+                        if (boardX < 0 || boardX >= COLS || boardY >= ROWS) {
+                            return false;
+                        }
+                        if (boardY >= 0 && board[boardY][boardX]) {
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+        
+        function placePiece() {
+            for (let y = 0; y < currentPiece.shape.length; y++) {
+                for (let x = 0; x < currentPiece.shape[y].length; x++) {
+                    if (currentPiece.shape[y][x]) {
+                        const boardY = currentPiece.y + y;
+                        const boardX = currentPiece.x + x;
+                        if (boardY >= 0) {
+                            board[boardY][boardX] = currentPiece.color;
+                        }
+                    }
+                }
+            }
+            
+            // Check for completed lines
+            checkLines();
+            
+            // Create new piece
+            currentPiece = createPiece();
+            
+            // Check game over
+            if (!isValidMove(currentPiece, 0, 0)) {
+                gameOver();
+            }
+        }
+        
+        function checkLines() {
+            let linesCleared = 0;
+            
+            for (let y = ROWS - 1; y >= 0; y--) {
+                if (board[y].every(cell => cell !== 0)) {
+                    board.splice(y, 1);
+                    board.unshift(Array(COLS).fill(0));
+                    linesCleared++;
+                    y++; // Check the same row again
+                }
+            }
+            
+            if (linesCleared > 0) {
+                lines += linesCleared;
+                
+                // Award coins based on lines cleared
+                let coinsEarned = 0;
+                switch (linesCleared) {
+                    case 1: coinsEarned = 1; break;
+                    case 2: coinsEarned = 3; break;
+                    case 3: coinsEarned = 6; break;
+                    case 4: coinsEarned = 12; break;
+                }
+                
+                coins += coinsEarned;
+                
+                // Award points
+                score += linesCleared * 100 * level;
+                
+                // Increase level
+                level = Math.floor(lines / 10) + 1;
+                
+                updateDisplay();
+            }
+        }
+        
+        function rotatePiece() {
+            const rotated = currentPiece.shape[0].map((_, i) =>
+                currentPiece.shape.map(row => row[i]).reverse()
+            );
+            
+            if (isValidMove(currentPiece, 0, 0, rotated)) {
+                currentPiece.shape = rotated;
+            }
+        }
+        
+        function updateDisplay() {
+            document.getElementById('score').textContent = score;
+            document.getElementById('lines').textContent = lines;
+            document.getElementById('level').textContent = level;
+            document.getElementById('coinCount').textContent = coins;
+        }
+        
+        function gameLoop(time) {
+            if (!gameRunning || gamePaused) return;
+            
+            const deltaTime = time - lastTime;
+            lastTime = time;
+            
+            dropTime += deltaTime;
+            const dropInterval = Math.max(50, 1000 - (level - 1) * 50);
+            
+            if (dropTime > dropInterval) {
+                if (currentPiece && isValidMove(currentPiece, 0, 1)) {
+                    currentPiece.y++;
+                } else if (currentPiece) {
+                    placePiece();
+                }
+                dropTime = 0;
+            }
+            
+            drawBoard();
+            requestAnimationFrame(gameLoop);
+        }
+        
+        function startGame() {
+            if (!gameRunning) {
+                gameRunning = true;
+                gamePaused = false;
+                currentPiece = createPiece();
+                document.getElementById('gameOverMsg').style.display = 'none';
+                requestAnimationFrame(gameLoop);
+            }
+        }
+        
+        function pauseGame() {
+            gamePaused = !gamePaused;
+            if (!gamePaused && gameRunning) {
+                requestAnimationFrame(gameLoop);
+            }
+        }
+        
+        function resetGame() {
+            gameRunning = false;
+            gamePaused = false;
+            score = 0;
+            lines = 0;
+            level = 1;
+            coins = 0;
+            currentPiece = null;
+            init();
+            document.getElementById('gameOverMsg').style.display = 'none';
+        }
+        
+        function gameOver() {
+            gameRunning = false;
+            document.getElementById('gameOverMsg').style.display = 'block';
+        }
+        
+        // Keyboard controls
+        document.addEventListener('keydown', (e) => {
+            if (!gameRunning || gamePaused || !currentPiece) return;
+            
+            switch (e.key) {
+                case 'ArrowLeft':
+                    if (isValidMove(currentPiece, -1, 0)) {
+                        currentPiece.x--;
+                    }
+                    break;
+                case 'ArrowRight':
+                    if (isValidMove(currentPiece, 1, 0)) {
+                        currentPiece.x++;
+                    }
+                    break;
+                case 'ArrowDown':
+                    if (isValidMove(currentPiece, 0, 1)) {
+                        currentPiece.y++;
+                        score += 1;
+                        updateDisplay();
+                    }
+                    break;
+                case 'ArrowUp':
+                    rotatePiece();
+                    break;
+                case ' ':
+                    // Hard drop
+                    while (isValidMove(currentPiece, 0, 1)) {
+                        currentPiece.y++;
+                        score += 2;
+                    }
+                    updateDisplay();
+                    break;
+            }
+        });
+        
+        // Initialize the game
+        init();
+    </script>
+</body>
+</html>
