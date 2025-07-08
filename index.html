@@ -3,687 +3,334 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resonance - Speech Prosthesis</title>
+    <title>Vasu Dubey</title>
     <style>
-        * {
+        html, body {
             margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            height: 100%;
+            font-family: sans-serif;
         }
-
-        body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            line-height: 1.6;
-            color: #2c2c2c;
-            background-color: #faf9f6;
-            font-size: 16px;
-        }
-
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            display: flex;
-            gap: 30px;
+            display: table;
+            width: 100%;
+            height: 100%;
         }
-
-        /* Sidebar */
+        .row {
+            display: table-row;
+        }
         .sidebar {
-            width: 220px;
-            background-color: #fff;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 0;
-            height: fit-content;
-            position: sticky;
-            top: 20px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: table-cell;
+            width: 250px;
+            vertical-align: top;
+            padding-left: 15px;
+            background-color: #f9f9f9;
+            border-right: 1px solid #eee;
         }
-
-        .nav-item {
-            display: block;
-            padding: 15px 20px;
-            text-decoration: none;
-            color: #444;
-            border-bottom: 1px solid #f0f0f0;
-            transition: background-color 0.2s ease;
-            font-weight: 500;
-        }
-
-        .nav-item:hover {
-            background-color: #f8f8f8;
-        }
-
-        .nav-item.active {
-            background-color: #f0f0f0;
-            color: #000;
-            font-weight: 600;
-            border-left: 4px solid #333;
-        }
-
-        .nav-item:last-child {
-            border-bottom: none;
-        }
-
-        /* Main Content */
-        .main-content {
-            flex: 1;
-            background-color: #fff;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 40px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .section {
-            display: none;
-        }
-
-        .section.active {
-            display: block;
-        }
-
-        h1 {
-            font-size: 2.2em;
-            margin-bottom: 30px;
-            color: #1a1a1a;
-            font-weight: 600;
-            border-bottom: 3px solid #333;
-            padding-bottom: 10px;
-        }
-
-        h2 {
-            font-size: 1.5em;
-            margin: 30px 0 15px 0;
-            color: #2c2c2c;
-            font-weight: 600;
-        }
-
-        h3 {
-            font-size: 1.2em;
-            margin: 20px 0 10px 0;
-            color: #333;
-            font-weight: 600;
-        }
-
-        p {
-            margin-bottom: 15px;
-            font-size: 1.05em;
-            line-height: 1.7;
-            text-align: justify;
-        }
-
-        /* Media containers */
-        .media-container {
-            background-color: #f8f8f8;
-            border: 1px solid #e0e0e0;
-            border-radius: 6px;
-            padding: 25px;
-            margin: 25px 0;
+        .content {
+            display: table-cell;
             text-align: center;
-        }
-
-        .media-container h3 {
-            margin-top: 0;
-            margin-bottom: 15px;
-        }
-
-        video, audio {
-            max-width: 100%;
-            margin: 10px 0;
-            border-radius: 4px;
-        }
-
-        video {
-            border: 1px solid #ddd;
-        }
-
-        audio {
-            width: 100%;
-        }
-
-        .media-caption {
-            font-style: italic;
-            color: #666;
-            margin-top: 10px;
-            font-size: 0.95em;
-        }
-
-        /* Tables */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 25px 0;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            font-size: 0.95em;
-        }
-
-        th, td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
             vertical-align: top;
         }
-
-        th {
-            background-color: #f5f5f5;
-            font-weight: 600;
-            color: #333;
-            border-bottom: 2px solid #ddd;
+        .nav {
+            list-style: none;
+            margin: 0;
+            padding: 0;
         }
-
-        tr:nth-child(even) {
-            background-color: #fafafa;
+        .nav li {
+            margin: 10px 0;
         }
-
-        tr:hover {
-            background-color: #f0f0f0;
+        .nav a {
+            text-decoration: none;
+            color: black;
+            font-size: 1.1em;
         }
-
-        /* Lists */
-        ul, ol {
-            margin: 15px 0;
-            padding-left: 25px;
+        .content-inner {
+            display: inline-block;
+            text-align: left;
+            margin-top: 40px;
+            max-width: 800px;
+            padding: 0 20px;
         }
-
-        li {
-            margin: 8px 0;
-            line-height: 1.6;
+        .content-inner h2 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
         }
-
-        /* Images */
-        img {
+        .content-inner h3 {
+            margin-top: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        .content-inner img {
             max-width: 100%;
             height: auto;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin: 10px 0;
+            border-radius: 5px;
+            margin-top: 10px;
         }
-
-        .image-container {
-            text-align: center;
-            margin: 25px 0;
-        }
-
-        .image-caption {
-            font-style: italic;
-            color: #666;
-            margin-top: 8px;
-            font-size: 0.9em;
-        }
-
-        /* Highlight sections */
-        .highlight-box {
-            background-color: #f5f5f5;
-            border-left: 4px solid #333;
-            padding: 20px;
-            margin: 20px 0;
-        }
-
-        .highlight-box h3 {
-            margin-top: 0;
-        }
-
-        /* Process flow */
-        .process-container {
-            background-color: #f8f8f8;
-            border: 1px solid #e0e0e0;
-            border-radius: 6px;
-            padding: 25px;
-            margin: 25px 0;
-        }
-
-        .process-step {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            padding: 15px;
-            margin: 10px 0;
-            font-weight: 500;
-        }
-
-        .process-arrow {
-            text-align: center;
-            font-size: 1.5em;
-            color: #666;
-            margin: 5px 0;
-        }
-
-        /* Market stats */
-        .stats-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 25px 0;
-        }
-
-        .stat-card {
-            background-color: #f8f8f8;
-            border: 1px solid #e0e0e0;
-            border-radius: 6px;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 10px;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .stat-label {
-            font-size: 0.9em;
-            color: #666;
-            margin-bottom: 5px;
-        }
-
-        .stat-description {
-            font-weight: 600;
-            color: #333;
-        }
-
-        /* Mobile Navigation */
-        .mobile-nav {
-            display: none;
-            background-color: #fff;
-            border: 1px solid #e0e0e0;
-            border-radius: 6px;
-            padding: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .mobile-nav select {
+        .content-inner iframe {
+            margin-top: 15px;
+            border: none;
+            border-radius: 5px;
             width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-            background-color: #fff;
+            height: 350px;
+        }
+        .manifesto {
+            font-style: italic;
+            border-left: 3px solid #ccc;
+            padding-left: 15px;
+            color: #333;
+            margin-top: 20px;
         }
 
-        /* Mobile Responsive */
+        /* --- Mobile Menu Functionality --- */
+        .menu-icon {
+            display: none; /* Hidden on desktop by default */
+        }
+
+        /* --- Mobile Responsiveness Snippet --- */
         @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                gap: 20px;
-                padding: 15px;
+            .container, .row, .sidebar, .content {
+                display: block;
+                width: 100%;
             }
 
             .sidebar {
+                padding: 0;
+                border-right: none;
+                background-color: transparent;
+            }
+            
+            /* Hide nav list by default on mobile */
+            .nav {
                 display: none;
             }
-
-            .mobile-nav {
+            
+            /* This class is toggled with JS to show the menu */
+            .nav-visible {
                 display: block;
+                text-align: left;
+                padding-bottom: 10px;
+                background-color: #f9f9f9;
             }
 
-            .main-content {
-                padding: 25px;
+            .menu-icon {
+                display: block;
+                padding: 15px 20px;
+                background-color: #333;
+                color: white;
+                text-align: left;
+                text-decoration: none;
+                font-size: 1.2em;
+                cursor: pointer;
+            }
+            
+            .content-inner {
+                margin-top: 20px;
+                padding: 0 15px;
             }
 
-            h1 {
-                font-size: 1.8em;
-            }
-
-            .stats-container {
-                grid-template-columns: 1fr;
-            }
-
-            table {
-                font-size: 0.9em;
-            }
-
-            th, td {
-                padding: 10px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .main-content {
-                padding: 20px;
-            }
-
-            h1 {
-                font-size: 1.6em;
-            }
-
-            th, td {
-                padding: 8px;
+            .content-inner iframe {
+                height: 250px;
             }
         }
     </style>
-</head>
-<body>
-    <!-- Mobile Navigation -->
-    <div class="mobile-nav">
-        <select onchange="showSection(this.value)">
-            <option value="intro">Introduction</option>
-            <option value="problem">Problem</option>
-            <option value="solution">Solution</option>
-            <option value="how-it-works">How it Works</option>
-            <option value="traction">Traction</option>
-            <option value="insights">Insights</option>
-            <option value="market">Market</option>
-        </select>
-    </div>
-
-    <div class="container">
-        <!-- Sidebar -->
-        <nav class="sidebar">
-            <a href="#" class="nav-item active" onclick="showSection('intro')" id="nav-intro">Introduction</a>
-            <a href="#" class="nav-item" onclick="showSection('problem')" id="nav-problem">Problem</a>
-            <a href="#" class="nav-item" onclick="showSection('solution')" id="nav-solution">Solution</a>
-            <a href="#" class="nav-item" onclick="showSection('how-it-works')" id="nav-how-it-works">How it Works</a>
-            <a href="#" class="nav-item" onclick="showSection('traction')" id="nav-traction">Traction</a>
-            <a href="#" class="nav-item" onclick="showSection('insights')" id="nav-insights">Insights</a>
-            <a href="#" class="nav-item" onclick="showSection('market')" id="nav-market">Market</a>
-        </nav>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Intro Section -->
-            <div id="intro" class="section active">
-                <h1>The State of Artificial Speech Today</h1>
-                
-                <div class="media-container">
-                    <video width="100%" height="300" controls>
-                        <source src="https://vasudvy.github.io/sppro.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <div class="media-caption">
-                        Current voice prosthesis technology demonstration<br>
-                        <strong>Expensive, monotone & requires long term care</strong>
-                    </div>
-                </div>
-
-                <div class="media-container">
-                    <h3>Traditional Electrolarynx</h3>
-                    <audio controls>
-                        <source src="https://vasudvy.github.io/videoplayback.m4a" type="audio/mp4">
-                        Your browser does not support the audio element.
-                    </audio>
-                    <div class="media-caption">Traditional electrolarynx speech quality</div>
-                </div>
-
-                <div class="media-container">
-                    <h3>Resonance Stimulation Demo</h3>
-                    <audio controls>
-                        <source src="https://vasudvy.github.io/demospv.m4a" type="audio/mp4">
-                        Your browser does not support the audio element.
-                    </audio>
-                    <div class="media-caption">More audible, natural sounding speech with generative voice-muscle interface</div>
-                </div>
-            </div>
-
-            <!-- Problem Section -->
-            <div id="problem" class="section">
-                <h1>Problem Statement</h1>
-                
-                <p>Adults who lose speech ability after stroke or vocal cord surgery face significant communication barriers. Existing solutions provide poor speech quality and user experience, leading to social isolation and reduced quality of life.</p>
-
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Current Alternatives</th>
-                            <th>Primary Limitations</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>AAC Devices</strong></td>
-                            <td>Hefty upfront cost</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Electrolarynx Devices</strong></td>
-                            <td>Robotic voice quality and social stigma</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Surgical Interventions</strong></td>
-                            <td>Expensive with 30% failure rates</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Neck-mounted Devices</strong></td>
-                            <td>Stream audio via speakers creating uncanny experience</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Speech Therapy</strong></td>
-                            <td>Natural-recovery has high dropout rates</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Solution Section -->
-            <div id="solution" class="section">
-                <h1>Our Solution: Resonance</h1>
-                
-                <div class="image-container">
-                    <img src="https://vasudvy.github.io/spmodel.jpeg" alt="Resonance Device">
-                    <div class="image-caption">Neck patch prosthetic device</div>
-                </div>
-
-                <p>We are developing <strong>Resonance</strong>, a wearable device that users can apply as a patch on their neck. Using artificial intelligence, the device generates prosodic vibrations which are filtered into audible speech through the user's natural mouth and lip movements.</p>
-
-                <div class="highlight-box">
-                    <h3>Key Advantages</h3>
-                    <ul>
-                        <li><strong>Non-invasive:</strong> Requires no surgical intervention</li>
-                        <li><strong>Adaptive:</strong> Improves performance with continued usage</li>
-                        <li><strong>Natural:</strong> Produces interpretable speech for listeners</li>
-                        <li><strong>Accessible:</strong> Cost-effective alternative to existing solutions</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- How it Works Section -->
-            <div id="how-it-works" class="section">
-                <h1>Technical Implementation</h1>
-                
-                <div class="image-container">
-                    <img src="https://vasudvy.github.io/sparch.png" alt="Resonance Architecture">
-                    <div class="image-caption">System architecture diagram</div>
-                </div>
-
-                <div class="process-container">
-                    <h3>Processing Pipeline</h3>
-                    
-                    <div class="process-step">
-                        <strong>Step 1:</strong> Sensors capture laryngeal muscle signals
-                    </div>
-                    <div class="process-arrow">↓</div>
-                    
-                    <div class="process-step">
-                        <strong>Step 2:</strong> Trained ML model translates signals to phoneme patterns
-                    </div>
-                    <div class="process-arrow">↓</div>
-                    
-                    <div class="process-step">
-                        <strong>Step 3:</strong> AI generates prosodic vibrations delivered by actuator
-                    </div>
-                    <div class="process-arrow">↓</div>
-                    
-                    <div class="process-step">
-                        <strong>Step 4:</strong> Electromechanical vibrations applied to user's vocal tract
-                    </div>
-                    <div class="process-arrow">↓</div>
-                    
-                    <div class="process-step">
-                        <strong>Step 5:</strong> Mouth and lip movements filter vibrations into speech with real-time prosodic adjustment
-                    </div>
-                </div>
-            </div>
-
-            <!-- Traction Section -->
-            <div id="traction" class="section">
-                <h1>Current Progress and Traction</h1>
-
-                <h2>Development Milestones</h2>
-                <ul>
-                    <li><strong>Machine Learning Model:</strong> Signal processing algorithm successfully implemented</li>
-                    <li><strong>Market Validation:</strong> Conducted comprehensive interviews with ENT surgeons and laryngectomy patients</li>
-                    <li><strong>Patient Registry Validation:</strong> 5+ patients in funnel to test for proof-of-concept after delivery.</li>
-                </ul>
-
-                <h2>Immediate Development Focus</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Development Priority</th>
-                            <th>Current Status</th>
-                            <th>Timeline</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Hardware assembly and first prototype development</td>
-                            <td>In Progress</td>
-                            <td>Within 5 months</td>
-                        </tr>
-                        <tr>
-                            <td>Clinical proof-of-concept with real-world users</td>
-                            <td>Planned</td>
-                            <td>Aug-Sept 2025</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Insights Section -->
-            <div id="insights" class="section">
-                <h1>Technical Insights and Innovation</h1>
-
-                <h2>AI Prosodic Generator</h2>
-                <p>Our system employs a sophisticated AI prosodic generator that produces dynamic vibration patterns across the <strong>80-300Hz frequency spectrum</strong>. The system intelligently matches prosody with phoneme characteristics and calibrates precise vibrational tones.</p>
-
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Frequency Range (Hz)</th>
-                            <th>Phoneme Classification</th>
-                            <th>Vibration Pattern</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>80-120</td>
-                            <td>Vowels (a, e, i, o, u)</td>
-                            <td>Sustained resonance</td>
-                        </tr>
-                        <tr>
-                            <td>120-200</td>
-                            <td>Consonants (b, d, g, m, n)</td>
-                            <td>Pulsed modulation</td>
-                        </tr>
-                        <tr>
-                            <td>200-300</td>
-                            <td>Fricatives (f, s, sh, th)</td>
-                            <td>High-frequency bursts</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h2>Critical Clinical Discovery</h2>
-                <p>Our research reveals that in post-surgical patients, <strong>muscular movement capacity is frequently preserved</strong>. This insight enables our system to detect and utilize existing muscle contractions to generate appropriate vibration patterns for speech reconstruction.</p>
-
-                <div class="highlight-box">
-                    <h3>Preserved Physiological Functions</h3>
-                    <ul>
-                        <li><strong>Laryngeal muscle contractions</strong> - Voluntary control retained</li>
-                        <li><strong>Diaphragmatic movement patterns</strong> - Breathing coordination intact</li>
-                        <li><strong>Oral articulation reflexes</strong> - Mouth and tongue mobility preserved</li>
-                        <li><strong>Neural pathway integrity</strong> - Motor control pathways functional</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Market Section -->
-            <div id="market" class="section">
-                <h1>Market Analysis and Opportunity</h1>
-
-                <p>The target population currently invests $500-1,000 annually in periodic therapy sessions, with upfront expenditures ranging from $800-2,500 for assistive technology devices, or $5,000-10,000+ for prosthetic interventions, typically paid out-of-pocket.</p>
-
-                <div class="stats-container">
-                    <div class="stat-card">
-                        <div class="stat-number">300K</div>
-                        <div class="stat-label">Annual laryngectomy procedures</div>
-                        <div class="stat-description">Immediate Target Users</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">18M+</div>
-                        <div class="stat-label">Global patients with stroke and post-surgical vocal damage</div>
-                        <div class="stat-description">Serviceable Addressable Market</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">175M+</div>
-                        <div class="stat-label">Global population with speech impairment</div>
-                        <div class="stat-description">Total Addressable Market</div>
-                    </div>
-                </div>
-
-                <h2>User Lifetime Value Analysis</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Usage Duration</th>
-                            <th>User Percentage</th>
-                            <th>User Profile Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1-3 years</td>
-                            <td>30%</td>
-                            <td>Early adopters and trial users</td>
-                        </tr>
-                        <tr>
-                            <td>4-10 years</td>
-                            <td>45%</td>
-                            <td>Regular long-term users</td>
-                        </tr>
-                        <tr>
-                            <td>10+ years</td>
-                            <td>25%</td>
-                            <td>Lifetime committed users</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </main>
-    </div>
-
     <script>
-        function showSection(sectionId) {
-            // Hide all sections
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Remove active class from all nav items
-            document.querySelectorAll('.nav-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            // Show selected section
-            document.getElementById(sectionId).classList.add('active');
-            
-            // Add active class to corresponding nav item
-            document.getElementById('nav-' + sectionId).classList.add('active');
-            
-            // Update mobile select
-            const mobileSelect = document.querySelector('.mobile-nav select');
-            if (mobileSelect) {
-                mobileSelect.value = sectionId;
+        function show(section) {
+            const sections = {
+                about: `
+                    <h2>About Me</h2>
+                    <p>I am Vasu Dubey. I am CEO of OS1. My primary work these days are heading product design and funneling consumers for os1.</p>
+                    <p>I currently live and work in <strong>Bengaluru, India.</strong></p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d497511.23206596064!2d77.34894905!3d12.95384165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka%2C%20India!5e0!3m2!1sen!2sin!4v1720057053229!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                    <h3>Contact</h3>
+                    <p>PGP keys: updating soon</p>
+                `,
+                work: `
+                    <h2>Work</h2>
+                    <p>At <strong>Resonance</strong>, we work on human-machine interfaces to improve the quality of life. Our primary focus is on building assistive systems that leverage real-time neural synthesis, starting with <em>speech restoration</em> in those who, due to a stroke or post-surgical complication, have lost their vocal stability. I contribute to model architecture design, evaluation pipelines, and ensuring clinical-grade robustness.</p>
+                `,
+                interests: `
+                    <h2>Things I Find Interesting</h2>
+                    <ul>
+                        <li>Computational models of cognition and memory</li>
+                        <li>Philosophy of mind and embodied intelligence</li>
+                        <li>Tools for thought and augmentation of reasoning</li>
+                        <li>Analog electronics and minimalist hardware</li>
+                        <li>History of science and conceptual revolutions</li>
+                        <li><strong>Mechanistic Interpretability:</strong> Understanding not just what neural networks do, but how they do it. <a href="https://distill.pub/2020/circuits/zoom-in/" target="_blank">[link]</a></li>
+                        <li><strong>Foundations of Mathematics:</strong> The philosophical and logical basis of math, including Gödel's incompleteness theorems. <a href="https://plato.stanford.edu/entries/goedel-incompleteness/" target="_blank">[link]</a></li>
+                         <li><strong>Complex Systems & Emergence:</strong> How simple interactions give rise to complex, self-organizing behavior in nature and society. <a href="https://www.santafe.edu/about/what-is-complexity" target="_blank">[link]</a></li>
+                        <li><strong>Information Theory:</strong> The fundamental quantification of information, communication, and uncertainty, as pioneered by Claude Shannon. <a href="https://www.khanacademy.org/computing/computer-science/informationtheory" target="_blank">[link]</a></li>
+                        <li><strong>Philosophy of Technology:</strong> Critically examining the two-way relationship between technology and human society. <a href="https://plato.stanford.edu/entries/technology/" target="_blank">[link]</a></li>
+                    </ul>
+                `,
+                 questions: `
+                    <h2>Questions</h2>
+                    <p>Open-ended inquiries for self-reflection.</p>
+                    <ul>
+                        <li>You are not the body, not the mind, not the roles you play. What remains when all these are set aside?</li>
+                        <li>Where does a thought come from before it appears, and where does it go after it vanishes?</li>
+                        <li>What is the 'I' that perceives your thoughts and experiences? Can the observer be observed?</li>
+                        <li>If you had no memory of your past and no concept of your future, who would you be in this exact moment?</li>
+                        <li>What is awareness itself, separate from the objects of awareness (sights, sounds, feelings)?</li>
+                        <li>Can you find the boundary between 'you' and the world? Where do you end and where does the universe begin?</li>
+                        <li>Observe the space between two thoughts. What is there?</li>
+                        <li>What is it that seeks, and what is it that is being sought? Are they different?</li>
+                    </ul>
+                `,
+                nopackland: `
+                    <h2>NoPackLand</h2>
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="A lone traveler with a backpack walking on a mountain trail with vast wilderness stretching to the horizon">
+                    <div class="manifesto">
+                        <p>"Shatter the chains of a false consciousness, the quiet poison of a life planned in advance. The core of man's spirit comes from new experiences. Forget the map, the promotion, the 401k. There is a different kind of wealth, a currency of sunsets and solitude, of blisters on your feet and the raw, unfiltered truth of the wind.</p>
+                        <p>To exist on the fringe is not to be lost, but to be found. It is a deliberate pilgrimage away from the noise and into the symphony of the real. The trail, the mountain, the desert—these are not just places, they are states of being. They ask for nothing but your presence and give you everything in return. Go forth, with nothing but what you can carry, and find the person you were before the world told you who to be."</p>
+                    </div>
+
+                    <h3>Remote Places to Wander</h3>
+                     <ul>
+                        <li><strong>Patagonia</strong> - The southern end of the world, a land of granite peaks, glaciers, and fierce winds in Argentina and Chile.</li>
+                        <li><strong>Svalbard, Norway</strong> - A remote arctic archipelago halfway between mainland Norway and the North Pole.</li>
+                        <li><strong>The Gobi Desert, Mongolia</strong> - One of the most vast and silent landscapes on Earth, home to nomadic cultures.</li>
+                        <li><strong>Fiordland National Park, New Zealand</strong> - A remote area of staggering beauty, with deep fiords, ancient rainforests, and epic hiking trails.</li>
+                        <li><strong>The Kamchatka Peninsula, Russia</strong> - A land of fire and ice, with some of the most stunning volcanic landscapes in the world.</li>
+                        <li><strong>Zanskar Valley, Ladakh, India</strong> - A high-altitude, semi-desert region in the Himalayas, cut off from the world for much of the year.</li>
+                    </ul>
+                `,
+                people: `
+                    <h2>People</h2>
+                    <ul>
+                        <li>Wittgenstein – for his clarity and his silences</li>
+                        <li>Iris Murdoch – for ethics rooted in attention</li>
+                        <li>Norbert Wiener – for early thinking on systems and feedback</li>
+                        <li>Simone Weil – for depth, austerity, and truth</li>
+                        <li>Marvin Minsky – for his strange and sharp metaphors</li>
+                        <li><strong>Socrates:</strong> The original contrarian, who questioned everything and was executed for "corrupting the youth" with his inquiries.</li>
+                        <li><strong>Galileo Galilei:</strong> Defied the church and consensus by asserting the Earth revolves around the Sun, a stance for which he was tried by the Inquisition.</li>
+                        <li><strong>Baruch Spinoza:</strong> Excommunicated for his radical rationalist philosophy that equated God with Nature, challenging all religious dogma of his time.</li>
+                        <li><strong>Ignaz Semmelweis:</strong> A physician ridiculed by his peers for the "radical" idea that doctors should wash their hands between patients to prevent disease. He was eventually vindicated, but died in an asylum.</li>
+                        <li><strong>Ludwig Boltzmann:</strong> A physicist whose foundational work on statistical mechanics and the atomic theory was fiercely opposed by the scientific establishment of his era.</li>
+                    </ul>
+                `,
+                places: `
+                    <h2>Places Explored</h2>
+                    <p>A few glimpses into some fascinating places across India.</p>
+
+                    <h3>Manali, Himachal Pradesh</h3>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26715.09038369309!2d77.15634895!3d32.23934455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39048708163fd03f%3A0x8129a80ebe5076cd!2sManali%2C%20Himachal%20Pradesh!5e0!3m2!1sen!2sin!4v1720057106978!5m2!1sen!2sin" style="height:200px;" allowfullscreen="" loading="lazy"></iframe>
+                    
+                    <h3>Kota, Rajasthan</h3>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115623.63319086127!2d75.7656927376043!3d25.17600743513753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396f9b30c1365c1d%3A0x156557850849351!2sKota%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1720057053229!5m2!1sen!2sin" style="height:200px;" allowfullscreen="" loading="lazy"></iframe>
+
+                    <h3>Delhi</h3>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224345.8363617377!2d77.06889753965992!3d28.52728033810688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x52c2b7494e204dce!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1720057106978!5m2!1sen!2sin" style="height:200px;" allowfullscreen="" loading="lazy"></iframe>
+                    
+                    <h3>Mumbai, Maharashtra</h3>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d482803.02099052944!2d72.5797068!3d19.0821978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1720057106978!5m2!1sen!2sin" style="height:200px;" allowfullscreen="" loading="lazy"></iframe>
+                    
+                    <h3>Jaipur, Rajasthan</h3>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227748.84533982834!2d75.6502579!3d26.8851417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4adf4c57e281%3A0xce1c63a0cf22e09!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1720057106978!5m2!1sen!2sin" style="height:200px;" allowfullscreen="" loading="lazy"></iframe>
+
+                    <h3>Udaipur, Rajasthan</h3>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116048.89001169695!2d73.61357475!3d24.5713345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3967e56e0c5e8c53%3A0x8c18aae3ac6e1c6b!2sUdaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1720057106978!5m2!1sen!2sin" style="height:200px;" allowfullscreen="" loading="lazy"></iframe>
+                `,
+                animals: `
+                    <h2>The Cellular Symphony 🧬</h2>
+                    <p>From the microscopic tardigrade to the colossal blue whale, the animal kingdom is a breathtaking display of diversity. Yet, beneath the endless forms and functions lies a unifying principle: the <strong>animal cell</strong>. Understanding this intricate, bustling city in miniature is the key to understanding life itself.</p>
+                    
+                    <h3>The Great Divide: Prokaryote vs. Eukaryote</h3>
+                    <p>Animal cells are eukaryotic, meaning they are complex, possessing a true nucleus that houses their genetic material and a host of specialized compartments called organelles, each with a specific job.</p>
+                    
+                    <h3>Anatomy of an Animal Cell</h3>
+                    <ul>
+                        <li><strong>The Cell Membrane (The Border):</strong> A flexible outer layer that controls what enters and exits the cell, maintaining homeostasis.</li>
+                        <li><strong>The Nucleus (The Command Center):</strong> Contains the cell's genetic blueprint—<strong>DNA</strong>—and controls the cell's growth and reproduction.</li>
+                        <li><strong>Mitochondria (The Power Plants):</strong> Convert glucose and oxygen into ATP, the primary energy currency of the cell.</li>
+                        <li><strong>Ribosomes & Endoplasmic Reticulum (Factories & Highways):</strong> Ribosomes synthesize proteins, and the ER modifies and transports them.</li>
+                        <li><strong>The Golgi Apparatus (The Post Office):</strong> Sorts and packages proteins for delivery.</li>
+                        <li><strong>Lysosomes (The Recycling Crew):</strong> Break down waste materials and cellular debris.</li>
+                    </ul>
+
+                    <h3>From Cell to Organism</h3>
+                    <p>This incredible cellular machinery is the foundation of all animal life. Cells form tissues, tissues form organs, and organs form systems. It is this hierarchy, starting from the elegant complexity of a single eukaryotic cell, that allows for the existence of a thinking, moving, and feeling animal.</p>
+                `,
+                bookshelf: `
+                <h2>Bookshelf</h2>
+                <ul>
+    <li>The Brothers Karamazov – Fyodor Dostoevsky</li>
+    <li>Crime and Punishment – Fyodor Dostoevsky</li>
+    <li>The Stranger – Albert Camus</li>
+    <li>Thus Spoke Zarathustra – Friedrich Nietzsche</li>
+    <li>Being and Time – Martin Heidegger</li>
+    <li>Tractatus Logico-Philosophicus – Ludwig Wittgenstein</li>
+    <li>Ulysses – James Joyce</li>
+    <li>On the Road – Jack Kerouac</li>
+    <li>Discipline and Punish – Michel Foucault</li>
+    <li>I and Thou – Martin Buber</li>
+    <li>The Tao Te Ching – Lao Tzu</li>
+    <li>Gödel, Escher, Bach – Douglas Hofstadter</li>
+    <li>Leaves of Grass – Walt Whitman</li>
+    <li>The Wretched of the Earth – Frantz Fanon</li>
+    <li>House of Leaves – Mark Z. Danielewski</li>
+                </ul>`,
+                movies: `
+                    <h2>Movies</h2>
+<ul>
+    <li>Stalker – Andrei Tarkovsky</li>
+    <li>Persona – Ingmar Bergman</li>
+    <li>Breathless – Jean-Luc Godard</li>
+    <li>Last Year at Marienbad – Alain Resnais</li>
+    <li>Tokyo Story – Yasujirō Ozu</li>
+    <li>Sans Soleil – Chris Marker</li>
+    <li>Waking Life – Richard Linklater</li>
+    <li>The Thin Red Line – Terrence Malick</li>
+    <li>2001: A Space Odyssey – Stanley Kubrick</li>
+    <li>Apocalypse Now – Francis Ford Coppola</li>
+    <li>Blue Velvet – David Lynch</li>
+    <li>Easy Rider – Dennis Hopper</li>
+    <li>Aguirre, the Wrath of God – Werner Herzog</li>
+</ul>
+                `
+            };
+            document.getElementById('content-inner').innerHTML = sections[section];
+
+            // Auto-close the mobile menu after a selection is made
+            const nav = document.getElementById('main-nav');
+            if (window.innerWidth <= 768 && nav.classList.contains('nav-visible')) {
+                nav.classList.remove('nav-visible');
             }
         }
 
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            showSection('intro');
-        });
+        function toggleMenu() {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('nav-visible');
+        }
     </script>
+</head>
+<body onload="show('about')">
+
+<div class="container">
+    <div class="row">
+        <div class="sidebar">
+            <a class="menu-icon" onclick="toggleMenu()">☰ Menu</a>
+            <ul class="nav" id="main-nav">
+                <li><a href="#" onclick="show('about')">About Me</a></li>
+                <li><a href="#" onclick="show('work')">Work</a></li>
+                <li><a href="#" onclick="show('interests')">Interests</a></li>
+                <li><a href="#" onclick="show('questions')">Questions</a></li>
+                <li><a href="#" onclick="show('nopackland')">NoPackLand</a></li>
+                <li><a href="#" onclick="show('people')">People</a></li>
+                <li><a href="#" onclick="show('places')">Places</a></li>
+                <li><a href="#" onclick="show('animals')">Animals & Biology</a></li>
+                <li><a href="#" onclick="show('bookshelf')">Bookshelf</a></li>
+                <li><a href="#" onclick="show('movies')">Movies</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="content-inner" id="content-inner">
+                </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
