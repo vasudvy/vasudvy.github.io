@@ -2,118 +2,210 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>TetrisCoin Game</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            font-family: 'Courier New', monospace;
             margin: 0;
-            background: #222;
-            color: white;
+            padding: 10px;
+            background: #c0c0c0;
+            color: #000;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
         }
         
         .game-container {
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: #c0c0c0;
+            border: 2px outset #c0c0c0;
+            padding: 8px;
+            margin-bottom: 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
         }
         
         .game-board {
-            border: 2px solid #fff;
+            border: 2px inset #c0c0c0;
             background: #000;
+            display: block;
+            margin: 0 auto 10px auto;
+            touch-action: none;
         }
         
-        .stats {
-            background: #333;
-            padding: 20px;
-            border-radius: 5px;
-            min-width: 200px;
+        .stats-panel {
+            background: #c0c0c0;
+            border: 2px inset #c0c0c0;
+            padding: 8px;
+            margin-bottom: 10px;
         }
         
         .coin-display {
-            background: #444;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 20px;
+            background: #ffff00;
+            border: 2px inset #c0c0c0;
+            padding: 8px;
+            margin-bottom: 8px;
             text-align: center;
+            font-weight: bold;
         }
         
         .coin-amount {
-            font-size: 24px;
+            font-size: 18px;
             font-weight: bold;
-            color: #FFD700;
+        }
+        
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 4px 0;
+            font-size: 14px;
         }
         
         .controls {
-            margin-top: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 10px;
         }
         
         .btn {
-            background: #555;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
+            background: #c0c0c0;
+            border: 2px outset #c0c0c0;
+            padding: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
             cursor: pointer;
-            margin: 5px;
+            touch-action: manipulation;
         }
         
-        .btn:hover {
-            background: #666;
+        .btn:active {
+            border: 2px inset #c0c0c0;
+        }
+        
+        .touch-controls {
+            display: grid;
+            grid-template-areas: 
+                ". up ."
+                "left down right"
+                "rotate . drop";
+            gap: 5px;
+            max-width: 200px;
+            margin: 0 auto;
+        }
+        
+        .touch-btn {
+            background: #c0c0c0;
+            border: 2px outset #c0c0c0;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            touch-action: manipulation;
+            text-align: center;
+            min-height: 20px;
+        }
+        
+        .touch-btn:active {
+            border: 2px inset #c0c0c0;
+        }
+        
+        .touch-btn.up { grid-area: up; }
+        .touch-btn.down { grid-area: down; }
+        .touch-btn.left { grid-area: left; }
+        .touch-btn.right { grid-area: right; }
+        .touch-btn.rotate { grid-area: rotate; }
+        .touch-btn.drop { grid-area: drop; }
+        
+        .info-panel {
+            background: #c0c0c0;
+            border: 2px inset #c0c0c0;
+            padding: 8px;
+            font-size: 12px;
+            margin-bottom: 10px;
         }
         
         .game-over {
+            background: #ff0000;
+            color: #ffffff;
+            border: 2px outset #c0c0c0;
+            padding: 8px;
             text-align: center;
-            color: #ff4444;
-            font-size: 18px;
-            margin-top: 20px;
+            font-weight: bold;
+            display: none;
+        }
+        
+        @media (max-width: 480px) {
+            .game-board {
+                width: 250px;
+                height: 500px;
+            }
+            
+            .coin-amount {
+                font-size: 16px;
+            }
+            
+            .touch-btn {
+                padding: 12px;
+                font-size: 12px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="game-container">
+        <div class="header">TetrisCoin Game</div>
+        
         <canvas id="gameCanvas" class="game-board" width="300" height="600"></canvas>
-        <div class="stats">
+        
+        <div class="stats-panel">
             <div class="coin-display">
-                <div>TetrisCoins</div>
-                <div class="coin-amount" id="coinCount">0</div>
+                <div>TetrisCoins: <span class="coin-amount" id="coinCount">0</span></div>
             </div>
             
-            <div>
-                <div><strong>Score:</strong> <span id="score">0</span></div>
-                <div><strong>Lines:</strong> <span id="lines">0</span></div>
-                <div><strong>Level:</strong> <span id="level">1</span></div>
+            <div class="stat-row">
+                <span>Score:</span>
+                <span id="score">0</span>
             </div>
-            
-            <div class="controls">
-                <button class="btn" onclick="startGame()">Start Game</button>
-                <button class="btn" onclick="pauseGame()">Pause</button>
-                <button class="btn" onclick="resetGame()">Reset</button>
+            <div class="stat-row">
+                <span>Lines:</span>
+                <span id="lines">0</span>
             </div>
-            
-            <div style="margin-top: 20px; font-size: 14px;">
-                <strong>Controls:</strong><br>
-                ← → Move<br>
-                ↓ Soft Drop<br>
-                ↑ Rotate<br>
-                Space Hard Drop
+            <div class="stat-row">
+                <span>Level:</span>
+                <span id="level">1</span>
             </div>
-            
-            <div style="margin-top: 20px; font-size: 14px;">
-                <strong>Coin Rewards:</strong><br>
-                1 line = 1 coin<br>
-                2 lines = 3 coins<br>
-                3 lines = 6 coins<br>
-                4 lines = 12 coins
-            </div>
-            
-            <div id="gameOverMsg" class="game-over" style="display: none;">
-                Game Over!
-            </div>
+        </div>
+        
+        <div class="controls">
+            <button class="btn" onclick="startGame()">Start</button>
+            <button class="btn" onclick="pauseGame()">Pause</button>
+            <button class="btn" onclick="resetGame()">Reset</button>
+        </div>
+        
+        <div class="touch-controls">
+            <button class="touch-btn up" id="rotateBtn">↑</button>
+            <button class="touch-btn left" id="leftBtn">←</button>
+            <button class="touch-btn down" id="downBtn">↓</button>
+            <button class="touch-btn right" id="rightBtn">→</button>
+            <button class="touch-btn rotate" id="rotateBtn2">ROT</button>
+            <button class="touch-btn drop" id="dropBtn">DROP</button>
+        </div>
+        
+        <div class="info-panel">
+            <strong>Coin Rewards:</strong><br>
+            1 line = 1 coin | 2 lines = 3 coins<br>
+            3 lines = 6 coins | 4 lines = 12 coins
+        </div>
+        
+        <div id="gameOverMsg" class="game-over">
+            Game Over!
         </div>
     </div>
 
@@ -138,45 +230,88 @@
         
         // Tetris pieces
         const PIECES = [
-            // I piece
-            [
-                [1, 1, 1, 1]
-            ],
-            // O piece
-            [
-                [1, 1],
-                [1, 1]
-            ],
-            // T piece
-            [
-                [0, 1, 0],
-                [1, 1, 1]
-            ],
-            // S piece
-            [
-                [0, 1, 1],
-                [1, 1, 0]
-            ],
-            // Z piece
-            [
-                [1, 1, 0],
-                [0, 1, 1]
-            ],
-            // J piece
-            [
-                [1, 0, 0],
-                [1, 1, 1]
-            ],
-            // L piece
-            [
-                [0, 0, 1],
-                [1, 1, 1]
-            ]
+            [[1, 1, 1, 1]], // I
+            [[1, 1], [1, 1]], // O
+            [[0, 1, 0], [1, 1, 1]], // T
+            [[0, 1, 1], [1, 1, 0]], // S
+            [[1, 1, 0], [0, 1, 1]], // Z
+            [[1, 0, 0], [1, 1, 1]], // J
+            [[0, 0, 1], [1, 1, 1]]  // L
         ];
         
         const COLORS = ['#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#FF00FF', '#00FFFF', '#FFA500'];
         
-        // Initialize game
+        // Touch controls
+        document.getElementById('leftBtn').addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            moveLeft();
+        });
+        
+        document.getElementById('rightBtn').addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            moveRight();
+        });
+        
+        document.getElementById('downBtn').addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            moveDown();
+        });
+        
+        document.getElementById('rotateBtn').addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            rotatePiece();
+        });
+        
+        document.getElementById('rotateBtn2').addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            rotatePiece();
+        });
+        
+        document.getElementById('dropBtn').addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            hardDrop();
+        });
+        
+        // Mouse/click events for desktop
+        document.getElementById('leftBtn').addEventListener('click', moveLeft);
+        document.getElementById('rightBtn').addEventListener('click', moveRight);
+        document.getElementById('downBtn').addEventListener('click', moveDown);
+        document.getElementById('rotateBtn').addEventListener('click', rotatePiece);
+        document.getElementById('rotateBtn2').addEventListener('click', rotatePiece);
+        document.getElementById('dropBtn').addEventListener('click', hardDrop);
+        
+        function moveLeft() {
+            if (!gameRunning || gamePaused || !currentPiece) return;
+            if (isValidMove(currentPiece, -1, 0)) {
+                currentPiece.x--;
+            }
+        }
+        
+        function moveRight() {
+            if (!gameRunning || gamePaused || !currentPiece) return;
+            if (isValidMove(currentPiece, 1, 0)) {
+                currentPiece.x++;
+            }
+        }
+        
+        function moveDown() {
+            if (!gameRunning || gamePaused || !currentPiece) return;
+            if (isValidMove(currentPiece, 0, 1)) {
+                currentPiece.y++;
+                score += 1;
+                updateDisplay();
+            }
+        }
+        
+        function hardDrop() {
+            if (!gameRunning || gamePaused || !currentPiece) return;
+            while (isValidMove(currentPiece, 0, 1)) {
+                currentPiece.y++;
+                score += 2;
+            }
+            updateDisplay();
+        }
+        
         function init() {
             board = Array(ROWS).fill().map(() => Array(COLS).fill(0));
             updateDisplay();
@@ -195,14 +330,13 @@
         function drawBlock(x, y, color) {
             ctx.fillStyle = color;
             ctx.fillRect(x * BLOCK_SIZE, y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE);
-            ctx.strokeStyle = '#333';
+            ctx.strokeStyle = '#fff';
             ctx.strokeRect(x * BLOCK_SIZE, y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE);
         }
         
         function drawBoard() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             
-            // Draw placed pieces
             for (let y = 0; y < ROWS; y++) {
                 for (let x = 0; x < COLS; x++) {
                     if (board[y][x]) {
@@ -211,7 +345,6 @@
                 }
             }
             
-            // Draw current piece
             if (currentPiece) {
                 for (let y = 0; y < currentPiece.shape.length; y++) {
                     for (let x = 0; x < currentPiece.shape[y].length; x++) {
@@ -259,13 +392,9 @@
                 }
             }
             
-            // Check for completed lines
             checkLines();
-            
-            // Create new piece
             currentPiece = createPiece();
             
-            // Check game over
             if (!isValidMove(currentPiece, 0, 0)) {
                 gameOver();
             }
@@ -279,14 +408,13 @@
                     board.splice(y, 1);
                     board.unshift(Array(COLS).fill(0));
                     linesCleared++;
-                    y++; // Check the same row again
+                    y++;
                 }
             }
             
             if (linesCleared > 0) {
                 lines += linesCleared;
                 
-                // Award coins based on lines cleared
                 let coinsEarned = 0;
                 switch (linesCleared) {
                     case 1: coinsEarned = 1; break;
@@ -296,11 +424,7 @@
                 }
                 
                 coins += coinsEarned;
-                
-                // Award points
                 score += linesCleared * 100 * level;
-                
-                // Increase level
                 level = Math.floor(lines / 10) + 1;
                 
                 updateDisplay();
@@ -308,6 +432,8 @@
         }
         
         function rotatePiece() {
+            if (!gameRunning || gamePaused || !currentPiece) return;
+            
             const rotated = currentPiece.shape[0].map((_, i) =>
                 currentPiece.shape.map(row => row[i]).reverse()
             );
@@ -380,43 +506,34 @@
             document.getElementById('gameOverMsg').style.display = 'block';
         }
         
-        // Keyboard controls
+        // Keyboard controls for desktop
         document.addEventListener('keydown', (e) => {
             if (!gameRunning || gamePaused || !currentPiece) return;
             
             switch (e.key) {
                 case 'ArrowLeft':
-                    if (isValidMove(currentPiece, -1, 0)) {
-                        currentPiece.x--;
-                    }
+                    moveLeft();
                     break;
                 case 'ArrowRight':
-                    if (isValidMove(currentPiece, 1, 0)) {
-                        currentPiece.x++;
-                    }
+                    moveRight();
                     break;
                 case 'ArrowDown':
-                    if (isValidMove(currentPiece, 0, 1)) {
-                        currentPiece.y++;
-                        score += 1;
-                        updateDisplay();
-                    }
+                    moveDown();
                     break;
                 case 'ArrowUp':
                     rotatePiece();
                     break;
                 case ' ':
-                    // Hard drop
-                    while (isValidMove(currentPiece, 0, 1)) {
-                        currentPiece.y++;
-                        score += 2;
-                    }
-                    updateDisplay();
+                    hardDrop();
                     break;
             }
         });
         
-        // Initialize the game
+        // Prevent scrolling on mobile
+        document.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+        }, { passive: false });
+        
         init();
     </script>
 </body>
