@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>/vd</title>
   <style>
+    :root {
+      --text-color: #333;
+      --link-color: #333;
+      --link-hover: #000;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -14,6 +20,7 @@
     body {
       font-family: Georgia, serif;
       background: white;
+      color: var(--text-color);
       padding: 20px;
       display: flex;
       flex-wrap: wrap;
@@ -42,12 +49,10 @@
       font-size: 2rem;
       font-weight: bold;
       margin-bottom: 10px;
-      color: #333;
     }
 
     .title {
       font-size: 1.1rem;
-      color: #666;
     }
 
     .right-section {
@@ -59,13 +64,11 @@
     }
 
     .section h2 {
-      color: #333;
       font-size: 1.4rem;
       margin-bottom: 15px;
     }
 
     .section p {
-      color: #555;
       line-height: 1.6;
       margin-bottom: 10px;
     }
@@ -79,7 +82,6 @@
 
     .skill-tag {
       background: #f0f0f0;
-      color: #333;
       padding: 5px 15px;
       border-radius: 20px;
       font-size: 0.9rem;
@@ -92,8 +94,13 @@
     }
 
     .contact-item a {
-      color: #0077b5;
+      color: var(--link-color);
       text-decoration: none;
+    }
+
+    .contact-item a:hover {
+      color: var(--link-hover);
+      text-decoration: underline;
     }
 
     .project-list {
@@ -106,12 +113,13 @@
     }
 
     .project-list a {
-      color: #222;
+      color: var(--link-color);
       font-weight: bold;
       text-decoration: none;
     }
 
     .project-list a:hover {
+      color: var(--link-hover);
       text-decoration: underline;
     }
 
@@ -155,21 +163,21 @@
   <div class="right-section">
     <div class="section">
       <h2>Me</h2>
-      <p>i am vasu.</p>
+      <p>i am vasu. currently at bangalore. studied engineering (but then dropped out). eats same thing daily, wears same cloth daily, walks the same streets daily, listens to one artist only (in loop), watches many kinda movies and often attempt to pass time by studying math and a bigtime stashpro fan.</p>
     </div>
 
     <div class="section">
       <h2>Tools</h2>
       <p><strong>Programming:</strong> Go, Python & TS</p>
-      <p><strong>Ops:</strong> K8s, EC2, Lambda</p>
-      <p><strong>:</strong> mostly inactive across platforms</p>
+      <p><strong>Ops:</strong> K8s, EC2 (AWS), Azure, REST APIs & systems.</p>
+      <p><strong>Work Status:</strong>Unemployed </p>
       <p><strong>Fun Fact:</strong> green is elixir</p>
     </div>
 
     <div class="section">
       <h2>Things I do</h2>
       <div class="skills">
-        <span class="skill-tag">Web Development</span>
+        <span class="skill-tag">Software Development</span>
         <span class="skill-tag">Business Development</span>
         <span class="skill-tag">Prospecting</span>
         <span class="skill-tag">Due diligence</span>
@@ -181,13 +189,13 @@
       <h2>Projects</h2>
       <ul class="project-list">
         <li>
-          <a href="https://healthkhata.com" target="_blank">HealthKhata</a> – Financial service for turning medical bills into small EMIs. (Discontinued)
+          <a href="https://healthkhata.com" target="_blank"><u>HealthKhata</u></a> – Financial service for turning medical bills into small EMIs. (Discontinued)
         </li>
         <li>
-          <a href="https://napiermcp.netlify.app" target="_blank">Napier-MCP</a> – MCP server that installs other MCP servers for you.
+          <a href="https://napiermcp.netlify.app" target="_blank"><u>Napier-MCP</u></a> – MCP server that installs other MCP servers for you.
         </li>
         <li>
-          <a href="https://github.com/va99/ator" target="_blank">Ator</a> – Connect WhatsApp to Claude (supports multimedia).
+          <a href="https://github.com/va99/ator" target="_blank"><u>Ator</u></a> – Connect WhatsApp to Claude (supports multimedia).
         </li>
       </ul>
     </div>
@@ -196,9 +204,9 @@
       <h2>Connect With Me</h2>
       <div class="contact-info">
         <div class="contact-item">Email: <a href="mailto:vasudubey02@gmail.com">vasudubey02@gmail.com</a></div>
-        <div class="contact-item">X: <a href="https://x.com/wyaneo" target="_blank">x.com/wyaneo</a></div>
-        <div class="contact-item">LinkedIn: <a href="https://www.linkedin.com/in/vasu-dubey-b191461b4" target="_blank">linkedin.com/in/vasu-dubey</a></div>
-        <div class="contact-item">Stuff <a href="https://vasudvy.github.io/blog.html" target="_blank">Blogs</a></div>
+        <div class="contact-item">X: <a href="https://x.com/wyaneo" target="_blank">Neo (active)</a></div>
+        <div class="contact-item">LinkedIn: <a href="https://www.linkedin.com/in/vasu-dubey-b191461b4" target="_blank">Vasu (not active much)</a></div>
+        <div class="contact-item">Blogs: <a href="https://vasudvy.github.io/blog.html" target="_blank">if you cant decide, read hamming question</a></div>
       </div>
     </div>
   </div>
