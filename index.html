@@ -3,578 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vasu Dubey</title>
+    <title>/vd</title>
     <style>
-        html, body {
-            margin: 0;
-            height: 100%;
-            font-family: sans-serif;
-        }
-        .container {
-            display: table;
-            width: 100%;
-            height: 100%;
-        }
-        .row {
-            display: table-row;
-        }
-        .sidebar {
-            display: table-cell;
-            width: 250px;
-            vertical-align: top;
-            padding-left: 15px;
-            background-color: #f9f9f9;
-            border-right: 1px solid #eee;
-        }
-        .content {
-            display: table-cell;
-            text-align: center;
-            vertical-align: top;
-        }
-        .nav {
-            list-style: none;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-        .nav li {
-            margin: 10px 0;
+
+        body {
+            font-family: Georgia, serif;
+            background: white;
+            padding: 20px;
+            display: flex;
+            gap: 40px;
         }
-        .nav a {
-            text-decoration: none;
-            color: black;
-            font-size: 1.1em;
+
+        .left-section {
+            width: 1024px;
+            text-align: center;
         }
-        .content-inner {
-            display: inline-block;
-            text-align: left;
-            margin-top: 40px;
-            max-width: 800px;
-            padding: 0 20px;
-        }
-        .content-inner h2 {
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
+
+        .profile-photo {
+            width: 1024px;
+            height: 1024px;
+            border-radius: 50%;
             margin-bottom: 20px;
+            object-fit: cover;
         }
-        .content-inner h3 {
-            margin-top: 30px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
+
+        .name {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
         }
-        .content-inner img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
+
+        .title {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .right-section {
+            flex: 1;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            color: #333;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .section p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
             margin-top: 10px;
         }
-        .content-inner iframe {
-            margin-top: 15px;
-            border: none;
-            border-radius: 5px;
-            width: 100%;
-            height: 350px;
-        }
-        .manifesto {
-            font-style: italic;
-            border-left: 3px solid #ccc;
-            padding-left: 15px;
+
+        .skill-tag {
+            background: #f0f0f0;
             color: #333;
-            margin-top: 20px;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
         }
 
-        /* --- Mobile Menu Functionality --- */
-        .menu-icon {
-            display: none; /* Hidden on desktop by default */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
-        /* --- Mobile Responsiveness Snippet --- */
+        .contact-item {
+            color: #555;
+        }
+
         @media (max-width: 768px) {
-            .container, .row, .sidebar, .content {
-                display: block;
+            body {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .left-section {
                 width: 100%;
             }
-
-            .sidebar {
-                padding: 0;
-                border-right: none;
-                background-color: transparent;
+            
+            .profile-photo {
+                width: 500px;
+                height: 500px;
             }
             
-            /* Hide nav list by default on mobile */
-            .nav {
-                display: none;
-            }
-            
-            /* This class is toggled with JS to show the menu */
-            .nav-visible {
-                display: block;
-                text-align: left;
-                padding-bottom: 10px;
-                background-color: #f9f9f9;
-            }
-
-            .menu-icon {
-                display: block;
-                padding: 15px 20px;
-                background-color: #333;
-                color: white;
-                text-align: left;
-                text-decoration: none;
-                font-size: 1.2em;
-                cursor: pointer;
-            }
-            
-            .content-inner {
-                margin-top: 20px;
-                padding: 0 15px;
-            }
-
-            .content-inner iframe {
-                height: 250px;
+            .name {
+                font-size: 1.5rem;
             }
         }
     </style>
-    <script>
-        function show(section) {
-            const sections = {
-                about: `
-                    <h2>About Me</h2>
-                    <p>I am Vasu Dubey. I work at <a href="https://resodevice.netlify.app">Resonance</a>. My primary work these days are heading product design and funneling consumers for Resonance.</p>
-                    <p>I currently live and work in <strong>Bengaluru, India.</strong></p>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d497511.23206596064!2d77.34894905!3d12.95384165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka%2C%20India!5e0!3m2!1sen!2sin!4v1720057053229!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
-                    <h3>Find me</h3>
-                    <p><a href= "https://www.linkedin.com/in/vasu-dubey-b191461b4">LinkedIn</a><br><a href="https://github.com/vasudvy">Github</a><br>PGP keys: updating soon</p>
-                `,
-                work: `
-                    <h2>Work</h2>
-                    <p>At <strong>Resonance</strong>, we work on human-machine interfaces to improve the quality of life. Our primary focus is on building assistive systems that leverage real-time neural synthesis, starting with <em>speech restoration</em> in those who, due to a stroke or post-surgical complication, have lost their vocal stability. I contribute to model architecture design, evaluation pipelines, and ensuring clinical-grade robustness.</p><br><br>
-
-<h3>Past Projects</h3><br>
-<ul>
-<li><a href="https://napiermcp.netlify.app">MCP Server</a> that installs other MCP Servers for you</li>
-<li><a href="https://github.com/va99/Napier-mcp">Ator</a> Connect and use WhatsApp directly from Claude</li>
-<li><a href="https://github.com/vasudvy/strepsil">Strepsil</a> for clean stripe-like receipts for AI Usage</li>
-<li><a href="https://textab.netlify.app/">Textab</a> make videos from code.</li>
-<li><a href="https://github.com/va99/ff">ff</a> cli ai agent with browser control.</li>
-
-</ul>
-                `,
-                interests: `
-                    <h2>Things I Find Interesting</h2>
-                    <ul>
-                        <li>Computational models of cognition and memory</li>
-                        <li>Philosophy of mind and embodied intelligence</li>
-                        <li>Tools for thought and augmentation of reasoning</li>
-                        <li>Analog electronics and minimalist hardware</li>
-                        <li>History of science and conceptual revolutions</li>
-                        <li><strong>Mechanistic Interpretability:</strong> Understanding not just what neural networks do, but how they do it. <a href="https://distill.pub/2020/circuits/zoom-in/" target="_blank">[link]</a></li>
-                        <li><strong>Foundations of Mathematics:</strong> The philosophical and logical basis of math, including Gödel's incompleteness theorems. <a href="https://plato.stanford.edu/entries/goedel-incompleteness/" target="_blank">[link]</a></li>
-                         <li><strong>Complex Systems & Emergence:</strong> How simple interactions give rise to complex, self-organizing behavior in nature and society. <a href="https://www.santafe.edu/about/what-is-complexity" target="_blank">[link]</a></li>
-                        <li><strong>Information Theory:</strong> The fundamental quantification of information, communication, and uncertainty, as pioneered by Claude Shannon. <a href="https://www.khanacademy.org/computing/computer-science/informationtheory" target="_blank">[link]</a></li>
-                        <li><strong>Philosophy of Technology:</strong> Critically examining the two-way relationship between technology and human society. <a href="https://plato.stanford.edu/entries/technology/" target="_blank">[link]</a></li>
-                    </ul>
-                `,
-                 questions: `
-                    <h2>Questions</h2>
-                    <p>Open-ended inquiries for self-reflection.</p>
-                    <ul>
-                        <li>At what point does a collection of particles become a "system" with emergent properties? Where is the boundary between parts and wholes?</li>
-                        <li>How does the brain construct the illusion of a unified self from distributed neural processes? What binds disparate sensory inputs into coherent experience?</li>
-                        <li>Why did natural selection favor organisms that suffer? What evolutionary advantage does the capacity for pain, anxiety, or existential dread provide?</li>
-                        <li>What is the relationship between biological time (cellular rhythms, aging) and psychological time (how duration feels)? Which is more fundamental to your experience?</li>
-                        <li>Your visual system discards most information and fills in gaps with predictions. How much of what you "see" is actually constructed by your brain?</li>
-                        <li>What is it that seeks, and what is it that is being sought? Are they different?</li>
-                    </ul>
-                `,
-                nopackland: `
-                    <h2>NoPackLand</h2>
-                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="A lone traveler with a backpack walking on a mountain trail with vast wilderness stretching to the horizon">
-                    <div class="manifesto">
-                        <p>"Shatter the chains of a false consciousness, the quiet poison of a life planned in advance. The core of man's spirit comes from new experiences. Forget the map, the promotion, the 401k. There is a different kind of wealth, a currency of sunsets and solitude, of blisters on your feet and the raw, unfiltered truth of the wind.</p>
-                        <p>To exist on the fringe is not to be lost, but to be found. It is a deliberate pilgrimage away from the noise and into the symphony of the real. The trail, the mountain, the desert—these are not just places, they are states of being. They ask for nothing but your presence and give you everything in return. Go forth, with nothing but what you can carry, and find the person you were before the world told you who to be."</p>
-                    </div>
-
-                    <h3>Remote Places to Wander</h3>
-                     <ul>
-                        <li><strong>Patagonia</strong> - The southern end of the world, a land of granite peaks, glaciers, and fierce winds in Argentina and Chile.</li>
-                        <li><strong>Svalbard, Norway</strong> - A remote arctic archipelago halfway between mainland Norway and the North Pole.</li>
-                        <li><strong>The Gobi Desert, Mongolia</strong> - One of the most vast and silent landscapes on Earth, home to nomadic cultures.</li>
-                        <li><strong>Fiordland National Park, New Zealand</strong> - A remote area of staggering beauty, with deep fiords, ancient rainforests, and epic hiking trails.</li>
-                        <li><strong>The Kamchatka Peninsula, Russia</strong> - A land of fire and ice, with some of the most stunning volcanic landscapes in the world.</li>
-                        <li><strong>Zanskar Valley, Ladakh, India</strong> - A high-altitude, semi-desert region in the Himalayas, cut off from the world for much of the year.</li>
-                    </ul>
-                `,
-                people: `
-                    <h2>People</h2>
-                    <ul>
-                        <li>Wittgenstein – for his clarity and his silences</li>
-                        <li>Iris Murdoch – for ethics rooted in attention</li>
-                        <li>Norbert Wiener – for early thinking on systems and feedback</li>
-                        <li>Simone Weil – for depth, austerity, and truth</li>
-                        <li>Marvin Minsky – for his strange and sharp metaphors</li>
-                        <li><strong>Socrates:</strong> The original contrarian, who questioned everything and was executed for "corrupting the youth" with his inquiries.</li>
-                        <li><strong>Galileo Galilei:</strong> Defied the church and consensus by asserting the Earth revolves around the Sun, a stance for which he was tried by the Inquisition.</li>
-                        <li><strong>Baruch Spinoza:</strong> Excommunicated for his radical rationalist philosophy that equated God with Nature, challenging all religious dogma of his time.</li>
-                        <li><strong>Ignaz Semmelweis:</strong> A physician ridiculed by his peers for the "radical" idea that doctors should wash their hands between patients to prevent disease. He was eventually vindicated, but died in an asylum.</li>
-                        <li><strong>Ludwig Boltzmann:</strong> A physicist whose foundational work on statistical mechanics and the atomic theory was fiercely opposed by the scientific establishment of his era.</li>
-                    </ul>
-                `,
-                places: `
-                    <h2>Places Explored</h2>
-                    <p>A few glimpses into some fascinating places across India.</p>
-
-                    <h3>Manali, Himachal Pradesh</h3>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26715.09038369309!2d77.15634895!3d32.23934455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39048708163fd03f%3A0x8129a80ebe5076cd!2sManali%2C%20Himachal%20Pradesh!5e0!3m2!1sen!2sin!4v1720057106978!5m2!1sen!2sin" style="height:200px;" allowfullscreen="" loading="lazy"></iframe>
-                    
-                    <h3>Kota, Rajasthan</h3>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115623.63319086127!2d75.7656927376043!3d25.17600743513753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396f9b30c1365c1d%3A0x156557850849351!2sKota%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1720057053229!5m2!1sen!2sin" style="height:200px;" allowfullscreen="" loading="lazy"></iframe>
-
-                    <h3>Delhi</h3>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224345.8363617377!2d77.06889753965992!3d28.52728033810688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x52c2b7494e204dce!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1720057106978!5m2!1sen!2sin" style="height:200px;" allowfullscreen="" loading="lazy"></iframe>
-                    
-                    <h3>Mumbai, Maharashtra</h3>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d482803.02099052944!2d72.5797068!3d19.0821978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1720057106978!5m2!1sen!2sin" style="height:200px;" allowfullscreen="" loading="lazy"></iframe>
-                    
-                    <h3>Jaipur, Rajasthan</h3>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227748.84533982834!2d75.6502579!3d26.8851417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4adf4c57e281%3A0xce1c63a0cf22e09!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1720057106978!5m2!1sen!2sin" style="height:200px;" allowfullscreen="" loading="lazy"></iframe>
-
-                    <h3>Udaipur, Rajasthan</h3>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116048.89001169695!2d73.61357475!3d24.5713345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3967e56e0c5e8c53%3A0x8c18aae3ac6e1c6b!2sUdaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1720057106978!5m2!1sen!2sin" style="height:200px;" allowfullscreen="" loading="lazy"></iframe>
-                `,
-                animals: `
-                    <p>From the microscopic tardigrade to the colossal blue whale, the animal kingdom is a breathtaking display of diversity. Yet, beneath the endless forms and functions lies a unifying principle: the <strong>animal cell</strong>. Understanding this intricate, bustling city in miniature is the key to understanding life itself.</p>
-                    
-                    <p>This incredible cellular machinery is the foundation of all animal life. Cells form tissues, tissues form organs, and organs form systems. It is this hierarchy, starting from the elegant complexity of a single eukaryotic cell, that allows for the existence of a thinking, moving, and feeling animal.</p>
-                `,
-                bookshelf: `
-               <h2>Bookshelf</h2>
-<ul>
-    <li>The Brothers Karamazov – Fyodor Dostoevsky</li>
-    <li>Crime and Punishment – Fyodor Dostoevsky</li>
-    <li>The Stranger – Albert Camus</li>
-    <li>Thus Spoke Zarathustra – Friedrich Nietzsche</li>
-    <li>Being and Time – Martin Heidegger</li>
-    <li>Tractatus Logico-Philosophicus – Ludwig Wittgenstein</li>
-    <li>Ulysses – James Joyce</li>
-    <li>On the Road – Jack Kerouac</li>
-    <li>Discipline and Punish – Michel Foucault</li>
-    <li>I and Thou – Martin Buber</li>
-    <li>The Tao Te Ching – Lao Tzu</li>
-    <li>Gödel, Escher, Bach – Douglas Hofstadter</li>
-    <li>Leaves of Grass – Walt Whitman</li>
-    <li>The Wretched of the Earth – Frantz Fanon</li>
-    <li>House of Leaves – Mark Z. Danielewski</li>
-    <li>The Myth of Sisyphus – Albert Camus</li>
-    <li>Beyond Good and Evil – Friedrich Nietzsche</li>
-    <li>The Phenomenology of Spirit – G.W.F. Hegel</li>
-    <li>Meditations – Marcus Aurelius</li>
-    <li>The Republic – Plato</li>
-    <li>Nicomachean Ethics – Aristotle</li>
-    <li>Confessions – Augustine</li>
-    <li>The Divine Comedy – Dante Alighieri</li>
-    <li>Don Quixote – Miguel de Cervantes</li>
-    <li>Hamlet – William Shakespeare</li>
-    <li>King Lear – William Shakespeare</li>
-    <li>Paradise Lost – John Milton</li>
-    <li>Faust – Johann Wolfgang von Goethe</li>
-    <li>The Sorrows of Young Werther – Johann Wolfgang von Goethe</li>
-    <li>War and Peace – Leo Tolstoy</li>
-    <li>Anna Karenina – Leo Tolstoy</li>
-    <li>The Death of Ivan Ilyich – Leo Tolstoy</li>
-    <li>Notes from Underground – Fyodor Dostoevsky</li>
-    <li>The Idiot – Fyodor Dostoevsky</li>
-    <li>Demons – Fyodor Dostoevsky</li>
-    <li>Moby Dick – Herman Melville</li>
-    <li>The Scarlet Letter – Nathaniel Hawthorne</li>
-    <li>Walden – Henry David Thoreau</li>
-    <li>Self-Reliance – Ralph Waldo Emerson</li>
-    <li>The Adventures of Huckleberry Finn – Mark Twain</li>
-    <li>The Great Gatsby – F. Scott Fitzgerald</li>
-    <li>The Sound and the Fury – William Faulkner</li>
-    <li>As I Lay Dying – William Faulkner</li>
-    <li>Light in August – William Faulkner</li>
-    <li>Absalom, Absalom! – William Faulkner</li>
-    <li>The Sun Also Rises – Ernest Hemingway</li>
-    <li>For Whom the Bell Tolls – Ernest Hemingway</li>
-    <li>The Old Man and the Sea – Ernest Hemingway</li>
-    <li>The Grapes of Wrath – John Steinbeck</li>
-    <li>East of Eden – John Steinbeck</li>
-    <li>Of Mice and Men – John Steinbeck</li>
-    <li>To Kill a Mockingbird – Harper Lee</li>
-    <li>1984 – George Orwell</li>
-    <li>Animal Farm – George Orwell</li>
-    <li>Brave New World – Aldous Huxley</li>
-    <li>The Doors of Perception – Aldous Huxley</li>
-    <li>Fahrenheit 451 – Ray Bradbury</li>
-    <li>The Catcher in the Rye – J.D. Salinger</li>
-    <li>Franny and Zooey – J.D. Salinger</li>
-    <li>Slaughterhouse-Five – Kurt Vonnegut</li>
-    <li>Cat's Cradle – Kurt Vonnegut</li>
-    <li>Breakfast of Champions – Kurt Vonnegut</li>
-    <li>One Flew Over the Cuckoo's Nest – Ken Kesey</li>
-    <li>The Electric Kool-Aid Acid Test – Tom Wolfe</li>
-    <li>Fear and Loathing in Las Vegas – Hunter S. Thompson</li>
-    <li>Naked Lunch – William S. Burroughs</li>
-    <li>Howl – Allen Ginsberg</li>
-    <li>The Dharma Bums – Jack Kerouac</li>
-    <li>Big Sur – Jack Kerouac</li>
-    <li>One Hundred Years of Solitude – Gabriel García Márquez</li>
-    <li>Love in the Time of Cholera – Gabriel García Márquez</li>
-    <li>The Metamorphosis – Franz Kafka</li>
-    <li>The Trial – Franz Kafka</li>
-    <li>The Castle – Franz Kafka</li>
-    <li>Amerika – Franz Kafka</li>
-    <li>The Glass Bead Game – Hermann Hesse</li>
-    <li>Demian – Hermann Hesse</li>
-    <li>In Search of Lost Time – Marcel Proust</li>
-    <li>The Outsider – Colin Wilson</li>
-    <li>The Fall – Albert Camus</li>
-    <li>The Plague – Albert Camus</li>
-    <li>The Rebel – Albert Camus</li>
-    <li>Nausea – Jean-Paul Sartre</li>
-    <li>Being and Nothingness – Jean-Paul Sartre</li>
-    <li>No Exit – Jean-Paul Sartre</li>
-    <li>The Second Sex – Simone de Beauvoir</li>
-    <li>The Ethics of Ambiguity – Simone de Beauvoir</li>
-    <li>The Mandarins – Simone de Beauvoir</li>
-    <li>Waiting for Godot – Samuel Beckett</li>
-    <li>Endgame – Samuel Beckett</li>
-    <li>The Unnamable – Samuel Beckett</li>
-    <li>Molloy – Samuel Beckett</li>
-    <li>Philosophical Investigations – Ludwig Wittgenstein</li>
-    <li>The Blue and Brown Books – Ludwig Wittgenstein</li>
-    <li>On Certainty – Ludwig Wittgenstein</li>
-    <li>The Critique of Pure Reason – Immanuel Kant</li>
-    <li>The Critique of Practical Reason – Immanuel Kant</li>
-    <li>The Critique of Judgment – Immanuel Kant</li>
-    <li>Groundwork for the Metaphysics of Morals – Immanuel Kant</li>
-    <li>The Birth of Tragedy – Friedrich Nietzsche</li>
-    <li>The Gay Science – Friedrich Nietzsche</li>
-    <li>On the Genealogy of Morals – Friedrich Nietzsche</li>
-    <li>The Will to Power – Friedrich Nietzsche</li>
-    <li>Twilight of the Idols – Friedrich Nietzsche</li>
-    <li>The Antichrist – Friedrich Nietzsche</li>
-    <li>Either/Or – Søren Kierkegaard</li>
-    <li>Fear and Trembling – Søren Kierkegaard</li>
-    <li>The Sickness Unto Death – Søren Kierkegaard</li>
-    <li>The Concept of Anxiety – Søren Kierkegaard</li>
-    <li>Repetition – Søren Kierkegaard</li>
-    <li>The World as Will and Representation – Arthur Schopenhauer</li>
-    <li>Parerga and Paralipomena – Arthur Schopenhauer</li>
-    <li>The Gay Science – Friedrich Nietzsche</li>
-    <li>The Portable Nietzsche – Friedrich Nietzsche</li>
-    <li>What Is Called Thinking? – Martin Heidegger</li>
-    <li>The Question Concerning Technology – Martin Heidegger</li>
-    <li>Poetry, Language, Thought – Martin Heidegger</li>
-    <li>Introduction to Metaphysics – Martin Heidegger</li>
-    <li>The Origin of the Work of Art – Martin Heidegger</li>
-    <li>Truth and Method – Hans-Georg Gadamer</li>
-    <
-    <li>The Social Contract – Jean-Jacques Rousseau</li>
-    <li>Émile – Jean-Jacques Rousseau</li>
-    <li>The Confessions – Jean-Jacques Rousseau</li>
-    <li>Discourse on Inequality – Jean-Jacques Rousseau</li>
-    <li>Candide – Voltaire</li>
-    <li>Letters on the English – Voltaire</li>
-    <li>Philosophical Dictionary – Voltaire</li>
-    <li>The Spirit of the Laws – Montesquieu</li>
-    <li>The Persian Letters – Montesquieu</li>
-    <li>The Encyclopedia – Denis Diderot</li>
-    <li>Rameau's Nephew – Denis Diderot</li>
-    <li>Jacques the Fatalist – Denis Diderot</li>
-    <li>The Nun – Denis Diderot</li>
-    <li>Pensées – Blaise Pascal</li>
-    <li>Provincial Letters – Blaise Pascal</li>
-    <li>Discourse on Method – René Descartes</li>
-    <li>Meditations on First Philosophy – René Descartes</li>
-    <li>Principles of Philosophy – René Descartes</li>
-    <li>The Passions of the Soul – René Descartes</li>
-    <li>Ethics – Baruch Spinoza</li>
-    <li>Theological-Political Treatise – Baruch Spinoza</li>
-    <li>Political Treatise – Baruch Spinoza</li>
-    <li>Short Treatise on God, Man, and His Well-Being – Baruch Spinoza</li>
-    <li>Monadology – Gottfried Wilhelm Leibniz</li>
-    <li>Discourse on Metaphysics – Gottfried Wilhelm Leibniz</li>
-    <li>New Essays on Human Understanding – Gottfried Wilhelm Leibniz</li>
-    <li>Theodicy – Gottfried Wilhelm Leibniz</li>
-    <li>The Enneads – Plotinus</li>
-    <li>The City of God – Augustine</li>
-    <li>On the Trinity – Augustine</li>
-    <li>The Consolation of Philosophy – Boethius</li>
-    <li>I and Thou – Martin Buber</li>
-</ul> `,
-                movies: `
-                    <h2>Cinema</h2>
-<ul>
-    <li>Stalker – Andrei Tarkovsky</li>
-    <li>Persona – Ingmar Bergman</li>
-    <li>Breathless – Jean-Luc Godard</li>
-    <li>Last Year at Marienbad – Alain Resnais</li>
-    <li>Tokyo Story – Yasujirō Ozu</li>
-    <li>Sans Soleil – Chris Marker</li>
-    <li>Waking Life – Richard Linklater</li>
-    <li>The Thin Red Line – Terrence Malick</li>
-    <li>2001: A Space Odyssey – Stanley Kubrick</li>
-    <li>Apocalypse Now – Francis Ford Coppola</li>
-    <li>Blue Velvet – David Lynch</li>
-    <li>Easy Rider – Dennis Hopper</li>
-    <li>Aguirre, the Wrath of God – Werner Herzog</li>
-    <li>8½ – Federico Fellini</li>
-    <li>The Rules of the Game – Jean Renoir</li>
-    <li>Citizen Kane – Orson Welles</li>
-    <li>Vertigo – Alfred Hitchcock</li>
-    <li>The 400 Blows – François Truffaut</li>
-    <li>Bicycle Thieves – Vittorio De Sica</li>
-    <li>Seven Samurai – Akira Kurosawa</li>
-    <li>The Seventh Seal – Ingmar Bergman</li>
-    <li>Andrei Rublev – Andrei Tarkovsky</li>
-    <li>L'Avventura – Michelangelo Antonioni</li>
-    <li>Mulholland Drive – David Lynch</li>
-    <li>The Mirror – Andrei Tarkovsky</li>
-    <li>Hiroshima Mon Amour – Alain Resnais</li>
-    <li>Contempt – Jean-Luc Godard</li>
-    <li>Late Spring – Yasujirō Ozu</li>
-    <li>The Red Shoes – Michael Powell & Emeric Pressburger</li>
-    <li>The Passion of Joan of Arc – Carl Theodor Dreyer</li>
-    <li>Wild Strawberries – Ingmar Bergman</li>
-    <li>Solaris – Andrei Tarkovsky</li>
-    <li>La Dolce Vita – Federico Fellini</li>
-    <li>Jules and Jim – François Truffaut</li>
-    <li>The Leopard – Luchino Visconti</li>
-    <li>The Sacrifice – Andrei Tarkovsky</li>
-    <li>Barry Lyndon – Stanley Kubrick</li>
-    <li>Pierrot le Fou – Jean-Luc Godard</li>
-    <li>The Tree of Life – Terrence Malick</li>
-    <li>Sunset Boulevard – Billy Wilder</li>
-    <li>Chungking Express – Wong Kar-wai</li>
-    <li>In the Mood for Love – Wong Kar-wai</li>
-    <li>City of God – Fernando Meirelles</li>
-    <li>Amour – Michael Haneke</li>
-    <li>A Separation – Asghar Farhadi</li>
-    <li>Spirited Away – Hayao Miyazaki</li>
-    <li>The Crying Game – Neil Jordan</li>
-    <li>Pulp Fiction – Quentin Tarantino</li>
-    <li>Taxi Driver – Martin Scorsese</li>
-    <li>Raging Bull – Martin Scorsese</li>
-    <li>Goodfellas – Martin Scorsese</li>
-    <li>The Godfather – Francis Ford Coppola</li>
-    <li>The Godfather Part II – Francis Ford Coppola</li>
-    <li>Chinatown – Roman Polanski</li>
-    <li>Nashville – Robert Altman</li>
-    <li>Annie Hall – Woody Allen</li>
-    <li>Manhattan – Woody Allen</li>
-    <li>The Deer Hunter – Michael Cimino</li>
-    <li>Raging Bull – Martin Scorsese</li>
-    <li>Do the Right Thing – Spike Lee</li>
-    <li>The Royal Tenenbaums – Wes Anderson</li>
-    <li>There Will Be Blood – Paul Thomas Anderson</li>
-    <li>No Country for Old Men – Coen Brothers</li>
-    <li>Fargo – Coen Brothers</li>
-    <li>The Big Lebowski – Coen Brothers</li>
-    <li>Magnolia – Paul Thomas Anderson</li>
-    <li>Boogie Nights – Paul Thomas Anderson</li>
-    <li>Her – Spike Jonze</li>
-    <li>Lost in Translation – Sofia Coppola</li>
-    <li>Eternal Sunshine of the Spotless Mind – Michel Gondry</li>
-    <li>Synecdoche, New York – Charlie Kaufman</li>
-    <li>The Social Network – David Fincher</li>
-    <li>Fight Club – David Fincher</li>
-    <li>Se7en – David Fincher</li>
-    <li>Zodiac – David Fincher</li>
-    <li>The Curious Case of Benjamin Button – David Fincher</li>
-    <li>Gone Girl – David Fincher</li>
-    <li>The Master – Paul Thomas Anderson</li>
-    <li>Phantom Thread – Paul Thomas Anderson</li>
-    <li>Punch-Drunk Love – Paul Thomas Anderson</li>
-    <li>Hard Eight – Paul Thomas Anderson</li>
-    <li>Licorice Pizza – Paul Thomas Anderson</li>
-    <li>Roma – Alfonso Cuarón</li>
-    <li>Gravity – Alfonso Cuarón</li>
-    <li>Children of Men – Alfonso Cuarón</li>
-    <li>Y tu mamá también – Alfonso Cuarón</li>
-    <li>The Revenant – Alejandro González Iñárritu</li>
-    <li>Birdman – Alejandro González Iñárritu</li>
-    <li>Amores Perros – Alejandro González Iñárritu</li>
-    <li>21 Grams – Alejandro González Iñárritu</li>
-    <li>Babel – Alejandro González Iñárritu</li>
-    <li>The Shape of Water – Guillermo del Toro</li>
-    <li>Pan's Labyrinth – Guillermo del Toro</li>
-    <li>Parasite – Bong Joon-ho</li>
-    <li>Oldboy – Park Chan-wook</li>
-    <li>The Handmaiden – Park Chan-wook</li>
-    <li>Burning – Lee Chang-dong</li>
-    <li>Poetry – Lee Chang-dong</li>
-    <li>The Housemaid – Kim Ki-young</li>
-    <li>Peppermint Candy – Lee Chang-dong</li>
-    <li>Secret Sunshine – Lee Chang-dong</li>
-    <li>Oasis – Lee Chang-dong</li>
-    <li>3-Iron – Kim Ki-duk</li>
-    <li>Spring, Summer, Fall, Winter... and Spring – Kim Ki-duk</li>
-    <li>The Host – Bong Joon-ho</li>
-    <li>Memories of Murder – Bong Joon-ho</li>
-    <li>Mother – Bong Joon-ho</li>
-    <li>Snowpiercer – Bong Joon-ho</li>
-    <li>A Brighter Summer Day – Edward Yang</li>
-    <li>Yi Yi – Edward Yang</li>
-    <li>The Terrorizers – Edward Yang</li>
-    <li>Taipei Story – Edward Yang</li>
-    <li>That Day, on the Beach – Edward Yang</li>
-    <li>Rebels of the Neon God – Tsai Ming-liang</li>
-    <li>Vive L'Amour – Tsai Ming-liang</li>
-    <li>What Time Is It There? – Tsai Ming-liang</li>
-    <li>Stray Dogs – Tsai Ming-liang</li>
-    <li>Goodbye, Dragon Inn – Tsai Ming-liang</li>
-    <li>The River – Tsai Ming-liang</li>
-    <li>Days – Tsai Ming-liang</li>
-    <li>The Wayward Cloud – Tsai Ming-liang</li>
-    <li>I Don't Want to Sleep Alone – Tsai Ming-liang</li>
-    <li>Face – Tsai Ming-liang</li>
-    <li>Walker – Tsai Ming-liang</li>
-    <li>Your Face – Tsai Ming-liang</li>
-    <li>The Hole – Tsai Ming-liang</li>
-</ul>
-                `
-            };
-            document.getElementById('content-inner').innerHTML = sections[section];
-
-            // Auto-close the mobile menu after a selection is made
-            const nav = document.getElementById('main-nav');
-            if (window.innerWidth <= 768 && nav.classList.contains('nav-visible')) {
-                nav.classList.remove('nav-visible');
-            }
-        }
-
-        function toggleMenu() {
-            const nav = document.getElementById('main-nav');
-            nav.classList.toggle('nav-visible');
-        }
-    </script>
 </head>
-<body onload="show('about')">
-
-<div class="container">
-    <div class="row">
-        <div class="sidebar">
-            <a class="menu-icon" onclick="toggleMenu()">☰ Menu</a>
-            <ul class="nav" id="main-nav">
-                <li><a href="#" onclick="show('about')">About Me</a></li>
-                <li><a href="#" onclick="show('work')">Work</a></li>
-                <li><a href="#" onclick="show('interests')">Interests</a></li>
-                <li><a href="#" onclick="show('questions')">Questions</a></li>
-                <li><a href="#" onclick="show('nopackland')">NoPackLand</a></li>
-                <li><a href="#" onclick="show('people')">People</a></li>
-                <li><a href="#" onclick="show('places')">Places</a></li>
-                <li><a href="#" onclick="show('animals')">Animals & Biology</a></li>
-                <li><a href="#" onclick="show('bookshelf')">Bookshelf</a></li>
-                <li><a href="#" onclick="show('movies')">Movies</a></li>
-            </ul>
+<body>
+    <div class="left-section">
+        <img src="https://github.com/vasudvy/vasudvy.github.io/raw/main/lvogo.png" alt="Profile Photo" class="profile-photo">
+        <h1 class="name">Vasu Dubey</h1>
+        <p class="title">22. India.n</p>
+    </div>
+    
+    <div class="right-section">
+        <div class="section">
+            <h2>Me </h2>
+            <p>i am vasu. </p>
         </div>
-        <div class="content">
-            <div class="content-inner" id="content-inner">
-                </div>
+        
+        <div class="section">
+            <h2>Tools</h2>
+            <p><strong>Programming:</strong> Go, Python & TS</p>
+            <p><strong>Ops:</strong> K8s, EC2, Lambda</p>
+            <p><strong>:</strong>mostly inactive across platforms</p>
+            <p><strong>Fun Fact:</strong> green is elixir</p>
+        </div>
+        
+        <div class="section">
+            <h2>Things I do</h2>
+            <div class="skills">
+                <span class="skill-tag">Web Development</span>
+                <span class="skill-tag">Business Development</span>
+                <span class="skill-tag">Prospecting</span>
+                <span class="skill-tag">Due diligence</span>
+                <span class="skill-tag">Sale Conversions</span>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Connect With Me</h2>
+            <div class="contact-info">
+                <div class="contact-item">Email: vasudubey02@gmail.com</div>
+                <div class="contact-item">X: x.com/wyaneo</div>
+            </div>
         </div>
     </div>
-</div>
-
 </body>
 </html>
