@@ -25,12 +25,16 @@
         }
 
         .profile-photo {
-            width: 250px;
-            height: 360px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-            object-fit: cover;
-        }
+    width: 250px;
+    height: 250px;
+    border-radius: 8px; /* slight rounding; use 0 for sharp corners */
+    margin-bottom: 20px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
         .name {
             font-size: 2rem;
