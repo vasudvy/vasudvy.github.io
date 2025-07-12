@@ -16,25 +16,27 @@
             background: white;
             padding: 20px;
             display: flex;
+            flex-wrap: wrap;
             gap: 40px;
         }
 
         .left-section {
-            width: 1024px;
+            flex: 1 1 300px;
             text-align: center;
         }
 
         .profile-photo {
-    width: 250px;
-    height: 250px;
-    border-radius: 8px; /* slight rounding; use 0 for sharp corners */
-    margin-bottom: 20px;
-    object-fit: cover;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
+            width: 100%;
+            max-width: 250px;
+            aspect-ratio: 1 / 1;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
         .name {
             font-size: 2rem;
@@ -49,7 +51,7 @@
         }
 
         .right-section {
-            flex: 1;
+            flex: 2 1 300px;
         }
 
         .section {
@@ -96,20 +98,28 @@
         @media (max-width: 768px) {
             body {
                 flex-direction: column;
-                gap: 20px;
+                gap: 30px;
+                padding: 15px;
             }
-            
-            .left-section {
+
+            .left-section, .right-section {
                 width: 100%;
             }
-            
-            .profile-photo {
-                width: 500px;
-                height: 500px;
-            }
-            
+
             .name {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
+            }
+
+            .profile-photo {
+                max-width: 180px;
+            }
+
+            .section h2 {
+                font-size: 1.2rem;
+            }
+
+            .skill-tag {
+                font-size: 0.85rem;
             }
         }
     </style>
