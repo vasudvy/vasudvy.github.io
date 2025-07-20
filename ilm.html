@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>/vd</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Georgia&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-color: #faf9f7;
+      --text-color: #1a1a1a;
+      --text-secondary: #333;
+      --link-color: #2c2c2c;
+      --border-color: #e8e2d5;
+      --hover-bg: rgba(0, 0, 0, 0.05);
+      --translation-bg: #f5f3f0;
+      --button-bg: #e8e2d5;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #0f0f0f;
+      --text-color: #e8e8e8;
+      --text-secondary: #cccccc;
+      --link-color: #d4d4d4;
+      --border-color: #2a2a2a;
+      --hover-bg: rgba(255, 255, 255, 0.1);
+      --translation-bg: #1a1a1a;
+      --button-bg: #2a2a2a;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 80px 40px 40px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      position: relative;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--border-color);
+      border: 2px solid var(--text-color);
+      width: 60px;
+      height: 30px;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      outline: none;
+    }
+
+    .theme-toggle::before {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 22px;
+      height: 22px;
+      background: var(--text-color);
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+
+    [data-theme="dark"] .theme-toggle::before {
+      transform: translateX(28px);
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.05);
+    }
+
+    h3 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--text-color);
+      margin-bottom: 40px;
+      text-align: left;
+      letter-spacing: -0.5px;
+    }
+
+    .intro {
+      margin-bottom: 40px;
+      color: var(--text-secondary);
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    .poem-container {
+      margin-bottom: 50px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .poem-container:last-of-type {
+      border-bottom: none;
+    }
+
+    .poem-text {
+      font-style: italic;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      color: var(--text-secondary);
+    }
+
+    .poem-text br {
+      display: block;
+      margin: 8px 0;
+      content: "";
+    }
+
+    .translation-toggle {
+      background: var(--button-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: 'Georgia', serif;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      margin-bottom: 15px;
+      display: inline-block;
+    }
+
+    .translation-toggle:hover {
+      background: var(--hover-bg);
+      transform: translateY(-1px);
+    }
+
+    .translation-content {
+      background: var(--translation-bg);
+      border-left: 3px solid var(--text-color);
+      padding: 20px;
+      margin-top: 15px;
+      border-radius: 0 8px 8px 0;
+      display: none;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+    }
+
+    .translation-content.show {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .translation-content p {
+      margin-bottom: 15px;
+      color: var(--text-secondary);
+      font-style: normal;
+      line-height: 1.6;
+    }
+
+    .translation-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .divider {
+      text-align: center;
+      margin: 40px 0;
+      color: var(--text-secondary);
+      font-size: 18px;
+      letter-spacing: 2px;
+    }
+
+    b {
+      font-weight: 600;
+      color: var(--text-color);
+    }
+
+    a {
+      color: var(--link-color);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      transition: all 0.2s ease;
+    }
+
+    a:hover {
+      background-color: var(--hover-bg);
+      text-decoration-thickness: 2px;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      font-size: 14px;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 60px 20px 20px;
+        font-size: 15px;
+      }
+      
+      h3 {
+        font-size: 1.75rem;
+      }
+      
+      .theme-toggle {
+        top: 1rem;
+        right: 1rem;
+        width: 50px;
+        height: 25px;
+        border-radius: 12.5px;
+      }
+      
+      .theme-toggle::before {
+        width: 19px;
+        height: 19px;
+      }
+      
+      [data-theme="dark"] .theme-toggle::before {
+        transform: translateX(23px);
+      }
+
+      .translation-content {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle"></button>
+
+  <h3>Ilm-o-Subha</h3>
+
+  <div class="intro">
+    <p>Collection of poems written by me in Urdu and Hindi language, script remains Roman (I will later add Devnagri). All of is being written as of now following 2025 - ?. My pen name is <i>Shaad.</i></p>
+  </div>
+
+  <div class="poem-container">
+    <div class="poem-text">
+      Kya fazl hai, thak jaana us kaam se,<br>
+jo maanga tha har roz ke iraam se.<br><br>
+
+Kya karam hai, ghut jaana us daulat mein,<br>
+jo aayi thi sajdon ke ilhaam se.<br><br>
+
+Kya niaz hai, muskil mein hona us raah pe,<br>
+jo chuni thi dil ne poore salaam se.<br><br>
+
+Kya rehma hai, chhod dena un rangon ko,<br>
+jo kabhi chune the khauf ke paimaam se.<br><br>
+    </div>
+    
+    <button class="translation-toggle" onclick="toggleTranslation(this)">Show Translation</button>
+    
+    <div class="translation-content">
+      <p>What kind of grace is it - to tire of the very task<br>That I once begged for in every prayer</p>
+      
+      <p>What kind of mercy is it - to feel suffocated by the wealth<br>
+      That arrived as a revelation through my deepest prostrations?</p>
+      
+      <p>What kind of devotion is it - to feel burdened on the very path<br>
+      That the heart once embraced in full surrender and peace?</p>
+      
+      <p>What kind of compassion is it - to abandon those colors<br>
+      That were once chosen under the weight of sacred fear?</p>
+    </div>
+  </div>
+
+  </div>
+
+  <footer>
+    © Vasu Dubey
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      
+      if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+      } else {
+        body.setAttribute('data-theme', 'dark');
+      }
+    }
+
+    function toggleTranslation(button) {
+      const translationContent = button.nextElementSibling;
+      const isShowing = translationContent.classList.contains('show');
+      
+      if (isShowing) {
+        translationContent.classList.remove('show');
+        button.textContent = 'Show Translation';
+        setTimeout(() => {
+          translationContent.style.display = 'none';
+        }, 300);
+      } else {
+        translationContent.style.display = 'block';
+        setTimeout(() => {
+          translationContent.classList.add('show');
+        }, 10);
+        button.textContent = 'Hide Translation';
+      }
+    }
+
+    // Initialize theme based on system preference
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.body.setAttribute('data-theme', 'dark');
+    }
+  </script>
+</body>
+
+</html>
