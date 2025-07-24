@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>/vd</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Georgia&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-color: #faf9f7;
+      --text-color: #1a1a1a;
+      --text-secondary: #333;
+      --link-color: #2c2c2c;
+      --border-color: #e8e2d5;
+      --hover-bg: rgba(0, 0, 0, 0.05);
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #0f0f0f;
+      --text-color: #e8e8e8;
+      --text-secondary: #cccccc;
+      --link-color: #d4d4d4;
+      --border-color: #2a2a2a;
+      --hover-bg: rgba(255, 255, 255, 0.1);
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 80px 40px 40px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      position: relative;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--border-color);
+      border: 2px solid var(--text-color);
+      width: 60px;
+      height: 30px;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      outline: none;
+    }
+
+    .theme-toggle::before {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 22px;
+      height: 22px;
+      background: var(--text-color);
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+
+    [data-theme="dark"] .theme-toggle::before {
+      transform: translateX(28px);
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.05);
+    }
+
+    h3 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--text-color);
+      margin-bottom: 40px;
+      text-align: left;
+      letter-spacing: -0.5px;
+    }
+
+    p {
+      margin-bottom: 20px;
+      color: var(--text-secondary);
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    b {
+      font-weight: 600;
+      color: var(--text-color);
+    }
+
+    ul {
+      margin: 10px 0 20px 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    ul li {
+      margin-bottom: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      position: relative;
+      padding-left: 15px;
+    }
+
+    ul li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--text-color);
+      font-weight: 500;
+    }
+
+    a {
+      color: var(--link-color);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      transition: all 0.2s ease;
+    }
+
+    a:hover {
+      background-color: var(--hover-bg);
+      text-decoration-thickness: 2px;
+    }
+
+    br {
+      display: block;
+      margin: 15px 0;
+      content: "";
+    }
+
+    footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      font-size: 14px;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 60px 20px 20px;
+        font-size: 15px;
+      }
+      
+      h3 {
+        font-size: 1.75rem;
+      }
+      
+      .theme-toggle {
+        top: 1rem;
+        right: 1rem;
+        width: 50px;
+        height: 25px;
+        border-radius: 12.5px;
+      }
+      
+      .theme-toggle::before {
+        width: 19px;
+        height: 19px;
+      }
+      
+      [data-theme="dark"] .theme-toggle::before {
+        transform: translateX(23px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle"></button>
+
+  <h3>Empty Room Blues</h3><br><br>
+  <p>24.07.25. Man what a wild crazy spinning world this is when you find yourself clutching keys that don't belong to you in an empty apartment that smells like fresh paint and abandoned dreams, heart beating like Charlie Parker's saxophone on a hot summer night in Kansas City, and all because life threw you one of those curveballs that sends you scrambling like a cat in an alley when the garbage trucks come rumbling down at dawn.
+
+So here I am, dig, in this ghost apartment one floor up from where I've been crashing these past few months, my buddy downstairs with his relatives visiting and suddenly there's no room for this wandering soul, no space for a guy who's been living on the kindness of friends and the thin thread of hope that keeps us all from falling into the great dark void of absolute desperation. The relatives came like a storm, filling up all the available oxygen in that little apartment, and suddenly I'm the extra puzzle piece that doesn't fit anywhere in the picture.
+
+But man, what do you do when you got no bread, no green, no folding money whatsoever, and the weight of the world pressing down on your shoulders like Atlas himself decided to take a coffee break and left you holding up the whole spinning universe? You do what any self-respecting beat soul would do, you improvise, you adapt, you become like water finding its way through the cracks in the pavement, flowing wherever there's space, however temporary it might be.
+
+These keys, cold metal in my palm, they're like a temporary salvation, a brief respite from the streets that call to wanderers like me with their promises of adventure and their threats of cold concrete beds. I picked them up, knowing full well this is borrowed time, stolen moments in someone else's soon-to-be sanctuary, and now I'm sitting here in this empty room with nothing but my thoughts and the sound of my own heartbeat echoing off these bare walls like tribal drums in the distance.
+
+The apartment is clean, sterile almost, waiting for its new occupants who might arrive today, tomorrow, who knows when, and here I am like some kind of urban ghost haunting a place before it even gets properly lived in. Every sound from the hallway makes my pulse quicken, makes me think this might be it, this might be the moment when reality comes knocking and I have to face the music, face the fact that I got nowhere to go and no money to make it anywhere else.
+
+Three or four days, that's all I need, just enough time to figure out the next move, to find another couch or another friend or another miracle, but even three or four days on the street or in some fleabag motel would cost me two or three thousand rupees I simply don't have, money that exists only in the realm of dreams and wishful thinking. The mathematics of survival, man, they're brutal and unforgiving, adding up to equations that never quite balance when you're living on the margins of society's great machinery.
+
+But there's something beautiful about this moment too, something pure and honest about being stripped down to nothing but your essential self, no possessions weighing you down, no commitments tying you to any particular place or time. It's terrifying, sure, but it's also liberating in that way that only comes when you're dancing right on the edge of the cliff, when every moment becomes precious because you don't know if you'll have another one just like it.
+
+I think about Kerouac himself, how he would have understood this feeling, this mixture of panic and exhilaration that comes with being completely unmoored from conventional life, floating free in the great American night that stretches across continents and through the hearts of all us wandering souls who never quite learned how to settle down and be satisfied with the ordinary rhythms of mortgage payments and steady jobs.
+
+The walls of this empty apartment seem to pulse with potential, with all the lives that will be lived here, all the dreams that will unfold within these rooms once the proper tenants arrive with their furniture and their plans and their sense of belonging. For now though, for these precious stolen hours, it's mine in the way that sunrise belongs to whoever happens to be awake to witness it, temporary and beautiful and completely free.
+
+Every creak of the building, every footstep in the hallway, every voice that carries up from the street below becomes loaded with meaning, becomes a potential harbinger of change, of the moment when this interlude ends and the next chapter of uncertainty begins. But that's the thing about living on the road, whether it's an actual highway stretching across or just the invisible road that carries you from one temporary shelter to the next, you learn to embrace the uncertainty, to find excitement in not knowing what comes next.
+
+The heart keeps thumping, sure, but it's not just fear anymore, it's also anticipation, the kind of electric feeling that comes with being fully alive and fully present in a moment that exists outside the normal flow of scheduled, predictable life. This is what it means to be truly free, even if that freedom comes with a price tag of anxiety and sleepless nights and the constant question of where the next meal or the next safe place to rest will come from.
+
+So here I sit in this borrowed space, this temporary refuge, writing these words as a kind of prayer or meditation or just a way to make sense of the beautiful chaos that life becomes when you let go of all the safety nets and dive headfirst into the unknown. Tomorrow might bring eviction, might bring the street, might bring another miracle in the form of unexpected kindness from a stranger or a friend.
+
+But tonight, for these few hours, I'm exactly where I'm supposed to be, even if I'm not supposed to be here at all, living proof that sometimes the most authentic moments come when you're completely outside the boundaries of what's legal or proper or sensible, when you're just a human being seeking shelter in a world that seems designed to keep people like us moving, always moving, never quite settling into the comfortable rhythms that others take for granted.
+
+The keys feel warm now in my hand, warmed by my own body heat and the intensity of this moment, and I know that whatever happens next, whether it's three more days of borrowed peace or three more hours before reality comes calling, I'll carry this feeling with me, this pure distilled essence of what it means to be alive and unprotected and completely dependent on the kindness of the universe and the strange magic that seems to operate just outside the margins of ordinary life.</p>
+ 
+  <footer>
+    © Vasu Dubey
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      
+      if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+      } else {
+        body.setAttribute('data-theme', 'dark');
+      }
+    }
+
+    // Initialize theme based on system preference
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.body.setAttribute('data-theme', 'dark');
+    }
+  </script>
+</body>
+
+</html>
